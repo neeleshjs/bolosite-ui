@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Enquiry Data · BoloSite Admin</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111f;--card:#0e1c2f;--line:#263956;--text:#f4f7fb;--muted:#a7b4c8;--brand:#6ee7d8;--chip:#172940}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}.shell{width:min(1500px,calc(100% - 28px));margin:auto;padding:24px 0 48px}.top{display:flex;align-items:center;gap:14px;margin-bottom:20px}.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:var(--brand);color:#06231f;font-weight:900}.top h1{margin:0;font-size:25px}.top p{margin:0;color:var(--muted)}.back{margin-left:auto;color:var(--brand);font-weight:750;text-decoration:none}.filters{display:grid;grid-template-columns:minmax(180px,1fr) 150px 150px 150px auto;gap:10px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:14px;margin-bottom:16px}input,select,button{border:1px solid var(--line);border-radius:10px;background:#081523;color:var(--text);padding:10px 11px;font:inherit}button{background:var(--brand);color:#06231f;font-weight:800;cursor:pointer}.layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px}.panel{border:1px solid var(--line);border-radius:18px;background:var(--card);overflow:hidden}.panel-head{padding:16px 18px;border-bottom:1px solid var(--line)}.panel-head h2{margin:0;font-size:17px}.panel-head p{margin:4px 0 0;color:var(--muted)}.clients{max-height:72vh;overflow:auto}.client{display:block;padding:14px 16px;border-bottom:1px solid var(--line);text-decoration:none}.client:hover,.client.active{background:#152942}.client strong,.client span{display:block}.client span{color:var(--muted);font-size:12px}.count{float:right;border-radius:999px;background:var(--chip);padding:2px 8px;color:var(--brand)}.summary{display:grid;grid-template-columns:repeat(4,minmax(100px,1fr));gap:10px;padding:16px}.metric{border:1px solid var(--line);border-radius:12px;padding:12px}.metric span{display:block;color:var(--muted);font-size:12px}.metric strong{font-size:21px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:760px}th,td{text-align:left;padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}.response-link{color:var(--brand);font-weight:750;text-decoration:none}.empty{padding:36px;text-align:center;color:var(--muted)}.detail{margin-top:16px}.detail-meta{display:flex;flex-wrap:wrap;gap:8px;padding:16px}.chip{background:var(--chip);border-radius:999px;padding:5px 10px;color:var(--muted)}.answers{padding:0 18px 18px}.answer{padding:15px 0;border-top:1px solid var(--line)}.answer h3{margin:0 0 6px;font-size:14px;color:var(--muted)}.answer p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px}.close-detail{float:right;color:var(--brand);text-decoration:none;font-weight:750}@media(max-width:900px){.filters{grid-template-columns:1fr 1fr}.layout{grid-template-columns:1fr}.clients{max-height:330px}.summary{grid-template-columns:1fr 1fr}}@media(max-width:560px){.filters{grid-template-columns:1fr}.summary{grid-template-columns:1fr 1fr}.back{font-size:0}.back:after{content:'Admin';font-size:14px}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <header class="top"><div class="mark">B</div><div><h1>Enquiry Data</h1><p>BoloSite-owned feedback · read only</p></div><a class="back" href="/admin">← Admin home</a></header>
+  <form class="filters" method="get" action="/admin/enquiry">
+    <input name="search" value="{{ filters.search }}" placeholder="Search client or site ID" aria-label="Search clients">
+    <select name="status" aria-label="Response status">
+      <option value="" {% if not filters.status %}selected{% endif %}>All statuses</option>
+      <option value="completed" {% if filters.status == 'completed' %}selected{% endif %}>Completed</option>
+      <option value="partial" {% if filters.status == 'partial' %}selected{% endif %}>Partial</option>
+      <option value="paused" {% if filters.status == 'paused' %}selected{% endif %}>Paused</option>
+    </select>
+    <input type="date" name="date_from" value="{{ filters.date_from }}" aria-label="From date">
+    <input type="date" name="date_to" value="{{ filters.date_to }}" aria-label="To date">
+    <button type="submit">Apply</button>
+  </form>
+  <div class="layout">
+    <aside class="panel">
+      <div class="panel-head"><h2>Clients</h2><p>{{ clients|length }} matching client(s)</p></div>
+      <div class="clients">
+        {% for client in clients %}
+          <a class="client {% if selected and selected.site_id == client.site_id %}active{% endif %}" href="/admin/enquiry?site_id={{ client.site_id|urlencode }}&search={{ filters.search|urlencode }}&status={{ filters.status|urlencode }}&date_from={{ filters.date_from|urlencode }}&date_to={{ filters.date_to|urlencode }}">
+            <span class="count">{{ client.response_count }}</span>
+            <strong>{{ client.client_name or client.site_id }}</strong>
+            <span>{{ client.site_id }} · {{ client.status }}</span>
+          </a>
+        {% else %}<div class="empty">No clients found.</div>{% endfor %}
+      </div>
+    </aside>
+    <section>
+      <div class="panel">
+        {% if selected %}
+          <div class="panel-head"><h2>{{ selected.client_name or selected.site_id }}</h2><p>{{ selected.site_id }} · {{ selected.enquiry.title if selected.enquiry else 'BoloSite enquiry' }}</p></div>
+          <div class="table-wrap"><table><thead><tr><th>Visitor</th><th>Status</th><th>Progress</th><th>Language</th><th>Channel</th><th>Updated</th></tr></thead><tbody>
+            {% for item in responses %}<tr>
+              <td><a class="response-link" href="/admin/enquiry/response/{{ item.response_id|urlencode }}?site_id={{ selected.site_id|urlencode }}&search={{ filters.search|urlencode }}&status={{ filters.status|urlencode }}&date_from={{ filters.date_from|urlencode }}&date_to={{ filters.date_to|urlencode }}">{{ item.respondent_name }}</a></td>
+              <td>{{ item.status }}</td><td>{{ item.progress }}</td><td>{{ item.language }}</td><td>{{ item.channel }}</td><td>{{ item.updated_at }}</td>
+            </tr>{% else %}<tr><td colspan="6" class="empty">No consented responses match these filters.</td></tr>{% endfor %}
+          </tbody></table></div>
+        {% else %}<div class="empty">Choose a client to view BoloSite enquiry data.</div>{% endif %}
+      </div>
+      {% if response_detail %}
+        <article class="panel detail">
+          <div class="panel-head"><a class="close-detail" href="/admin/enquiry?site_id={{ selected.site_id|urlencode }}&search={{ filters.search|urlencode }}&status={{ filters.status|urlencode }}&date_from={{ filters.date_from|urlencode }}&date_to={{ filters.date_to|urlencode }}">Close</a><h2>Response detail</h2><p>{{ response_detail.response_id }}</p></div>
+          <div class="detail-meta"><span class="chip">{{ response_detail.status }}</span><span class="chip">{{ response_detail.progress }}</span><span class="chip">{{ response_detail.language }}</span><span class="chip">{{ response_detail.channel }}</span><span class="chip">Updated {{ response_detail.updated_at }}</span></div>
+          <div class="answers">{% for row in question_rows %}<div class="answer"><h3>{{ loop.index }}. {{ row.question }}</h3><p>{{ row.answer }}</p></div>{% endfor %}</div>
+        </article>
+      {% endif %}
+    </section>
+  </div>
+</main>
+</body>
+</html>

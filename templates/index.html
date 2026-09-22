@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-homepage-animations="off">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6F8F3">
+  <meta name="description"
+    content="BoloSite helps websites answer visitor questions, guide next steps, and stay controlled by approved business content.">
+  <link rel="icon" type="image/jpeg" href="/favicon.ico">
+  <link rel="canonical" href="https://www.bolosite.com/">
+  <meta property="og:url" content="https://www.bolosite.com/">
+  <title>BoloSite - AI Operating Layer for Websites</title>
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('bolosite-theme') || 'light' } catch (e) { }</script>
+  <script src="/assets/js/clean-navigation.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/homepage.css">
+</head>
+
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-shell">
+      <a class="brand" href="/" data-bolosite-scroll-target="top" aria-label="BoloSite home">
+        <img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true">
+        <span>BoloSite</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <button class="nav-audience nav-audience-user nav-guide-trigger" type="button"
+          onclick="window.location.href='/visitor'"><span>For visitors</span><i>Guide</i></button>
+        <button class="nav-audience nav-audience-client nav-guide-trigger" type="button"
+          onclick="window.location.href='/owner'"><span>For owners</span><i>Guide</i></button>
+        <a href="/what-is-bolosite">What is BoloSite?</a>
+        <a href="/future">The Future</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-guide-pills" aria-label="Guide shortcuts">
+          <button class="nav-guide-pill user" type="button" onclick="window.location.href='/visitor'"><span>For
+              visitors</span></button>
+          <button class="nav-guide-pill client" type="button" onclick="window.location.href='/owner'"><span>For
+              owners</span></button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode"><span
+            class="theme-sun">☀</span><span class="theme-moon">☾</span></button>
+        <button class="auth-link" id="loginButton" type="button" data-auth-view="login">Log in</button>
+        <a class="nav-signup" id="clientPortalButton" href="/owner-portal">Owner Portal</a>
+        <div class="profile-wrap is-hidden" id="profileWrap">
+          <button class="profile-button" id="profileButton" type="button" aria-expanded="false"><span
+              class="profile-avatar" id="profileAvatar">A</span><span class="profile-short-name"
+              id="profileShortName">Account</span><i>⌄</i></button>
+          <div class="profile-menu" id="profileMenu">
+            <div class="profile-menu-head"><span class="profile-avatar large" id="profileMenuAvatar">A</span>
+              <div><strong id="profileMenuName">Account</strong><small id="profileMenuRole">Visitor</small></div>
+            </div>
+            <dl>
+              <div>
+                <dt>Email</dt>
+                <dd id="profileMenuEmail">—</dd>
+              </div>
+              <div>
+                <dt>Mobile</dt>
+                <dd id="profileMenuMobile">—</dd>
+              </div>
+              <div>
+                <dt>Profession</dt>
+                <dd id="profileMenuProfession">—</dd>
+              </div>
+            </dl>
+            <button class="profile-logout" id="logoutButton" type="button">Log out</button>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <button class="mobile-guide-trigger user" type="button" onclick="window.location.href='/visitor'"><span><small>Complete
+            guide</small>For website visitors</span><i>→</i></button>
+      <button class="mobile-guide-trigger client" type="button"
+        onclick="window.location.href='/owner'"><span><small>Complete guide</small>For website
+          owners</span><i>→</i></button>
+      <a href="/what-is-bolosite">What is BoloSite? <span>↗</span></a>
+      <a class="mobile-future-link" href="/future">The Future <span>→</span></a>
+      <a href="/pricing">Pricing <span>↗</span></a>
+      <a href="/contact">Contact <span>↗</span></a>
+      <button class="mobile-theme-toggle" id="mobileThemeToggle" type="button"><span class="theme-sun">☀</span><span
+          class="theme-moon">☾</span><b>Switch theme</b></button>
+      <div class="mobile-auth"><button type="button" data-auth-view="login">Log in</button></div>
+      <a class="mobile-portal" id="mobileClientPortalButton" href="/owner-portal">Owner portal <span>→</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span> AI operating layer for modern websites</div>
+          <h1><em>BoloSite</em> turns websites into intelligent experiences.</h1>
+          <p class="hero-lead">Your website is your first business representative. BoloSite helps visitors ask questions,
+            find approved answers, and reach the right next step faster.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#homepage-demo">See how BoloSite works <span>&rarr;</span></a>
+            <a class="button button-ghost" href="/owner-portal">Start owner trial <span>&rarr;</span></a>
+          </div>
+          <p class="hero-discover">New to BoloSite? <a href="/what-is-bolosite">See the operating layer &rarr;</a></p>
+          <div class="hero-paths">
+            <a href="/visitor"><span class="path-icon">👤</span>
+              <div><small>For website visitors</small><strong>Ask naturally and get unstuck →</strong></div>
+            </a>
+            <a href="/owner"><span class="path-icon">↗</span>
+              <div><small>For website owners</small><strong>Improve conversion and support →</strong></div>
+            </a>
+          </div>
+            <div class="hero-proof"><span><i>✓</i> Voice + text chat</span><span><i>✓</i> Works on existing sites</span><span><i>✓</i> Approved answers</span><span><i>✓</i> Controlled actions</span></div>
+        </div>
+
+        <div class="hero-product reveal delay-1" aria-label="BoloSite live assistant preview">
+          <div class="product-glow"></div>
+          <div class="browser-card hero-browser-card">
+            <div class="browser-topbar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url"><span class="lock" aria-hidden="true"></span> bolosite.ai</div>
+              <div class="browser-more">PREVIEW</div>
+            </div>
+            <div class="browser-page">
+              <div class="mini-nav" aria-hidden="true">
+                <span class="mini-logo"></span><span></span><span></span><span></span>
+              </div>
+              <div class="hero-browser-copy">
+                <span>Website intelligence layer</span>
+                <h3>Ask. Understand. Act.</h3>
+                <p>A visitor asks a question. BoloSite finds the approved answer and moves the page toward the right
+                  outcome.</p>
+              </div>
+              <div class="assistant-panel hero-assistant-panel">
+                <div class="assistant-head">
+                  <div class="assistant-avatar" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <div><strong>BoloSite</strong><small><i></i> Ready for natural questions</small></div>
+                  <span class="assistant-more" aria-hidden="true">...</span>
+                </div>
+                <div class="assistant-body">
+                  <div class="message message-user">Pricing dikhao</div>
+                  <div class="message message-bolo"><span class="tiny-logo">A</span>
+                    <p>I found pricing and opened the next step using only this site’s approved information.</p>
+                  </div>
+                  <div class="action-chip">Approved action <span>Pricing opened</span></div>
+                </div>
+                <div class="assistant-mode-row"><span class="active">Ask by voice</span><span>Type anytime</span></div>
+                <div class="assistant-text-composer"><span>Type when speaking is not possible</span><span
+                    class="composer-send" aria-hidden="true">-&gt;</span></div>
+                <div class="voice-bar">
+                  <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="voice-status">Ready when visitors ask</div>
+                  <span class="voice-trigger" aria-hidden="true"><span class="mic-dot"></span></span>
+                </div>
+              </div>
+              <div class="hero-owner-console">
+                <div><small>Business control</small><strong>Approved content only</strong></div>
+                <span>Owner controlled</span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card floating-card-one"><span></span>
+            <div><strong>Existing site connected</strong><small>One script, no rebuild</small></div>
+          </div>
+          <div class="floating-card floating-card-two"><span>$</span>
+            <div><strong>Usage guard active</strong><small>Transparent spend</small></div>
+          </div>
+          <div class="animated-wordmark"><span class="animated-logo-bars"><i></i><i></i><i></i></span><b>Operating layer
+              live</b><small>Ask → answer → act</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="homepage-trust-strip" aria-label="BoloSite trust points">
+      <div class="container homepage-trust-grid">
+        <span><strong>Approved answers</strong><small>Uses owner-controlled website knowledge.</small></span>
+        <span><strong>Existing websites</strong><small>Adds on top without a rebuild.</small></span>
+        <span><strong>Controlled actions</strong><small>Only allowed pages, forms and flows.</small></span>
+        <span><strong>Usage tracked</strong><small>Owners see activity and spend clearly.</small></span>
+      </div>
+    </section>
+
+    <section class="usecase-strip" aria-label="BoloSite works for">
+      <div class="strip-track">
+        <div class="strip-group">
+          <span>E-commerce</span><i>✦</i><span>SaaS</span><i>✦</i><span>Education</span><i>✦</i><span>Healthcare</span><i>✦</i><span>Local
+            business</span><i>✦</i><span>Marketplaces</span><i>✦</i><span>Any website</span><i>✦</i></div>
+        <div class="strip-group" aria-hidden="true">
+          <span>E-commerce</span><i>✦</i><span>SaaS</span><i>✦</i><span>Education</span><i>✦</i><span>Healthcare</span><i>✦</i><span>Local
+            business</span><i>✦</i><span>Marketplaces</span><i>✦</i><span>Any website</span><i>✦</i></div>
+      </div>
+    </section>
+
+    <section class="section quick-demo-section" id="homepage-demo">
+      <div class="container quick-demo-layout">
+        <div class="quick-demo-copy reveal">
+          <span class="section-kicker light">Try the product idea</span>
+          <h2>Ask like a visitor. See what the website should do next.</h2>
+          <p>This demo shows the intended BoloSite behavior: understand a natural question, answer from approved content, and guide the next safe action.</p>
+          <form class="quick-demo-form" id="quickDemoForm">
+            <label for="quickDemoInput">Visitor question</label>
+            <div><input id="quickDemoInput" type="text" value="Show me pricing" autocomplete="off" required><button class="button button-primary" type="submit">Ask</button></div>
+          </form>
+          <div class="quick-demo-samples" aria-label="Example questions">
+            <button type="button" data-demo-question="What is BoloSite?">What is BoloSite?</button>
+            <button type="button" data-demo-question="Show me pricing">Show me pricing</button>
+            <button type="button" data-demo-question="How do I add it to my website?">How do I add it?</button>
+          </div>
+          <small class="quick-demo-note">Preview only. The live site assistant and owner controls are connected in the main application.</small>
+        </div>
+        <div class="quick-demo-stage reveal delay-1">
+          <div class="quick-demo-browser">
+            <div class="quick-demo-top"><i></i><i></i><i></i><span>bolosite.ai/demo</span></div>
+            <div class="quick-demo-screen">
+              <div class="quick-demo-logo"><img src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true"><span>BoloSite assistant</span></div>
+              <div class="quick-demo-message"><small>Visitor asks</small><p id="quickDemoQuestion">&ldquo;Show me pricing&rdquo;</p></div>
+              <div class="quick-demo-answer" aria-live="polite"><span>AI</span><div><small>Approved answer</small><p id="quickDemoAnswer">BoloSite found pricing. It starts with a simple base charge, then usage is based on real visitor requests.</p></div></div>
+              <div class="quick-demo-action" id="quickDemoAction" aria-live="polite"><span>Next step</span><p><strong>Pricing</strong> opened from an approved page path.</p></div>
+              <a class="quick-demo-link" id="quickDemoLink" href="/pricing"><span>Open suggested page</span><span>&rarr;</span></a>
+              <div class="quick-demo-mode"><span class="active">Voice</span><span>Text</span><span>Action</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section decision-section" id="explore-bolosite">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <span class="section-kicker">Choose your path</span>
+          <h2>Start with the page that answers your question.</h2>
+          <p>BoloSite is easier to understand when each visitor, owner, pricing and future story has its own focused space.</p>
+        </div>
+        <div class="industry-grid">
+          <a class="industry-card reveal" href="/what-is-bolosite"><div class="industry-icon">01</div><span>Product</span><h3>What is BoloSite?</h3><p>Understand the AI operating layer, approved answers, voice and text chat, and controlled website actions.</p><div><small>Best for</small><strong>New visitors who need the core idea.</strong></div></a>
+          <a class="industry-card reveal delay-1" href="/visitor"><div class="industry-icon">02</div><span>Visitor guide</span><h3>For website visitors</h3><p>Learn how to ask naturally, use the orb, type privately, and get help without searching through every page.</p><div><small>Best for</small><strong>People using a BoloSite-powered website.</strong></div></a>
+          <a class="industry-card reveal delay-2" href="/owner"><div class="industry-icon">03</div><span>Owner guide</span><h3>For website owners</h3><p>See setup, content control, actions, forms, testing, billing, and launch guidance in one detailed owner guide.</p><div><small>Best for</small><strong>Businesses preparing to add BoloSite.</strong></div></a>
+          <a class="industry-card reveal" href="/pricing"><div class="industry-icon">Rs</div><span>Pricing</span><h3>Usage pricing</h3><p>Review the trial, base platform charge, request pricing, estimate calculator, and billing controls.</p><div><small>Best for</small><strong>Owners comparing cost before starting.</strong></div></a>
+          <a class="industry-card reveal delay-1" href="/future"><div class="industry-icon">04</div><span>Vision</span><h3>The future</h3><p>Read the bigger product direction: websites that respond, apps that guide, and voice-led digital interaction.</p><div><small>Best for</small><strong>Understanding where BoloSite is going.</strong></div></a>
+          <a class="industry-card reveal delay-2" href="/contact"><div class="industry-icon">05</div><span>Contact</span><h3>Talk to us</h3><p>Send a message, ask where BoloSite fits, share feedback, or request help with setup.</p><div><small>Best for</small><strong>Questions, demos and support.</strong></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <div><span>Ready when your website is</span>
+          <h2>Let visitors ask, understand, and act.</h2>
+          <p>Explore the focused pages or open the owner portal when you are ready to test BoloSite on a real site.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="/contact">Contact us <span>&rarr;</span></a><a href="/owner-portal">Already an owner? Open portal &rarr;</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand footer-spotlight">
+        <a class="brand" href="/" data-bolosite-scroll-target="top" aria-label="BoloSite home">
+          <img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true">
+          <span>BoloSite</span>
+        </a>
+        <p>BoloSite is building the AI interaction layer for digital experiences. The mission is to help people ask
+          naturally while businesses stay in control of answers, actions, privacy, and usage. Join the shift toward
+          websites and products that understand people instead of making people learn every interface.</p>
+        <div class="footer-status" aria-label="Service details">
+          <span><i></i> India based</span>
+          <span>Natural questions</span>
+          <span>Approved answers</span>
+        </div>
+      </div>
+      <div class="footer-connect">
+        <div class="footer-action-row footer-social-action-row" aria-label="BoloSite social and sharing actions">
+          <a class="footer-action instagram" href="https://www.instagram.com/bolosite" target="_blank" rel="noreferrer"
+            aria-label="BoloSite on Instagram">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="5" y="5" width="14" height="14" rx="4"></rect>
+                <circle cx="12" cy="12" r="3.2"></circle>
+                <circle cx="16.7" cy="7.3" r="1"></circle>
+              </svg></span>
+            <span>Instagram</span>
+          </a>
+          <a class="footer-action linkedin" href="https://www.linkedin.com/company/bolosite" target="_blank"
+            rel="noreferrer" aria-label="BoloSite on LinkedIn">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 10v8"></path>
+                <path d="M6.5 7v.01"></path>
+                <path d="M11 18v-8"></path>
+                <path d="M11 13.6c0-2.3 1.4-3.8 3.5-3.8 2 0 3 1.3 3 3.7V18"></path>
+              </svg></span>
+            <span>LinkedIn</span>
+          </a>
+          <a class="footer-action twitter"
+            href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.bolosite.com&text=Try%20BoloSite%2C%20the%20AI%20operating%20layer%20for%20websites"
+            target="_blank" rel="noreferrer" aria-label="Share BoloSite on Twitter">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 5l12 14"></path>
+                <path d="M18 5L6 19"></path>
+              </svg></span>
+            <span>Twitter</span>
+          </a>
+          <a class="footer-action gmail" href="mailto:hello@bolosite.ai" aria-label="Email BoloSite">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.5 6.5h15v11h-15z"></path>
+                <path d="m5 7 7 5.5L19 7"></path>
+              </svg></span>
+            <span>Gmail</span>
+          </a>
+          <a class="footer-action whatsapp" href="https://wa.me/918797448400" target="_blank" rel="noreferrer"
+            aria-label="Message BoloSite on WhatsApp">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.3 18.2 4.8 19l.8-2.4A7.2 7.2 0 1 1 7.3 18.2z"></path>
+                <path
+                  d="M9.2 8.7c.3 2 1.9 4.2 4.2 5.4l1.5-.9 1.2 1.6c-.7 1-1.7 1.3-2.9.9-2.9-1-5.2-3.3-6.1-6.1-.4-1.1 0-2.2.9-2.8z">
+                </path>
+              </svg></span>
+            <span>WhatsApp</span>
+          </a>
+          <button class="footer-action bolosite-share" type="button" id="footerShareButton"
+            data-share-url="https://www.bolosite.com" aria-label="Share BoloSite">
+            <span class="footer-action-icon logo"><img src="assets/images/bolosite%20white.jpeg" alt=""
+                aria-hidden="true" loading="lazy" decoding="async"></span>
+            <span>Share</span>
+          </button>
+        </div>
+
+        <div class="footer-links">
+          <div><strong>For visitors</strong><a href="#for-users">How to use BoloSite</a><a
+              href="#user-guide-video">Visitor video</a><a href="#faq">FAQs</a><button type="button"
+              data-open-modal="feedbackModal">Give feedback</button></div>
+          <div><strong>For owners</strong><a href="#for-clients">Business benefits</a><a href="#how">Integration</a><a
+              href="/pricing">Pricing</a><a href="/owner-portal">Owner portal</a></div>
+          <div><strong>Company</strong><a href="/what-is-bolosite">What is BoloSite?</a><a href="/future">The
+              Future</a><a href="#about">Founder</a><a href="#learn">Video hub</a><a
+              href="mailto:hello@bolosite.ai">Email us</a></div>
+          <div><strong>Legal</strong><button type="button" data-open-modal="privacyModal">Privacy policy</button><button
+              type="button" data-open-modal="termsModal">Terms of service</button><span>India | IST</span></div>
+        </div>
+        <button class="footer-feedback-cta" type="button" data-open-modal="feedbackModal"><span>♡</span> Share
+          feedback</button>
+      </div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; <span id="year"></span> BoloSite. Built with purpose in
+        India.</span>
+      <div><button type="button" data-open-modal="feedbackModal">Feedback</button><button type="button"
+          id="footerThemeToggle">Switch theme</button></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">3-day full trial</span>
+      <h2 id="demoTitle">Let’s see where BoloSite fits on your website.</h2>
+      <p>No credit card. Share your site and we’ll help plan the first useful AI layer for your visitors.</p>
+      <form id="demoForm">
+        <div class="field-row"><label>Full name<input name="name" type="text" autocomplete="name"
+              placeholder="Your name" required></label><label>Work email<input name="email" type="email"
+              autocomplete="email" placeholder="you@company.com" required></label></div>
+        <div class="field-row"><label>Mobile number<input name="phone" type="tel" autocomplete="tel"
+              placeholder="+91 98765 43210" required></label><label>Profession<input name="profession" type="text"
+              placeholder="Founder, developer, student..." required></label></div>
+        <div class="field-row"><label>Business type<select name="business">
+              <option value="">Select one</option>
+              <option>Small business</option>
+              <option>Startup / SaaS</option>
+              <option>E-commerce</option>
+              <option>Education</option>
+              <option>Enterprise</option>
+              <option>Other</option>
+            </select></label><label>Website URL<input name="website" type="url"
+              placeholder="https://yourwebsite.com"></label></div><label>What should BoloSite help with?<textarea
+            name="message" rows="4"
+            placeholder="Visitor questions, stuck pages, product guidance, support, approved actions..."></textarea></label><button
+          class="button button-primary full" type="submit">Request my free trial <span>→</span></button><small
+          class="form-note">Your request is saved securely. We will reply with the next setup step.</small>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal auth-modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button>
+      <div class="auth-brand"><img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt=""
+          aria-hidden="true">
+        <div><strong>BoloSite account</strong><small>Secure server-side account and session.</small></div>
+      </div>
+      <div class="auth-tabs"><button class="active" type="button" data-auth-tab="login">Log in</button><button
+          type="button" data-auth-tab="signup">Create account</button></div>
+      <form class="auth-form" id="loginForm" data-auth-panel="login"><span class="section-kicker">Welcome back</span>
+        <h2 id="authTitle">Continue to BoloSite.</h2><label>Email address<input name="email" type="email"
+            autocomplete="email" required placeholder="you@example.com"></label><label>Password<input name="password"
+            type="password" autocomplete="current-password" required minlength="6"
+            placeholder="Minimum 6 characters"></label><button class="button button-primary full" type="submit">Log in
+          <span>→</span></button>
+        <p class="auth-switch">New here? <button type="button" data-auth-view="signup">Create your account</button></p>
+      </form>
+      <form class="auth-form is-hidden" id="signupForm" data-auth-panel="signup"><span class="section-kicker">Create
+          your profile</span>
+        <h2>Tell us who you are.</h2>
+        <div class="role-selector"><label><input type="radio" name="role" value="user" checked><span><b>Website
+                visitor</b><small>I want a personal BoloSite profile</small></span></label><label><input type="radio"
+              name="role" value="client"><span><b>Website owner</b><small>I want to add the AI layer to my
+                site</small></span></label></div>
+        <div class="field-row"><label>Full name<input name="name" type="text" autocomplete="name" required
+              placeholder="Your full name"></label><label>Email address<input name="email" type="email"
+              autocomplete="email" required placeholder="you@example.com"></label></div>
+        <div class="field-row"><label>Mobile number<input name="mobile" type="tel" autocomplete="tel" required
+              placeholder="+91 98765 43210"></label><label>Profession<input name="profession" type="text" required
+              placeholder="Founder, student, developer..."></label></div><label>Website URL
+          <small>(optional)</small><input name="website" type="url"
+            placeholder="https://yourwebsite.com"></label><label>Password<input name="password" type="password"
+            autocomplete="new-password" required minlength="6" placeholder="Minimum 6 characters"></label><button
+          class="button button-primary full" type="submit">Create account <span>→</span></button>
+        <p class="auth-switch">Already registered? <button type="button" data-auth-view="login">Log in</button></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal feedback-modal" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle"
+    hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">Help us improve</span>
+      <h2 id="feedbackTitle">How is your BoloSite experience?</h2>
+      <p>One quick response helps us make the website clearer and more useful.</p>
+      <form id="feedbackForm">
+        <fieldset>
+          <legend>Overall experience</legend>
+          <div class="rating-options"><label><input type="radio" name="rating" value="1" required><span>😕<small>Needs
+                  work</small></span></label><label><input type="radio" name="rating"
+                value="3"><span>🙂<small>Good</small></span></label><label><input type="radio" name="rating"
+                value="5"><span>😍<small>Excellent</small></span></label></div>
+        </fieldset><label>What should we improve?<textarea name="feedback" rows="4"
+            placeholder="Tell us what felt confusing, useful or missing..."></textarea></label><label>Email
+          <small>(optional)</small><input name="email" type="email" placeholder="you@example.com"></label><button
+          class="button button-primary full" type="submit">Send feedback <span>→</span></button><button
+          class="feedback-later" type="button" data-close-modal>Maybe later</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal legal-modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle"
+    hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">Legal</span>
+      <h2 id="privacyTitle">Privacy policy</h2>
+      <div class="legal-copy">
+        <p>We collect only information needed to provide BoloSite, respond to enquiries and improve the product. We do
+          not sell personal information.</p>
+        <h3>Account security</h3>
+        <p>Account details are stored on the server. Passwords are stored as secure hashes and login state uses an
+          HTTP-only session cookie.</p>
+        <h3>Service information</h3>
+        <p>Contact details, website integration information and anonymised service analytics may be used to operate the
+          service. Contact <a href="mailto:hello@bolosite.ai">hello@bolosite.ai</a> for access or deletion requests.</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal legal-modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">Legal</span>
+      <h2 id="termsTitle">Terms of service</h2>
+      <div class="legal-copy">
+        <p>By using BoloSite, you agree to use the service lawfully and provide accurate, approved business content for
+          your AI operating layer.</p>
+        <h3>Trial and billing</h3>
+        <p>The published model includes a three-day trial followed by usage-based billing. Final prices and measurement
+          rules are confirmed in the owner portal before payment.</p>
+        <h3>AI responses</h3>
+        <p>Customers remain responsible for reviewing business content, instructions and BoloSite configuration.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span>✓</span>
+    <p><strong id="toastTitle">Done.</strong><small id="toastMessage">Your action was completed.</small></p>
+
+  <script src="assets/js/script.js"></script>
+  <script data-inline-quick-demo>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inlineQuickDemoForm = document.getElementById('quickDemoForm');
+      const quickDemoInput = document.getElementById('quickDemoInput');
+      const quickDemoQuestion = document.getElementById('quickDemoQuestion');
+      const quickDemoAnswer = document.getElementById('quickDemoAnswer');
+      const quickDemoAction = document.getElementById('quickDemoAction');
+      const quickDemoLink = document.getElementById('quickDemoLink');
+      const quickDemoResponses = [
+        {
+          matches: /price|pricing|cost|plan|trial|charge/i,
+          answer: 'BoloSite found pricing. It starts with a simple base charge, then usage is based on real visitor requests.',
+          destination: 'Pricing',
+          action: 'opened from an approved page path.',
+          href: '/pricing'
+        },
+        {
+          matches: /add|install|setup|website|embed|script/i,
+          answer: 'BoloSite can be added to an existing website with a small install step. Owners then control the approved content, safe actions and launch checks.',
+          destination: 'Owner guide',
+          action: 'recommended as the safe setup path.',
+          href: '/owner'
+        },
+        {
+          matches: /what|how.*work|about|bolosite/i,
+          answer: 'BoloSite is an AI operating layer for websites. It helps visitors ask naturally, receive approved answers and reach the right next step.',
+          destination: 'What is BoloSite?',
+          action: 'recommended for the product overview.',
+          href: '/what-is-bolosite'
+        }
+      ];
+
+      const updateQuickDemo = (question) => {
+        const cleanQuestion = question.trim();
+        if (!cleanQuestion) return;
+        const response = quickDemoResponses.find((item) => item.matches.test(cleanQuestion)) || {
+          answer: 'BoloSite would use the owner-approved website knowledge to answer this question, then offer only an allowed next step.',
+          destination: 'Contact',
+          action: 'recommended for a tailored answer.',
+          href: '/contact'
+        };
+        quickDemoQuestion.textContent = `“${cleanQuestion}”`;
+        quickDemoAnswer.textContent = response.answer;
+        quickDemoAction.innerHTML = `<span>Next step</span><p><strong>${response.destination}</strong> ${response.action}</p>`;
+        quickDemoLink.href = response.href;
+        quickDemoLink.querySelector('span').textContent = `Open ${response.destination}`;
+        quickDemoAction.classList.remove('is-fresh');
+        window.requestAnimationFrame(() => quickDemoAction.classList.add('is-fresh'));
+      };
+
+      inlineQuickDemoForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        updateQuickDemo(quickDemoInput.value);
+      });
+      document.querySelectorAll('[data-demo-question]').forEach((button) => {
+        button.addEventListener('click', () => {
+          quickDemoInput.value = button.dataset.demoQuestion || '';
+          updateQuickDemo(quickDemoInput.value);
+        });
+      });
+
+      const homepageAnimationsDisabled = document.documentElement.dataset.homepageAnimations === 'off';
+      const carouselAutoplayDisabled = homepageAnimationsDisabled || window.matchMedia('(max-width: 760px)').matches;
+      const useCaseFilters = document.querySelectorAll('.use-case-filter-chip');
+      const useCaseTrack = document.querySelector('.use-case-card-grid');
+      const useCaseCards = Array.from(document.querySelectorAll('.use-case-card'));
+
+      const getVisibleCards = () => useCaseCards.filter((card) => !card.classList.contains('is-hidden'));
+
+      const updateUseCaseFilter = (filter) => {
+        useCaseFilters.forEach((item) => item.classList.toggle('active', item.getAttribute('data-filter') === filter));
+        useCaseCards.forEach((card) => {
+          const matches = filter === 'all' || card.getAttribute('data-group') === filter;
+          card.classList.toggle('is-hidden', !matches);
+        });
+
+        const visibleCards = getVisibleCards();
+        if (visibleCards.length && useCaseTrack) {
+          useCaseTrack.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+      };
+
+      useCaseFilters.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          updateUseCaseFilter(chip.getAttribute('data-filter'));
+        });
+      });
+
+      if (useCaseTrack) {
+        let useCaseAutoplayTimer;
+        let useCaseHovering = false;
+        let useCaseInViewport = false;
+        let useCaseIndex = 0;
+
+        const advanceUseCaseTrack = () => {
+          const visibleCards = getVisibleCards();
+          if (!visibleCards.length) return;
+          if (useCaseHovering) return;
+
+          useCaseIndex = (useCaseIndex + 1) % visibleCards.length;
+          const targetCard = visibleCards[useCaseIndex];
+          if (targetCard) {
+            const left = targetCard.offsetLeft - 12;
+            useCaseTrack.scrollTo({ left, behavior: 'smooth' });
+          }
+        };
+
+        const startUseCaseAutoplay = () => {
+          clearInterval(useCaseAutoplayTimer);
+          if (carouselAutoplayDisabled || !useCaseInViewport || useCaseHovering || document.hidden) return;
+          useCaseAutoplayTimer = setInterval(advanceUseCaseTrack, 2000);
+        };
+
+        const stopUseCaseAutoplay = () => {
+          clearInterval(useCaseAutoplayTimer);
+          useCaseAutoplayTimer = undefined;
+        };
+
+        useCaseTrack.addEventListener('mouseenter', () => {
+          useCaseHovering = true;
+          clearInterval(useCaseAutoplayTimer);
+        });
+
+        useCaseTrack.addEventListener('mouseleave', () => {
+          useCaseHovering = false;
+          startUseCaseAutoplay();
+        });
+
+        useCaseTrack.addEventListener('touchstart', () => {
+          useCaseHovering = true;
+          clearInterval(useCaseAutoplayTimer);
+        }, { passive: true });
+
+        useCaseTrack.addEventListener('touchend', () => {
+          useCaseHovering = false;
+          startUseCaseAutoplay();
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window) {
+          const useCaseAutoplayObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              useCaseInViewport = entry.isIntersecting;
+              if (useCaseInViewport) startUseCaseAutoplay();
+              else stopUseCaseAutoplay();
+            });
+          }, { rootMargin: '160px 0px', threshold: 0.01 });
+          useCaseAutoplayObserver.observe(useCaseTrack);
+        } else {
+          useCaseInViewport = true;
+          startUseCaseAutoplay();
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stopUseCaseAutoplay();
+          else startUseCaseAutoplay();
+        });
+      }
+
+      const thinkingShell = document.querySelector('[data-thinking-carousel]');
+      if (thinkingShell) {
+        const grid = thinkingShell.querySelector('.thinking-case-grid');
+        const cards = Array.from(thinkingShell.querySelectorAll('.thinking-case-card'));
+        const chips = Array.from(thinkingShell.querySelectorAll('.thinking-carousel-chip'));
+        const total = cards.length;
+        let currentIndex = 0;
+        let autoplayTimer;
+        let isPaused = false;
+        let thinkingInViewport = false;
+        const intervalMs = 2000;
+
+        const setActiveChip = (index) => {
+          chips.forEach((chip, chipIndex) => chip.classList.toggle('active', chipIndex === index));
+        };
+
+        const updateCarousel = (index, fromUser = false) => {
+          currentIndex = (index + total) % total;
+          const targetCard = cards[currentIndex];
+          if (targetCard) {
+            grid.scrollTo({
+              left: targetCard.offsetLeft,
+              behavior: 'smooth'
+            });
+          }
+          setActiveChip(currentIndex);
+          if (fromUser) {
+            resetAutoplay();
+          }
+        };
+
+        const syncCarouselFromScroll = () => {
+          const nearestIndex = cards.reduce((closestIndex, card, index) => {
+            const distance = Math.abs(card.offsetLeft - grid.scrollLeft);
+            if (distance < closestIndex.distance) {
+              return { index, distance };
+            }
+            return closestIndex;
+          }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+
+          currentIndex = nearestIndex;
+          setActiveChip(currentIndex);
+        };
+
+        const resetAutoplay = () => {
+          clearInterval(autoplayTimer);
+          if (carouselAutoplayDisabled || isPaused || !thinkingInViewport || document.hidden) return;
+          autoplayTimer = setInterval(() => {
+            updateCarousel(currentIndex + 1);
+          }, intervalMs);
+        };
+
+        const pauseCarousel = () => {
+          isPaused = true;
+          clearInterval(autoplayTimer);
+        };
+
+        const resumeCarousel = () => {
+          isPaused = false;
+          resetAutoplay();
+        };
+
+        thinkingShell.addEventListener('mouseenter', pauseCarousel);
+        thinkingShell.addEventListener('mouseleave', resumeCarousel);
+        thinkingShell.addEventListener('touchstart', pauseCarousel, { passive: true });
+        thinkingShell.addEventListener('touchend', resumeCarousel, { passive: true });
+
+        let syncFrame;
+        grid.addEventListener('scroll', () => {
+          if (syncFrame) {
+            cancelAnimationFrame(syncFrame);
+          }
+          syncFrame = requestAnimationFrame(syncCarouselFromScroll);
+        }, { passive: true });
+
+        chips.forEach((chip, index) => {
+          chip.addEventListener('click', () => updateCarousel(index, true));
+        });
+
+        window.addEventListener('resize', () => {
+          if (thinkingInViewport) updateCarousel(currentIndex);
+        });
+
+        updateCarousel(0);
+        if ('IntersectionObserver' in window) {
+          const thinkingAutoplayObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              thinkingInViewport = entry.isIntersecting;
+              if (thinkingInViewport) resetAutoplay();
+              else clearInterval(autoplayTimer);
+            });
+          }, { rootMargin: '160px 0px', threshold: 0.01 });
+          thinkingAutoplayObserver.observe(thinkingShell);
+        } else {
+          thinkingInViewport = true;
+          resetAutoplay();
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) clearInterval(autoplayTimer);
+          else resetAutoplay();
+        });
+      }
+
+      const valueShell = document.querySelector('[data-value-carousel]');
+      if (!valueShell) return;
+
+      const valueGrid = valueShell.querySelector('.client-type-grid');
+      const valueCards = Array.from(valueShell.querySelectorAll('.client-type-card'));
+      const valueChips = Array.from(valueShell.querySelectorAll('.industry-carousel-chip'));
+      const valueTotal = valueCards.length;
+      let valueCurrentIndex = 0;
+      let valueAutoplayTimer;
+      let valueIsPaused = false;
+      let valueInViewport = false;
+      const valueIntervalMs = 2200;
+
+      const setValueActiveChip = (index) => {
+        valueChips.forEach((chip, chipIndex) => chip.classList.toggle('active', chipIndex === index));
+      };
+
+      const updateValueCarousel = (index, fromUser = false) => {
+        valueCurrentIndex = (index + valueTotal) % valueTotal;
+        const targetCard = valueCards[valueCurrentIndex];
+        if (targetCard) {
+          valueGrid.scrollTo({
+            left: Math.max(0, targetCard.offsetLeft - 8),
+            behavior: 'smooth'
+          });
+        }
+        setValueActiveChip(valueCurrentIndex);
+        if (fromUser) {
+          resetValueAutoplay();
+        }
+      };
+
+      const syncValueCarouselFromScroll = () => {
+        const nearestIndex = valueCards.reduce((closestIndex, card, index) => {
+          const distance = Math.abs(card.offsetLeft - valueGrid.scrollLeft);
+          if (distance < closestIndex.distance) {
+            return { index, distance };
+          }
+          return closestIndex;
+        }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+
+        valueCurrentIndex = nearestIndex;
+        setValueActiveChip(valueCurrentIndex);
+      };
+
+      const resetValueAutoplay = () => {
+        clearInterval(valueAutoplayTimer);
+        if (carouselAutoplayDisabled || valueIsPaused || !valueInViewport || document.hidden) return;
+        valueAutoplayTimer = setInterval(() => {
+          updateValueCarousel(valueCurrentIndex + 1);
+        }, valueIntervalMs);
+      };
+
+      const pauseValueCarousel = () => {
+        valueIsPaused = true;
+        clearInterval(valueAutoplayTimer);
+      };
+
+      const resumeValueCarousel = () => {
+        valueIsPaused = false;
+        resetValueAutoplay();
+      };
+
+      valueShell.addEventListener('mouseenter', pauseValueCarousel);
+      valueShell.addEventListener('mouseleave', resumeValueCarousel);
+      valueShell.addEventListener('touchstart', pauseValueCarousel, { passive: true });
+      valueShell.addEventListener('touchend', resumeValueCarousel, { passive: true });
+
+      let valueSyncFrame;
+      valueGrid.addEventListener('scroll', () => {
+        if (valueSyncFrame) {
+          cancelAnimationFrame(valueSyncFrame);
+        }
+        valueSyncFrame = requestAnimationFrame(syncValueCarouselFromScroll);
+      }, { passive: true });
+
+      valueChips.forEach((chip, index) => {
+        chip.addEventListener('click', () => updateValueCarousel(index, true));
+      });
+
+      window.addEventListener('resize', () => {
+        if (valueInViewport) updateValueCarousel(valueCurrentIndex);
+      });
+
+      updateValueCarousel(0);
+      if ('IntersectionObserver' in window) {
+        const valueAutoplayObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            valueInViewport = entry.isIntersecting;
+            if (valueInViewport) resetValueAutoplay();
+            else clearInterval(valueAutoplayTimer);
+          });
+        }, { rootMargin: '160px 0px', threshold: 0.01 });
+        valueAutoplayObserver.observe(valueShell);
+      } else {
+        valueInViewport = true;
+        resetValueAutoplay();
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) clearInterval(valueAutoplayTimer);
+        else resetValueAutoplay();
+      });
+    });
+  </script>
+  <script src="/bolosite-runtime.min.js" data-site-id="SITE_BOLOSITE" data-page="1" data-page-id="home" data-page-title="BoloSite - AI Operating Layer for Websites"></script>
+
+</body>
+
+</html>

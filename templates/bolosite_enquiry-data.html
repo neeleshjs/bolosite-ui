@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry Responses | BoloSite</title>
+  <link rel="icon" type="image/jpeg" href="/favicon.ico" />
+  <meta name="robots" content="noindex,nofollow" />
+  <script>
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem("bolosite-theme") || "light";
+    } catch (error) {
+      document.documentElement.dataset.theme = "light";
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --panel-soft: #f8fafc;
+      --line: #dce4ef;
+      --line-strong: #cbd5e1;
+      --text: #172033;
+      --muted: #64748b;
+      --brand: #2563eb;
+      --brand-dark: #1d4ed8;
+      --brand-soft: #eff6ff;
+      --teal: #0f766e;
+      --good: #047857;
+      --warn: #b45309;
+      --bad: #be123c;
+      --shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #09131e;
+      --panel: #101e2d;
+      --panel-soft: #152536;
+      --line: rgba(139, 158, 178, 0.22);
+      --line-strong: rgba(139, 158, 178, 0.38);
+      --text: #eef5fb;
+      --muted: #a8b7c8;
+      --brand: #60a5fa;
+      --brand-dark: #93c5fd;
+      --brand-soft: rgba(37, 99, 235, 0.18);
+      --teal: #5eead4;
+      --good: #6ee7b7;
+      --warn: #fbbf24;
+      --bad: #fda4af;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 90% 0, rgba(37, 99, 235, 0.08), transparent 30%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button, input, select { font: inherit; }
+    button { border: 0; cursor: pointer; }
+    a { color: inherit; }
+    .hidden { display: none !important; }
+
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 72px;
+      padding: 12px clamp(16px, 4vw, 52px);
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 11px;
+      background: #061426;
+    }
+
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+    .brand strong, .brand span { display: block; }
+    .brand strong { font-size: 15px; }
+    .brand span { margin-top: 2px; color: var(--muted); font-size: 11px; font-weight: 700; }
+
+    .header-actions, .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 13px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 850;
+      transition: 150ms ease;
+    }
+
+    .btn:hover:not(:disabled) { transform: translateY(-1px); }
+    .btn:disabled { cursor: wait; opacity: 0.58; }
+    .btn.primary { color: #fff; background: var(--brand); }
+    .btn.primary:hover:not(:disabled) { background: var(--brand-dark); }
+    .btn.ghost { color: var(--text); border-color: var(--line); background: var(--panel); }
+    .btn.small { min-height: 34px; padding: 7px 10px; font-size: 11px; }
+
+    .shell {
+      width: min(100%, 1640px);
+      margin: 0 auto;
+      padding: clamp(18px, 3vw, 36px) clamp(14px, 3vw, 42px) 60px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+      color: var(--brand);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #14b8a6;
+      box-shadow: 0 0 0 5px rgba(20, 184, 166, 0.12);
+    }
+
+    .hero h1 { margin: 0; font-size: clamp(26px, 4vw, 40px); line-height: 1.08; }
+    .hero p { max-width: 760px; margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    .message {
+      display: none;
+      margin-bottom: 14px;
+      padding: 11px 13px;
+      border: 1px solid rgba(4, 120, 87, 0.24);
+      border-radius: 10px;
+      color: var(--good);
+      background: rgba(16, 185, 129, 0.08);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .message.show { display: block; }
+    .message.error { color: var(--bad); border-color: rgba(190, 18, 60, 0.24); background: rgba(244, 63, 94, 0.08); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .filter-card {
+      display: grid;
+      grid-template-columns: minmax(240px, 1.35fr) repeat(5, minmax(130px, 0.55fr)) auto;
+      gap: 10px;
+      align-items: end;
+      padding: 14px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    input, select {
+      width: 100%;
+      min-height: 40px;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      outline: none;
+      color: var(--text);
+      background: var(--panel-soft);
+    }
+
+    input:focus, select:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .stat {
+      min-height: 105px;
+      display: grid;
+      align-content: center;
+      gap: 7px;
+      padding: 16px;
+    }
+
+    .stat span { color: var(--muted); font-size: 11px; font-weight: 850; text-transform: uppercase; }
+    .stat strong { font-size: 27px; line-height: 1; }
+    .stat small { color: var(--muted); font-size: 10px; }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.75fr) minmax(290px, 0.65fr);
+      gap: 15px;
+      align-items: start;
+    }
+
+    .responses-card { min-width: 0; overflow: hidden; }
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-head h2, .card-head h3, .card-head p { margin: 0; }
+    .card-head h2 { font-size: 17px; }
+    .card-head h3 { font-size: 15px; }
+    .card-head p { margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+    .table-wrap {
+      width: 100%;
+      min-height: 330px;
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    table { width: 100%; min-width: 760px; border-collapse: separate; border-spacing: 0; font-size: 12px; }
+    th, td { padding: 11px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      max-width: 230px;
+      color: var(--muted);
+      background: var(--panel-soft);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    th:first-child, td:first-child { position: sticky; left: 0; z-index: 2; min-width: 155px; background: var(--panel); }
+    th:first-child { z-index: 5; background: var(--panel-soft); }
+    tbody tr { cursor: pointer; }
+    tbody tr:hover td { background: var(--brand-soft); }
+    tbody tr:hover td:first-child { background: var(--brand-soft); }
+
+    .response-name { display: block; color: var(--text); font-weight: 850; }
+    .response-id { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .answer-cell { min-width: 150px; max-width: 260px; color: var(--text); line-height: 1.45; }
+    .answer-cell span { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      padding: 4px 7px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--panel-soft);
+      font-size: 9px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .badge.good { color: var(--good); background: rgba(16, 185, 129, 0.10); }
+    .badge.warn { color: var(--warn); background: rgba(245, 158, 11, 0.11); }
+    .badge.bad { color: var(--bad); background: rgba(244, 63, 94, 0.10); }
+
+    .table-state {
+      min-height: 325px;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .table-state strong, .table-state span { display: block; }
+    .table-state span { max-width: 470px; margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .analysis-stack { display: grid; gap: 15px; }
+    .analysis-body { display: grid; gap: 15px; padding: 15px; }
+
+    .insight {
+      padding: 12px;
+      border: 1px solid rgba(37, 99, 235, 0.20);
+      border-radius: 11px;
+      color: var(--text);
+      background: var(--brand-soft);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .analysis-group { display: grid; gap: 9px; }
+    .analysis-group h4 { margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .question-stat { display: grid; gap: 5px; }
+    .question-stat-head { display: flex; justify-content: space-between; gap: 9px; color: var(--muted); font-size: 10px; font-weight: 800; }
+    .question-stat-head span:first-child { overflow: hidden; color: var(--text); text-overflow: ellipsis; white-space: nowrap; }
+    .bar { height: 7px; overflow: hidden; border-radius: 999px; background: var(--panel-soft); }
+    .bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--brand), #14b8a6); }
+
+    .breakdown { display: flex; flex-wrap: wrap; gap: 6px; }
+    .breakdown-item { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-soft); font-size: 10px; }
+    .breakdown-item strong { margin-left: 4px; }
+
+    .privacy-note { padding: 13px 15px; color: var(--muted); font-size: 10px; line-height: 1.55; }
+    .privacy-note strong { color: var(--text); }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(2, 6, 23, 0.44);
+      backdrop-filter: blur(3px);
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 90;
+      width: min(580px, 100%);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      border-left: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: -24px 0 60px rgba(15, 23, 42, 0.20);
+    }
+
+    .drawer-head { display: flex; justify-content: space-between; gap: 12px; padding: 18px; border-bottom: 1px solid var(--line); }
+    .drawer-head h2, .drawer-head p { margin: 0; }
+    .drawer-head h2 { font-size: 18px; }
+    .drawer-head p { margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .icon-btn { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 9px; color: var(--text); background: var(--panel-soft); font-size: 21px; }
+    .drawer-body { overflow: auto; padding: 18px; }
+    .response-meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 16px; }
+    .response-meta { padding: 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel-soft); }
+    .response-meta span, .response-meta strong { display: block; }
+    .response-meta span { color: var(--muted); font-size: 9px; font-weight: 900; text-transform: uppercase; }
+    .response-meta strong { margin-top: 4px; font-size: 12px; overflow-wrap: anywhere; }
+    .qa-list { display: grid; gap: 10px; }
+    .qa-item { padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-soft); }
+    .qa-item h3 { margin: 0 0 6px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .qa-item p { margin: 0; font-size: 13px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+    @media (max-width: 1240px) {
+      .filter-card { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .filter-card label:first-child { grid-column: span 2; }
+      .workspace { grid-template-columns: 1fr; }
+      .analysis-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .filter-card { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .filter-card label:first-child { grid-column: 1 / -1; }
+      .analysis-stack { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .app-header { align-items: flex-start; padding: 10px 13px; }
+      .brand span { display: none; }
+      .header-actions .btn:first-child { display: none; }
+      .shell { padding-inline: 10px; }
+      .filter-card { grid-template-columns: 1fr; }
+      .filter-card label:first-child { grid-column: auto; }
+      .stats { gap: 8px; }
+      .stat { min-height: 92px; padding: 13px; }
+      .stat strong { font-size: 23px; }
+      .card-head { flex-direction: column; }
+      .card-head .actions, .card-head .btn { width: 100%; }
+      .response-meta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="/owner-portal#enquiries">
+      <span class="brand-mark"><img src="/assets/images/bolosite%20white.jpeg" alt="BoloSite" /></span>
+      <span><strong>BoloSite</strong><span>Enquiry intelligence</span></span>
+    </a>
+    <div class="header-actions">
+      <button id="backBuilderBtn" class="btn ghost small" type="button">Close &amp; return to builder</button>
+      <button id="themeToggle" class="btn ghost small" type="button" aria-label="Switch theme">Theme</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Responses &amp; Analysis</span>
+        <h1>Understand what your visitors need.</h1>
+        <p>Review every consented answer, find where people pause, and export clean enquiry data without mixing it with ordinary chat history.</p>
+      </div>
+      <div class="actions">
+        <button id="refreshBtn" class="btn ghost" type="button">Refresh</button>
+        <button id="csvBtn" class="btn ghost" type="button">Download CSV</button>
+        <button id="excelBtn" class="btn ghost" type="button">Download Excel</button>
+        <button id="pdfBtn" class="btn primary" type="button">Download PDF</button>
+      </div>
+    </section>
+
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+
+    <section class="card filter-card" aria-label="Response filters">
+      <label>Enquiry
+        <select id="enquirySelect"><option value="">Loading enquiries...</option></select>
+      </label>
+      <label>Status
+        <select id="statusFilter">
+          <option value="">All statuses</option>
+          <option value="completed">Completed</option>
+          <option value="partial">Partial</option>
+          <option value="paused">Paused</option>
+        </select>
+      </label>
+      <label>Audience
+        <select id="audienceFilter"><option value="">All audiences</option></select>
+      </label>
+      <label>Language
+        <select id="languageFilter">
+          <option value="">All languages</option>
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="hinglish">Hinglish</option>
+        </select>
+      </label>
+      <label>Channel
+        <select id="channelFilter">
+          <option value="">All channels</option>
+          <option value="text">Text</option>
+          <option value="legacy_voice">Legacy voice</option>
+          <option value="native_sts">Native STS</option>
+        </select>
+      </label>
+      <label>From
+        <input id="fromFilter" type="date" />
+      </label>
+      <label>To
+        <input id="toFilter" type="date" />
+      </label>
+      <button id="clearFiltersBtn" class="btn ghost" type="button">Clear</button>
+    </section>
+
+    <section class="stats" aria-label="Enquiry response summary">
+      <article class="card stat"><span>Started</span><strong id="startedMetric">0</strong><small>Consented responses</small></article>
+      <article class="card stat"><span>Completed</span><strong id="completedMetric">0</strong><small>Confirmed by visitors</small></article>
+      <article class="card stat"><span>Partial</span><strong id="partialMetric">0</strong><small>Can resume later</small></article>
+      <article class="card stat"><span>Completion rate</span><strong id="completionMetric">0%</strong><small>Completed vs started</small></article>
+      <article class="card stat"><span>Average time</span><strong id="timeMetric">-</strong><small>For completed responses</small></article>
+    </section>
+
+    <section class="workspace">
+      <article class="card responses-card">
+        <div class="card-head">
+          <div>
+            <h2 id="responsesTitle">Visitor responses</h2>
+            <p id="responsesSubtitle">Select an enquiry to view its answers.</p>
+          </div>
+          <span id="responseCountBadge" class="badge">0 responses</span>
+        </div>
+        <div id="tableWrap" class="table-wrap">
+          <div class="table-state"><div><strong>Loading responses...</strong><span>Please wait while the latest enquiry data is prepared.</span></div></div>
+        </div>
+        <div id="pagination" class="pagination hidden">
+          <span id="paginationText">0 responses</span>
+          <div class="actions">
+            <button id="prevPageBtn" class="btn ghost small" type="button">Previous</button>
+            <button id="nextPageBtn" class="btn ghost small" type="button">Next</button>
+          </div>
+        </div>
+      </article>
+
+      <aside class="analysis-stack">
+        <section class="card">
+          <div class="card-head">
+            <div><h3>What the data says</h3><p>Aggregate insights, not personal scoring.</p></div>
+          </div>
+          <div id="analysisBody" class="analysis-body">
+            <div class="insight">Analysis will appear after this enquiry receives responses.</div>
+          </div>
+          <div class="privacy-note"><strong>Privacy:</strong> Analysis uses aggregate response data. Original answers remain visible only to the authenticated client.</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h3>Response mix</h3><p>Audience, language, and conversation channel.</p></div></div>
+          <div id="mixBody" class="analysis-body">
+            <div class="analysis-group"><span class="insight">No response mix yet.</span></div>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div id="drawerBackdrop" class="drawer-backdrop hidden"></div>
+  <aside id="responseDrawer" class="drawer hidden" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <div class="drawer-head">
+      <div><h2 id="drawerTitle">Response details</h2><p id="drawerSubtitle">Full answer record</p></div>
+      <button id="closeDrawerBtn" class="icon-btn" type="button" aria-label="Close response details">&times;</button>
+    </div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const state = {
+      site: null,
+      enquiries: [],
+      selectedEnquiry: "",
+      columns: [],
+      responses: [],
+      summary: {},
+      analysis: {},
+      pagination: { page: 1, pages: 1, total: 0, limit: 50 },
+      csrfToken: "",
+      loadGeneration: 0
+    };
+
+    const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+    }[char]));
+
+    function rootData(data) {
+      return data?.data && typeof data.data === "object" ? data.data : (data || {});
+    }
+
+    function enquiryId(item) {
+      return String(item?.id || item?.enquiry_id || item?.key || "");
+    }
+
+    function showMessage(text, ok = true) {
+      $("message").textContent = text || "";
+      $("message").classList.toggle("show", Boolean(text));
+      $("message").classList.toggle("error", !ok);
+    }
+
+    async function ensureCsrfToken(force = false) {
+      if (state.csrfToken && !force) return state.csrfToken;
+      const response = await fetch("/api/client/csrf", { credentials: "include", cache: "no-store" });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.csrf_token) throw new Error("Unable to establish a secure portal session");
+      state.csrfToken = String(data.csrf_token);
+      return state.csrfToken;
+    }
+
+    async function portalApi(url, options = {}) {
+      const retryingCsrf = options._csrfRetried === true;
+      const requestOptions = { ...options };
+      delete requestOptions._csrfRetried;
+      const method = String(requestOptions.method || "GET").toUpperCase();
+      const headers = requestOptions.body instanceof FormData ? {} : { "Content-Type": "application/json" };
+      if (state.site?.site_id && state.site?.token) {
+        headers["X-Site-Id"] = state.site.site_id;
+        headers["X-Site-Token"] = state.site.token;
+      }
+      if (url.startsWith("/api/client") && !["GET", "HEAD", "OPTIONS"].includes(method)) {
+        headers["X-CSRF-Token"] = await ensureCsrfToken();
+      }
+      const response = await fetch(url, {
+        credentials: "include",
+        cache: "no-store",
+        ...requestOptions,
+        headers: { ...headers, ...(requestOptions.headers || {}) }
+      });
+      const rotatedCsrf = response.headers.get("X-CSRF-Token");
+      if (rotatedCsrf) state.csrfToken = rotatedCsrf;
+      const data = await response.json().catch(() => ({ ok: false, error: "Invalid server response" }));
+      if (response.status === 403 && data.code === "csrf_failed" && !retryingCsrf) {
+        await ensureCsrfToken(true);
+        return portalApi(url, { ...requestOptions, _csrfRetried: true });
+      }
+      if (!response.ok || data.ok === false) throw new Error(data.error || "Request failed");
+      return data;
+    }
+
+    function formatDate(value) {
+      if (!value) return "-";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return String(value);
+      return date.toLocaleString("en-IN", {
+        day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit"
+      });
+    }
+
+    function formatDuration(value) {
+      const seconds = Number(value || 0);
+      if (!seconds) return "-";
+      if (seconds < 60) return `${Math.round(seconds)}s`;
+      const minutes = Math.floor(seconds / 60);
+      const remaining = Math.round(seconds % 60);
+      return remaining ? `${minutes}m ${remaining}s` : `${minutes}m`;
+    }
+
+    function percent(value) {
+      const number = Number(value || 0);
+      const normalized = number > 0 && number <= 1 ? number * 100 : number;
+      return Math.max(0, Math.min(100, Math.round(normalized)));
+    }
+
+    function displayValue(value) {
+      if (value === null || value === undefined || value === "") return "-";
+      if (Array.isArray(value)) return value.map(displayValue).join(", ");
+      if (typeof value === "object") {
+        if ("display_value" in value) return displayValue(value.display_value);
+        if ("raw_value" in value) return displayValue(value.raw_value);
+        if ("value" in value) return displayValue(value.value);
+        return Object.values(value).map(displayValue).filter((item) => item !== "-").join(", ") || "-";
+      }
+      if (typeof value === "boolean") return value ? "Yes" : "No";
+      return String(value);
+    }
+
+    function statusBadge(status) {
+      const value = String(status || "partial").toLowerCase();
+      const css = value === "completed" ? "good" : (["partial", "paused", "started", "in_progress", "review"].includes(value) ? "warn" : "bad");
+      const label = value.replace(/_/g, " ").replace(/^./, (letter) => letter.toUpperCase());
+      return `<span class="badge ${css}">${escapeHtml(label)}</span>`;
+    }
+
+    function responseId(item, index = 0) {
+      return String(item?.id || item?.response_id || item?.progress_id || `response-${index + 1}`);
+    }
+
+    function responseAnswers(item) {
+      return item?.answers && typeof item.answers === "object" ? item.answers : (item?.response || item?.values || {});
+    }
+
+    function normalizeColumns(columns, responses) {
+      if (Array.isArray(columns) && columns.length) {
+        return columns.map((column, index) => typeof column === "string"
+          ? { key: column, label: column }
+          : {
+              key: String(column.key || column.question_key || column.id || `question_${index + 1}`),
+              label: column.label || column.text || column.question || column.key || `Question ${index + 1}`,
+              historicalLabels: Array.isArray(column.historical_labels) ? column.historical_labels : []
+            });
+      }
+      const keys = new Set();
+      responses.forEach((response) => Object.keys(responseAnswers(response)).forEach((key) => keys.add(key)));
+      return [...keys].map((key) => ({ key, label: key.replace(/_/g, " ") }));
+    }
+
+    function queryParams(includePage = true) {
+      const params = new URLSearchParams();
+      const filters = {
+        status: $("statusFilter").value,
+        audience: $("audienceFilter").value,
+        language: $("languageFilter").value,
+        channel: $("channelFilter").value,
+        from: $("fromFilter").value,
+        to: $("toFilter").value
+      };
+      Object.entries(filters).forEach(([key, value]) => { if (value) params.set(key, value); });
+      if (includePage) {
+        params.set("page", String(state.pagination.page || 1));
+        params.set("limit", String(state.pagination.limit || 50));
+      }
+      return params;
+    }
+
+    function renderMetrics() {
+      const summary = state.summary || {};
+      const started = Number(summary.started ?? summary.total ?? state.pagination.total ?? state.responses.length);
+      const completed = Number(summary.completed ?? state.responses.filter((item) => String(item.status).toLowerCase() === "completed").length);
+      const partial = Number(summary.partial ?? summary.paused ?? state.responses.filter((item) => ["partial", "paused", "started"].includes(String(item.status).toLowerCase())).length);
+      const completionRate = summary.completion_rate ?? (started ? (completed / started) * 100 : 0);
+      $("startedMetric").textContent = started.toLocaleString("en-IN");
+      $("completedMetric").textContent = completed.toLocaleString("en-IN");
+      $("partialMetric").textContent = partial.toLocaleString("en-IN");
+      $("completionMetric").textContent = `${percent(completionRate)}%`;
+      $("timeMetric").textContent = formatDuration(summary.average_time_seconds ?? summary.avg_time_seconds ?? summary.average_completion_seconds);
+    }
+
+    function renderResponses() {
+      const selected = state.enquiries.find((item) => enquiryId(item) === state.selectedEnquiry);
+      $("responsesTitle").textContent = selected?.title || "Visitor responses";
+      $("responsesSubtitle").textContent = state.columns.length
+        ? "Select any row to review the full answer and consented response details."
+        : "No question columns are available yet.";
+      $("responseCountBadge").textContent = `${Number(state.pagination.total || state.responses.length).toLocaleString("en-IN")} responses`;
+      renderMetrics();
+
+      if (!state.responses.length) {
+        $("tableWrap").innerHTML = `<div class="table-state"><div><strong>No responses match these filters</strong><span>Completed and partial answers will appear here after visitors consent and begin this enquiry.</span></div></div>`;
+        $("pagination").classList.add("hidden");
+        return;
+      }
+
+      const questionHeaders = state.columns.map((column) => {
+        const history = column.historicalLabels?.length ? ` title="Previous wording: ${escapeHtml(column.historicalLabels.join(" | "))}"` : "";
+        return `<th${history}>${escapeHtml(column.label)}${column.historicalLabels?.length ? " *" : ""}</th>`;
+      }).join("");
+      const rows = state.responses.map((item, index) => {
+        const id = responseId(item, index);
+        const answers = responseAnswers(item);
+        const name = item.respondent_name || item.name || item.visitor_name || `Response #${id.slice(-8)}`;
+        const cells = state.columns.map((column) => `<td class="answer-cell"><span>${escapeHtml(displayValue(answers[column.key]))}</span></td>`).join("");
+        return `
+          <tr tabindex="0" data-response-index="${index}" aria-label="Open ${escapeHtml(name)} response">
+            <td><span class="response-name">${escapeHtml(name)}</span><span class="response-id">${escapeHtml(id)}</span></td>
+            <td>${statusBadge(item.status)}</td>
+            <td>${escapeHtml(formatDate(item.updated_at || item.completed_at || item.created_at || item.started_at))}</td>
+            ${cells}
+          </tr>`;
+      }).join("");
+      $("tableWrap").innerHTML = `
+        <table>
+          <thead><tr><th>Visitor / Response</th><th>Status</th><th>Date &amp; time</th>${questionHeaders}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>`;
+
+      const page = Number(state.pagination.page || 1);
+      const pages = Math.max(1, Number(state.pagination.pages || 1));
+      $("pagination").classList.toggle("hidden", pages <= 1);
+      $("paginationText").textContent = `Page ${page} of ${pages} · ${Number(state.pagination.total || state.responses.length).toLocaleString("en-IN")} responses`;
+      $("prevPageBtn").disabled = page <= 1;
+      $("nextPageBtn").disabled = page >= pages;
+    }
+
+    function entriesForBreakdown(value) {
+      if (Array.isArray(value)) return value.map((item) => [item.label || item.name || item.key || "Other", item.count ?? item.value ?? 0]);
+      if (value && typeof value === "object") return Object.entries(value);
+      return [];
+    }
+
+    function breakdownHtml(title, value) {
+      const entries = entriesForBreakdown(value);
+      if (!entries.length) return "";
+      return `<div class="analysis-group"><h4>${escapeHtml(title)}</h4><div class="breakdown">${entries.map(([label, count]) => `<span class="breakdown-item">${escapeHtml(label)} <strong>${escapeHtml(count)}</strong></span>`).join("")}</div></div>`;
+    }
+
+    function renderAnalysis() {
+      const analysis = state.analysis || {};
+      const summary = typeof analysis.summary === "string"
+        ? analysis.summary
+        : (analysis.summary?.text || analysis.insight || "Analysis will appear after this enquiry receives enough responses.");
+      const questionStats = Array.isArray(analysis.question_stats) ? analysis.question_stats : [];
+      const statsHtml = questionStats.length ? `
+        <div class="analysis-group">
+          <h4>Question completion</h4>
+          ${questionStats.map((item, index) => {
+            const rate = percent(item.response_rate ?? item.answer_rate ?? item.completion_rate ?? 0);
+            const breakdown = entriesForBreakdown(item.breakdown).slice(0, 8);
+            const detail = breakdown.length
+              ? `<div class="breakdown">${breakdown.map(([label, count]) => `<span class="breakdown-item">${escapeHtml(label)} <strong>${escapeHtml(count)}</strong></span>`).join("")}</div>`
+              : (item.average !== undefined ? `<div class="breakdown"><span class="breakdown-item">Average <strong>${escapeHtml(item.average)}</strong></span><span class="breakdown-item">Range <strong>${escapeHtml(item.minimum)}-${escapeHtml(item.maximum)}</strong></span></div>` : "");
+            const typeNote = item.type_changed
+              ? `<p class="small">Answer format changed between published versions; incompatible values are kept separate from numeric or choice calculations.</p>`
+              : "";
+            return `<div class="question-stat"><div class="question-stat-head"><span>${escapeHtml(item.question || item.label || item.text || `Question ${index + 1}`)}</span><span>${rate}% answered</span></div><div class="bar"><span style="width:${rate}%"></span></div>${detail}${typeNote}</div>`;
+          }).join("")}
+        </div>` : "";
+      $("analysisBody").innerHTML = `<div class="insight">${escapeHtml(summary)}</div>${statsHtml}`;
+
+      const mix = [
+        breakdownHtml("Audience", analysis.audience),
+        breakdownHtml("Language", analysis.language),
+        breakdownHtml("Channel", analysis.channel)
+      ].filter(Boolean).join("");
+      $("mixBody").innerHTML = mix || `<div class="insight">Response mix will appear after visitors start answering.</div>`;
+    }
+
+    function populateAudienceFilter(analysis) {
+      const current = $("audienceFilter").value;
+      const labels = new Set(entriesForBreakdown(analysis?.audience).map(([label]) => String(label)));
+      state.responses.forEach((item) => {
+        const audience = item.audience || item.respondent_type;
+        if (audience) labels.add(String(audience));
+      });
+      $("audienceFilter").innerHTML = `<option value="">All audiences</option>${[...labels].sort().map((label) => `<option value="${escapeHtml(label)}">${escapeHtml(label)}</option>`).join("")}`;
+      if ([...labels].includes(current)) $("audienceFilter").value = current;
+    }
+
+    async function loadSelectedEnquiry() {
+      const generation = ++state.loadGeneration;
+      const selectedEnquiry = state.selectedEnquiry;
+      if (!selectedEnquiry) {
+        state.responses = [];
+        state.columns = [];
+        state.summary = {};
+        state.analysis = {};
+        renderResponses();
+        renderAnalysis();
+        return true;
+      }
+      $("tableWrap").innerHTML = `<div class="table-state"><div><strong>Loading responses...</strong><span>Applying your selected filters.</span></div></div>`;
+      const id = encodeURIComponent(selectedEnquiry);
+      const params = queryParams(true);
+      const [responsesResult, analysisResult] = await Promise.allSettled([
+        portalApi(`/api/client/dashboard/enquiries/${id}/responses?${params}`),
+        portalApi(`/api/client/dashboard/enquiries/${id}/analysis?${queryParams(false)}`)
+      ]);
+
+      if (generation !== state.loadGeneration || selectedEnquiry !== state.selectedEnquiry) return false;
+      if (responsesResult.status === "rejected") throw responsesResult.reason;
+      const responseData = rootData(responsesResult.value);
+      state.responses = Array.isArray(responseData.responses) ? responseData.responses : [];
+      state.columns = normalizeColumns(responseData.columns, state.responses);
+      state.summary = responseData.summary || {};
+      const pagination = responseData.pagination || {};
+      state.pagination = {
+        ...state.pagination,
+        page: Number(pagination.page || state.pagination.page || 1),
+        pages: Number(pagination.pages || pagination.total_pages || 1),
+        total: Number(pagination.total ?? pagination.total_items ?? state.summary.total ?? state.responses.length),
+        limit: Number(pagination.limit || state.pagination.limit || 50)
+      };
+
+      if (analysisResult.status === "fulfilled") {
+        const analysisData = rootData(analysisResult.value);
+        state.analysis = analysisData.analysis || analysisData;
+      } else {
+        state.analysis = {};
+      }
+      populateAudienceFilter(state.analysis);
+      renderResponses();
+      renderAnalysis();
+      return true;
+    }
+
+    async function loadEnquiries() {
+      const data = rootData(await portalApi("/api/client/dashboard/enquiries?include_stats=1&include_archived=1"));
+      state.enquiries = Array.isArray(data.enquiries) ? data.enquiries : [];
+      const requested = new URLSearchParams(location.search).get("enquiry") || "";
+      const selected = state.enquiries.find((item) => enquiryId(item) === requested)
+        || state.enquiries.find((item) => ["published", "active"].includes(String(item.status || "").toLowerCase()))
+        || state.enquiries[0];
+      state.selectedEnquiry = selected ? enquiryId(selected) : "";
+      $("enquirySelect").innerHTML = state.enquiries.length
+        ? state.enquiries.map((item) => `<option value="${escapeHtml(enquiryId(item))}">${escapeHtml(item.title || "Untitled enquiry")} · ${escapeHtml(item.status || "draft")}</option>`).join("")
+        : `<option value="">No enquiries yet</option>`;
+      $("enquirySelect").value = state.selectedEnquiry;
+      if (!state.enquiries.length) {
+        $("tableWrap").innerHTML = `<div class="table-state"><div><strong>No enquiries have been created</strong><span>Go back to the Enquiry Builder to create and publish your first conversational enquiry.</span><a class="btn primary small" style="margin-top:14px;" href="/owner-portal#enquiries">Open Enquiry Builder</a></div></div>`;
+        renderMetrics();
+        renderAnalysis();
+        return;
+      }
+      await loadSelectedEnquiry();
+    }
+
+    function openResponseDrawer(item, index) {
+      if (!item) return;
+      const id = responseId(item, index);
+      const name = item.respondent_name || item.name || item.visitor_name || `Response #${id.slice(-8)}`;
+      $("drawerTitle").textContent = name;
+      $("drawerSubtitle").textContent = `Response ${id}`;
+      const metadata = [
+        ["Status", item.status || "partial"],
+        ["Started", formatDate(item.started_at || item.created_at)],
+        ["Last updated", formatDate(item.updated_at || item.completed_at)],
+        ["Language", item.language || "Not recorded"],
+        ["Channel", item.channel || "Not recorded"],
+        ["Audience", item.audience || item.respondent_type || "Not recorded"],
+        ["Consent", item.consent_status || (item.consented === false ? "Not recorded" : "Recorded")],
+        ["Progress", item.progress || item.progress_label || "-"]
+      ];
+      const answers = responseAnswers(item);
+      const snapshotColumns = Array.isArray(item.question_snapshot) && item.question_snapshot.length
+        ? item.question_snapshot.map((question, questionIndex) => ({
+            key: String(question.key || question.question_key || `question_${questionIndex + 1}`),
+            label: question.text || question.label || question.question || question.key || `Question ${questionIndex + 1}`
+          }))
+        : state.columns;
+      const qa = snapshotColumns.map((column) => `
+        <article class="qa-item"><h3>${escapeHtml(column.label)}</h3><p>${escapeHtml(displayValue(answers[column.key]))}</p></article>
+      `).join("");
+      $("drawerBody").innerHTML = `
+        <div class="response-meta-grid">${metadata.map(([label, value]) => `<div class="response-meta"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("")}</div>
+        <div class="qa-list">${qa || `<div class="insight">No answers are recorded for this response.</div>`}</div>`;
+      $("drawerBackdrop").classList.remove("hidden");
+      $("responseDrawer").classList.remove("hidden");
+      $("closeDrawerBtn").focus();
+    }
+
+    function closeDrawer() {
+      $("drawerBackdrop").classList.add("hidden");
+      $("responseDrawer").classList.add("hidden");
+    }
+
+    async function downloadExport(format, button) {
+      if (!state.selectedEnquiry) throw new Error("Select an enquiry first");
+      const exportMeta = {
+        csv: { extension: "csv", label: "CSV" },
+        xlsx: { extension: "xlsx", label: "Excel" },
+        pdf: { extension: "pdf", label: "PDF" }
+      }[format] || { extension: String(format || "download"), label: "File" };
+      const original = button.textContent;
+      button.disabled = true;
+      button.textContent = "Preparing...";
+      try {
+        const id = encodeURIComponent(state.selectedEnquiry);
+        const params = queryParams(false);
+        params.set("format", format);
+        const headers = {};
+        if (state.site?.site_id && state.site?.token) {
+          headers["X-Site-Id"] = state.site.site_id;
+          headers["X-Site-Token"] = state.site.token;
+        }
+        const response = await fetch(`/api/client/dashboard/enquiries/${id}/export?${params}`, {
+          credentials: "include", cache: "no-store", headers
+        });
+        if (!response.ok) {
+          const error = await response.json().catch(() => ({}));
+          throw new Error(error.error || "Export could not be created");
+        }
+        const blob = await response.blob();
+        const disposition = response.headers.get("Content-Disposition") || "";
+        const match = disposition.match(/filename\*?=(?:UTF-8''|\")?([^\";]+)/i);
+        const filename = match ? decodeURIComponent(match[1].replace(/\"/g, "")) : `enquiry-responses.${exportMeta.extension}`;
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = filename;
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showMessage(`${exportMeta.label} export downloaded`);
+      } finally {
+        button.disabled = false;
+        button.textContent = original;
+      }
+    }
+
+    async function refreshCurrent() {
+      showMessage("");
+      try {
+        const applied = await loadSelectedEnquiry();
+        if (applied) showMessage("Responses refreshed");
+      } catch (error) {
+        showMessage(error.message, false);
+        $("tableWrap").innerHTML = `<div class="table-state"><div><strong>Responses could not be loaded</strong><span>${escapeHtml(error.message)}</span></div></div>`;
+      }
+    }
+
+    $("themeToggle").addEventListener("click", () => {
+      const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = theme;
+      try { localStorage.setItem("bolosite-theme", theme); } catch (error) {}
+    });
+    $("backBuilderBtn").addEventListener("click", () => {
+      window.close();
+      setTimeout(() => {
+        if (!window.closed) showMessage("You can close this response tab to return to the Enquiry Builder.");
+      }, 120);
+    });
+    $("refreshBtn").addEventListener("click", refreshCurrent);
+    $("csvBtn").addEventListener("click", () => downloadExport("csv", $("csvBtn")).catch((error) => showMessage(error.message, false)));
+    $("excelBtn").addEventListener("click", () => downloadExport("xlsx", $("excelBtn")).catch((error) => showMessage(error.message, false)));
+    $("pdfBtn").addEventListener("click", () => downloadExport("pdf", $("pdfBtn")).catch((error) => showMessage(error.message, false)));
+    $("enquirySelect").addEventListener("change", () => {
+      state.selectedEnquiry = $("enquirySelect").value;
+      state.pagination.page = 1;
+      $("audienceFilter").value = "";
+      const url = new URL(location.href);
+      if (state.selectedEnquiry) url.searchParams.set("enquiry", state.selectedEnquiry);
+      else url.searchParams.delete("enquiry");
+      history.replaceState({}, "", url);
+      refreshCurrent();
+    });
+    ["statusFilter", "audienceFilter", "languageFilter", "channelFilter", "fromFilter", "toFilter"].forEach((id) => {
+      $(id).addEventListener("change", () => { state.pagination.page = 1; refreshCurrent(); });
+    });
+    $("clearFiltersBtn").addEventListener("click", () => {
+      ["statusFilter", "audienceFilter", "languageFilter", "channelFilter", "fromFilter", "toFilter"].forEach((id) => { $(id).value = ""; });
+      state.pagination.page = 1;
+      refreshCurrent();
+    });
+    $("prevPageBtn").addEventListener("click", () => { if (state.pagination.page > 1) { state.pagination.page -= 1; refreshCurrent(); } });
+    $("nextPageBtn").addEventListener("click", () => { if (state.pagination.page < state.pagination.pages) { state.pagination.page += 1; refreshCurrent(); } });
+    $("tableWrap").addEventListener("click", (event) => {
+      const row = event.target.closest("[data-response-index]");
+      if (row) openResponseDrawer(state.responses[Number(row.dataset.responseIndex)], Number(row.dataset.responseIndex));
+    });
+    $("tableWrap").addEventListener("keydown", (event) => {
+      const row = event.target.closest("[data-response-index]");
+      if (row && ["Enter", " "].includes(event.key)) {
+        event.preventDefault();
+        openResponseDrawer(state.responses[Number(row.dataset.responseIndex)], Number(row.dataset.responseIndex));
+      }
+    });
+    $("closeDrawerBtn").addEventListener("click", closeDrawer);
+    $("drawerBackdrop").addEventListener("click", closeDrawer);
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeDrawer(); });
+
+    (async function boot() {
+      try {
+        const session = await portalApi("/api/client/session");
+        if (!session.authenticated || !session.site) {
+          location.replace(`/owner-portal?next=${encodeURIComponent(location.pathname + location.search)}`);
+          return;
+        }
+        state.site = session.site;
+        await loadEnquiries();
+      } catch (error) {
+        showMessage(error.message || "Unable to load enquiry responses", false);
+        $("tableWrap").innerHTML = `<div class="table-state"><div><strong>Dashboard could not be loaded</strong><span>${escapeHtml(error.message || "Please return to the owner portal and sign in again.")}</span><a class="btn ghost small" style="margin-top:14px;" href="/owner-portal">Return to Owner Portal</a></div></div>`;
+      }
+    })();
+  </script>
+</body>
+</html>

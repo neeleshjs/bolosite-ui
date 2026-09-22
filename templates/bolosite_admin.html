@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>BoloSite Admin</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111f;--card:#0e1c2f;--line:#263956;--text:#f4f7fb;--muted:#a7b4c8;--brand:#6ee7d8;--danger:#ffb4b4}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 10%,#15365a 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    main{width:min(920px,calc(100% - 32px));margin:0 auto;padding:56px 0}.brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:var(--brand);color:#06231f;font-weight:900}.eyebrow{color:var(--brand);font-weight:750;letter-spacing:.08em;text-transform:uppercase;font-size:12px}h1{margin:2px 0;font-size:clamp(27px,5vw,42px)}p{color:var(--muted)}.card{border:1px solid var(--line);border-radius:22px;background:rgba(14,28,47,.94);padding:clamp(22px,5vw,38px);box-shadow:0 24px 80px #0007}.login{max-width:480px;margin:7vh auto 0}.notice,.error{padding:12px 14px;border-radius:12px;margin:16px 0}.notice{background:#172940;color:var(--muted)}.error{background:#401f2a;color:var(--danger)}label{display:block;margin:16px 0 6px;font-weight:700}input{width:100%;border:1px solid var(--line);border-radius:12px;background:#081523;color:var(--text);padding:13px 14px;font:inherit}input:focus{outline:2px solid var(--brand);outline-offset:2px}.button,button{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--brand);color:#06231f;padding:12px 18px;font:inherit;font-weight:800;text-decoration:none;cursor:pointer}.button.secondary,button.secondary{background:#172940;color:var(--text);border:1px solid var(--line)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:24px}.feature{border:1px solid var(--line);border-radius:16px;padding:20px;background:#0a1728}.feature h2{margin:0 0 8px;font-size:19px}.logout{margin-left:auto}.logout button{padding:9px 14px}
+  </style>
+</head>
+<body>
+<main>
+  {% if authenticated %}
+    <div class="brand">
+      <div class="mark">B</div>
+      <div><div class="eyebrow">Private workspace</div><h1>BoloSite Admin</h1></div>
+      <form class="logout" method="post" action="/admin/logout">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <button class="secondary" type="submit">Log out</button>
+      </form>
+    </div>
+    <section class="card">
+      <div class="eyebrow">Private administration</div>
+      <h2>Administration</h2>
+      <p>Review private enquiries and manage feedback shared through the public results page.</p>
+      <div class="home-grid">
+        <div class="feature">
+          <h2>Feedback &amp; Results</h2>
+          <p>Review publication choices, moderate feedback, and respond with product updates.</p>
+          <a class="button" href="/admin/proof">Manage public feedback</a>
+        </div>
+        <div class="feature">
+          <h2>Enquiry Data</h2>
+          <p>View every client and the consented feedback visitors gave about BoloSite.</p>
+          <a class="button" href="/admin/enquiry">Open Enquiry Data</a>
+        </div>
+      </div>
+    </section>
+  {% else %}
+    <section class="card login">
+      <div class="brand"><div class="mark">B</div><div><div class="eyebrow">Private access</div><h1>BoloSite Admin</h1></div></div>
+      {% if not admin_ready %}
+        <div class="notice">Admin access is not configured on this server.</div>
+      {% else %}
+        <p>Sign in with the private BoloSite administrator credentials.</p>
+        {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+        <form method="post" action="/admin/login" autocomplete="on">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+          <label for="user_id">User ID</label>
+          <input id="user_id" name="user_id" type="text" maxlength="160" autocomplete="username" required autofocus>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" maxlength="512" autocomplete="current-password" required>
+          {% if config.BOLOSITE_ADMIN_MFA_REQUIRED %}
+          <label for="code">Authenticator code</label>
+          <input id="code" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+          {% endif %}
+          <div class="actions"><button type="submit">Sign in</button></div>
+        </form>
+      {% endif %}
+    </section>
+  {% endif %}
+</main>
+</body>
+</html>

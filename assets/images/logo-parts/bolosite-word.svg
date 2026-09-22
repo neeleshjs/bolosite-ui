@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 185" role="img" aria-label="BoloSite wordmark">
+  <defs>
+    <style>
+      .word-letters { fill: #05070a; }
+      @media (prefers-color-scheme: dark) {
+        .word-letters { fill: #f8fbff; }
+      }
+    </style>
+    <linearGradient id="wordAccent" x1="116" y1="153" x2="136" y2="181" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b7ff"/>
+      <stop offset=".55" stop-color="#1677ff"/>
+      <stop offset="1" stop-color="#7b2cff"/>
+    </linearGradient>
+    <filter id="wordShadow" x="-16%" y="-35%" width="132%" height="170%">
+      <feDropShadow dx="0" dy="1.2" stdDeviation="1.1" flood-color="#07111f" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <g class="word-letters" filter="url(#wordShadow)">
+    <g transform="translate(3 158) scale(.7)">
+      <path d="M0 1.5h15.4c4.2 0 7 2.5 7 6.4 0 2.8-1.4 4.7-3.8 5.7 2.8.8 4.5 2.9 4.5 6 0 4.1-2.9 6.8-7.4 6.8H0Zm6 5.2v4.4h8.5c1.5 0 2.4-.8 2.4-2.2 0-1.3-.9-2.2-2.4-2.2Zm0 9.9v4.5h9.3c1.5 0 2.4-.8 2.4-2.2 0-1.4-.9-2.3-2.4-2.3Z" fill-rule="evenodd"/>
+      <path transform="translate(3 0)" d="M30 1.5h13c5.2 0 8.3 3.1 8.3 8.2v8.5c0 5.1-3.1 8.2-8.3 8.2H30c-5.2 0-8.3-3.1-8.3-8.2V9.7c0-5.1 3.1-8.2 8.3-8.2Zm1.1 5.3c-2.1 0-3.4 1.3-3.4 3.4v7.5c0 2.1 1.3 3.4 3.4 3.4h10.8c2.1 0 3.4-1.3 3.4-3.4v-7.5c0-2.1-1.3-3.4-3.4-3.4Z" fill-rule="evenodd"/>
+      <path transform="translate(6 0)" d="M55 1.5h6v19h16.4v5.9H61.7C57.3 26.4 55 24 55 19.7Z"/>
+      <path transform="translate(9 0)" d="M83.5 1.5h13c5.2 0 8.3 3.1 8.3 8.2v8.5c0 5.1-3.1 8.2-8.3 8.2h-13c-5.2 0-8.3-3.1-8.3-8.2V9.7c0-5.1 3.1-8.2 8.3-8.2Zm1.1 5.3c-2.1 0-3.4 1.3-3.4 3.4v7.5c0 2.1 1.3 3.4 3.4 3.4h10.8c2.1 0 3.4-1.3 3.4-3.4v-7.5c0-2.1-1.3-3.4-3.4-3.4Z" fill-rule="evenodd"/>
+      <path transform="translate(13 0)" d="M110.2 1.5h18.6l-4.4 5.4h-12c-1.5 0-2.3.7-2.3 1.9s.8 1.8 2.3 1.8h8.8c5 0 7.9 2.8 7.9 7.5s-3.1 8.3-8.5 8.3h-19.3l4.4-5.5h14.4c1.8 0 2.8-.8 2.8-2.2 0-1.5-1-2.2-2.8-2.2h-8.7c-4.8 0-7.4-2.6-7.4-7.1 0-4.8 2.6-7.9 6.2-7.9Z"/>
+    </g>
+    <g transform="translate(104 158) scale(.7)">
+      <path d="M0 26.4V1.5h6v24.9Z"/>
+      <path d="M-1.8 7.2 4.3 1.5h4.2L2.5 7.2Z" fill="url(#wordAccent)"/>
+      <path d="M9.5 1.5h22.2v5.4h-8v19.5h-6V6.9H9.5Z"/>
+      <rect x="29.7" y="1.5" width="20.2" height="5.4" rx="2.7" fill="url(#wordAccent)"/>
+      <rect x="29.7" y="11.8" width="17.8" height="5.4" rx="2.7" fill="url(#wordAccent)"/>
+      <rect x="29.7" y="21" width="19.8" height="5.4" rx="2.7" fill="url(#wordAccent)"/>
+    </g>
+  </g>
+</svg>

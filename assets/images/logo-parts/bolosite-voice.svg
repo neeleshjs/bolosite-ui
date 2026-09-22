@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 185" role="img" aria-label="BoloSite voice wave">
+  <defs>
+    <linearGradient id="voiceGradient" x1="31" y1="96" x2="84" y2="139" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#11c7ff"/>
+      <stop offset=".55" stop-color="#176dff"/>
+      <stop offset="1" stop-color="#7b2cff"/>
+    </linearGradient>
+    <filter id="voiceGlow" x="-30%" y="-40%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#147cff" flood-opacity=".3"/>
+    </filter>
+  </defs>
+  <g transform="translate(15 20) scale(.84)" fill="url(#voiceGradient)" filter="url(#voiceGlow)">
+    <rect x="31" y="111" width="5" height="12" rx="2.5"/>
+    <rect x="39" y="106" width="5" height="22" rx="2.5"/>
+    <rect x="47" y="101" width="5" height="32" rx="2.5"/>
+    <rect x="55" y="96" width="5" height="42" rx="2.5"/>
+    <rect x="63" y="101" width="5" height="32" rx="2.5"/>
+    <rect x="71" y="106" width="5" height="22" rx="2.5"/>
+    <rect x="79" y="111" width="5" height="12" rx="2.5"/>
+  </g>
+</svg>

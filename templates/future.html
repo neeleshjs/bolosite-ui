@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-homepage-animations="off">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6F8F3">
+  <meta name="description"
+    content="Explore the BoloSite vision for responsive websites, guided apps, and voice-led digital interaction.">
+  <link rel="icon" type="image/jpeg" href="/favicon.ico">
+  <link rel="canonical" href="https://www.bolosite.com/">
+  <meta property="og:url" content="https://www.bolosite.com/">
+  <title>The Future - BoloSite</title>
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('bolosite-theme') || 'light' } catch (e) { }</script>
+  <script src="/assets/js/clean-navigation.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/homepage.css">
+</head>
+
+
+<body class="owner-portal-muted">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-shell">
+      <a class="brand" href="/" data-bolosite-scroll-target="top" aria-label="BoloSite home">
+        <img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true">
+        <span>BoloSite</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <button class="nav-audience nav-audience-user nav-guide-trigger" type="button"
+          onclick="window.location.href='/visitor'"><span>For visitors</span><i>Guide</i></button>
+        <button class="nav-audience nav-audience-client nav-guide-trigger" type="button"
+          onclick="window.location.href='/owner'"><span>For owners</span><i>Guide</i></button>
+        <a href="/what-is-bolosite">What is BoloSite?</a>
+        <a href="/future">The Future</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-guide-pills" aria-label="Guide shortcuts">
+          <button class="nav-guide-pill user" type="button" onclick="window.location.href='/visitor'"><span>For
+              visitors</span></button>
+          <button class="nav-guide-pill client" type="button" onclick="window.location.href='/owner'"><span>For
+              owners</span></button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode"><span
+            class="theme-sun">☀</span><span class="theme-moon">☾</span></button>
+        <button class="auth-link" id="loginButton" type="button" data-auth-view="login">Log in</button>
+        <a class="nav-signup" id="clientPortalButton" href="/owner-portal">Owner Portal</a>
+        <div class="profile-wrap is-hidden" id="profileWrap">
+          <button class="profile-button" id="profileButton" type="button" aria-expanded="false"><span
+              class="profile-avatar" id="profileAvatar">A</span><span class="profile-short-name"
+              id="profileShortName">Account</span><i>⌄</i></button>
+          <div class="profile-menu" id="profileMenu">
+            <div class="profile-menu-head"><span class="profile-avatar large" id="profileMenuAvatar">A</span>
+              <div><strong id="profileMenuName">Account</strong><small id="profileMenuRole">Visitor</small></div>
+            </div>
+            <dl>
+              <div>
+                <dt>Email</dt>
+                <dd id="profileMenuEmail">—</dd>
+              </div>
+              <div>
+                <dt>Mobile</dt>
+                <dd id="profileMenuMobile">—</dd>
+              </div>
+              <div>
+                <dt>Profession</dt>
+                <dd id="profileMenuProfession">—</dd>
+              </div>
+            </dl>
+            <button class="profile-logout" id="logoutButton" type="button">Log out</button>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <button class="mobile-guide-trigger user" type="button" onclick="window.location.href='/visitor'"><span><small>Complete
+            guide</small>For website visitors</span><i>→</i></button>
+      <button class="mobile-guide-trigger client" type="button"
+        onclick="window.location.href='/owner'"><span><small>Complete guide</small>For website
+          owners</span><i>→</i></button>
+      <a href="/what-is-bolosite">What is BoloSite? <span>↗</span></a>
+      <a class="mobile-future-link" href="/future">The Future <span>→</span></a>
+      <a href="/pricing">Pricing <span>↗</span></a>
+      <a href="/contact">Contact <span>↗</span></a>
+      <button class="mobile-theme-toggle" id="mobileThemeToggle" type="button"><span class="theme-sun">☀</span><span
+          class="theme-moon">☾</span><b>Switch theme</b></button>
+      <div class="mobile-auth"><button type="button" data-auth-view="login">Log in</button></div>
+      <a class="mobile-portal" id="mobileClientPortalButton" href="/owner-portal">Owner portal <span>→</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section" id="vision">
+      <div class="container">
+        <div class="section-heading split-heading reveal">
+          <div>
+            <span class="section-kicker">The Future of Digital Interaction</span>
+            <h2>Your website should not wait for visitors to understand it. <br> It should understand them first.</h2>
+          </div>
+          <p>Your website is the face of your company, startup, brand, or business. But most websites still behave like
+            static brochures. They show information, but they do not guide people when they are confused. A visitor may
+            come with real interest, but if they cannot find the right answer quickly, they lose patience, lose trust,
+            and leave. BoloSite adds an AI assistant that listens, understands, answers from approved content, and
+            guides visitors toward the next useful step.</p>
+        </div>
+        <div class="industry-grid">
+          <article class="industry-card reveal">
+            <div class="industry-icon">01</div>
+            <span>Current reality</span>
+            <h3>Websites look modern, but they still leave visitors alone.</h3>
+            <p>Most websites force visitors to read, search, scroll, compare, and click through multiple pages before
+              they understand what to do next. The product may be good. The service may be useful. The answer may
+              already be on the website. But if the visitor cannot find it at the right moment, the opportunity is lost.
+            </p>
+            <div><small>What changes</small><strong>From passive pages to guided conversations.</strong></div>
+          </article>
+          <article class="industry-card reveal delay-1">
+            <div class="industry-icon">02</div>
+            <span>The hidden problem</span>
+            <h3>A confused visitor rarely complains. They simply leave.</h3>
+            <p>Visitors do not always tell you when your website is confusing. They just close the tab, delay the
+              decision, or move to another option. Every extra click creates friction. Every unclear button creates
+              doubt. Every unanswered question weakens trust. The real problem is not only traffic. The real problem is
+              helping visitors at the exact moment they need clarity.</p>
+            <div><small>What improves</small><strong>Less confusion. More trust. Faster decisions.</strong></div>
+          </article>
+          <article class="industry-card reveal delay-2">
+            <div class="industry-icon">03</div>
+            <span>The BoloSite shift</span>
+            <h3>Give visitors guidance when they need it.</h3>
+            <p>BoloSite gives your website an AI assistant that can welcome visitors, understand their need,
+              answer questions, explain products, open the right page, and guide them toward the next step. For
+              visitors, the website becomes easier to use. For owners, the website becomes more active, helpful, and
+              conversion-ready.</p>
+            <div><small>What endures</small><strong>Websites become more helpful and easier to navigate.</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section industry-section client-types-section" id="use-cases">
+      <div class="container">
+        <div class="section-heading split-heading reveal">
+          <div>
+            <span class="section-kicker">Where BoloSite creates value</span>
+            <h2>Built for every website that needs visitors to understand and take action.</h2>
+          </div>
+          <p>Different websites have different goals. Some need sales, some need bookings, some need enquiries, and some
+            need support reduction. BoloSite adapts around your content, actions, and business outcome.</p>
+        </div>
+
+        <div class="use-case-filter-bar reveal" role="tablist" aria-label="Filter by business goal">
+          <button class="use-case-filter-chip active" type="button" data-filter="all">All</button>
+          <button class="use-case-filter-chip" type="button" data-filter="sales">Sales</button>
+          <button class="use-case-filter-chip" type="button" data-filter="booking">Booking</button>
+          <button class="use-case-filter-chip" type="button" data-filter="support">Support</button>
+          <button class="use-case-filter-chip" type="button" data-filter="b2b">B2B</button>
+          <button class="use-case-filter-chip" type="button" data-filter="local">Local</button>
+        </div>
+
+        <div class="use-case-card-grid" aria-live="polite">
+          <article class="use-case-card reveal" data-group="sales">
+            <span class="use-case-pill">🛒 Ecommerce</span>
+            <h3>Reduce buying confusion before checkout.</h3>
+            <p>A shopper likes a product but is unsure about size, delivery, return policy, or alternatives.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Compare products and explain features.</li>
+              <li><span>✓</span> Answer delivery, warranty, size, return and offer questions.</li>
+              <li><span>✓</span> Guide to cart, checkout, or related products.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Clearer decisions → more checkout
+                chances</span></div>
+          </article>
+
+          <article class="use-case-card reveal delay-1" data-group="sales">
+            <span class="use-case-pill">💻 SaaS</span>
+            <h3>Turn feature confusion into demo or trial intent.</h3>
+            <p>A founder likes your SaaS but does not know which plan fits, how onboarding works, or what integrations
+              exist.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain plans, features, integrations and security.</li>
+              <li><span>✓</span> Guide to signup, demo, docs, or contact sales.</li>
+              <li><span>✓</span> Qualify by team size and use case.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Better clarity → warmer product leads</span>
+            </div>
+          </article>
+
+          <article class="use-case-card reveal delay-2" data-group="booking">
+            <span class="use-case-pill">🎓 Education</span>
+            <h3>Capture student interest when it is fresh.</h3>
+            <p>A student or parent visits at night and wants fees, batch timing, demo class, syllabus, and admission
+              steps.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain courses, fees, batches, eligibility and syllabus.</li>
+              <li><span>✓</span> Guide to demo booking or enquiry form.</li>
+              <li><span>✓</span> Answer in Hindi, English, or Hinglish.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>More demo bookings and admissions
+                enquiries</span></div>
+          </article>
+
+          <article class="use-case-card reveal" data-group="support">
+            <span class="use-case-pill">🏥 Clinics</span>
+            <h3>Reduce front-desk load and appointment doubt.</h3>
+            <p>A patient wants doctor timing, services, address, appointment process, and basic preparation.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Answer timings, services, location and appointment steps.</li>
+              <li><span>✓</span> Guide to call, booking, or contact form.</li>
+              <li><span>✓</span> Keep medical advice routed to qualified humans.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>More appointment clarity, fewer repeated
+                calls</span></div>
+          </article>
+
+          <article class="use-case-card reveal delay-1" data-group="booking">
+            <span class="use-case-pill">🏠 Real estate</span>
+            <h3>Qualify property buyers before enquiry.</h3>
+            <p>A buyer wants budget, location, size, amenities, possession date, loan help, and site visit details.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain property options and availability.</li>
+              <li><span>✓</span> Ask buyer preferences before enquiry.</li>
+              <li><span>✓</span> Guide to site visit or callback request.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Casual browsers → qualified property
+                leads</span></div>
+          </article>
+
+          <article class="use-case-card reveal delay-2" data-group="booking">
+            <span class="use-case-pill">🍽️ Restaurants</span>
+            <h3>Make ordering and table booking easier.</h3>
+            <p>A customer wants menu, timing, location, table booking, delivery, popular dishes, or party package
+              details.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Show menu and opening hours.</li>
+              <li><span>✓</span> Guide to booking, delivery, location, or offers.</li>
+              <li><span>✓</span> Answer common dish and price questions.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Hunger or planning moment → action</span>
+            </div>
+          </article>
+
+          <article class="use-case-card reveal" data-group="booking">
+            <span class="use-case-pill">🏨 Hotels & travel</span>
+            <h3>Reduce hesitation before reservation.</h3>
+            <p>A visitor wants rooms, facilities, cancellation, check-in, nearby places, packages, and booking support.
+            </p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain rooms, policies and amenities.</li>
+              <li><span>✓</span> Guide to reservation or enquiry.</li>
+              <li><span>✓</span> Answer package and location questions.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Less booking doubt → more reservation
+                intent</span></div>
+          </article>
+
+          <article class="use-case-card reveal delay-1" data-group="local">
+            <span class="use-case-pill">🔧 Local services</span>
+            <h3>Turn local visitors into bookings or calls.</h3>
+            <p>For salons, repair shops, plumbers, gyms, photographers, pest control, cleaners, and interior designers.
+            </p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain services, packages, service area and availability.</li>
+              <li><span>✓</span> Guide to call, WhatsApp, quote, or booking.</li>
+              <li><span>✓</span> Handle repeated pricing and timing questions.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Local intent → faster enquiry</span></div>
+          </article>
+
+          <article class="use-case-card reveal delay-2" data-group="sales">
+            <span class="use-case-pill">🎨 Agencies</span>
+            <h3>Pre-qualify project enquiries.</h3>
+            <p>A business owner likes your agency but needs package, timeline, process, portfolio, and budget clarity.
+            </p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain services, process, packages and requirements.</li>
+              <li><span>✓</span> Guide to project enquiry or discovery call.</li>
+              <li><span>✓</span> Reduce low-quality repeated discovery questions.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Better project fit → better sales calls</span>
+            </div>
+          </article>
+
+          <article class="use-case-card reveal" data-group="support">
+            <span class="use-case-pill">👤 Portfolio</span>
+            <h3>Turn profile visitors into opportunities.</h3>
+            <p>A visitor checks your portfolio but does not understand what you do, what you are available for, or how
+              to contact you.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain skills, projects, resume, services and availability.</li>
+              <li><span>✓</span> Guide to contact, booking, or collaboration.</li>
+              <li><span>✓</span> Make personal brands easier to understand.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>More job, freelance or partnership
+                enquiries</span></div>
+          </article>
+
+          <article class="use-case-card reveal delay-1" data-group="support">
+            <span class="use-case-pill">⚖️ Professional services</span>
+            <h3>Route visitors to the right consultation.</h3>
+            <p>For lawyers, CAs, consultants, tax advisors, and business consultants with repeated intake questions.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain services, documents and appointment steps.</li>
+              <li><span>✓</span> Guide to consultation booking.</li>
+              <li><span>✓</span> Use disclaimers and human fallback for final advice.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Less intake friction → better consultation
+                flow</span></div>
+          </article>
+
+          <article class="use-case-card reveal delay-2" data-group="b2b">
+            <span class="use-case-pill">🏢 B2B / enterprise</span>
+            <h3>Help serious buyers find answers before sales.</h3>
+            <p>Enterprise buyers need industry fit, compliance, security, pricing process, case studies, and demo
+              details.</p>
+            <ul class="use-case-check-list">
+              <li><span>✓</span> Explain solutions, industries and documentation.</li>
+              <li><span>✓</span> Guide to demo, contact sales, or resources.</li>
+              <li><span>✓</span> Answer from approved enterprise content.</li>
+            </ul>
+            <div class="use-case-foot"><strong>Profit lever</strong><span>Better buyer education → warmer demos</span>
+            </div>
+          </article>
+        </div>
+        <div class="comparison-scroll-roll reveal" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <section class="section pilot-section" id="pilot-stories">
+      <div class="container pilot-layout pilot-layout-upgraded">
+        <div class="pilot-heading reveal">
+          <span class="section-kicker">Proof, handled honestly</span>
+          <h2>We show what works. Not what sounds good on paper.</h2>
+          <p>BoloSite only shares proof after a real pilot is tested, measured, and approved. We show what actually
+            happened on a live website, not polished claims.</p>
+          <div class="pilot-trust-list" aria-label="BoloSite proof standards">
+            <span>Real website</span>
+            <span>Measured results</span>
+            <span>Owner-approved proof</span>
+          </div>
+          <a class="button button-primary" href="/trust">See pilot proof <span>→</span></a>
+        </div>
+
+        <div class="pilot-proof-board reveal delay-1">
+          <div class="pilot-board-top">
+            <div>
+              <small>Pilot proof system</small>
+              <strong>One clear journey → real behavior → verified results</strong>
+            </div>
+            <span>Verified only</span>
+          </div>
+
+          <div class="pilot-cards pilot-cards-upgraded">
+            <article class="reveal">
+              <span>01</span>
+              <div>
+                <small>Choose one journey</small>
+                <h3>Start with one clear goal.</h3>
+                <p>Pricing, product discovery, booking, enquiry, support, or contact — one focused path gives a better
+                  pilot.</p>
+              </div>
+              <b>Focused</b>
+            </article>
+            <article class="reveal delay-1">
+              <span>02</span>
+              <div>
+                <small>Measure real behavior</small>
+                <h3>See what visitors actually do.</h3>
+                <p>We look at answered questions, completed actions, repeated confusion, and where visitors still get
+                  stuck.</p>
+              </div>
+              <b>Measured</b>
+            </article>
+            <article class="reveal delay-2">
+              <span>03</span>
+              <div>
+                <small>Publish verified proof</small>
+                <h3>Share results only after review.</h3>
+                <p>A case study is published only when the data is checked, the story is accurate, and the owner
+                  approves it.</p>
+              </div>
+              <b>Approved</b>
+            </article>
+          </div>
+
+          <div class="pilot-metrics" aria-label="Pilot metrics we track">
+            <span>Metrics we track</span>
+            <div>
+              <i>Questions answered</i>
+              <i>Actions completed</i>
+              <i>Repeated questions</i>
+              <i>Drop-off points</i>
+              <i>Support demand</i>
+              <i>Enquiry intent</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section future-roadmap-section" id="roadmap">
+      <div class="container">
+        <div class="section-heading center reveal"><span class="section-kicker">Where BoloSite Is Going</span>
+          <h2>From websites to a voice-first operating layer for digital life.</h2>
+          <p>The roadmap is simple: start with websites, then expand into apps, then build a shared layer that helps
+            people interact with software naturally through voice, context, and action.</p>
+        </div>
+        <div class="billing-journey future-roadmap reveal" aria-label="BoloSite future roadmap">
+          <article><span>01</span>
+            <div><small>Today</small>
+              <h3>BoloSite for websites</h3>
+              <p>Help visitors ask questions, find the right answer, and take the next step on existing websites without
+                feeling lost.</p>
+            </div>
+          </article><i>→</i>
+          <article><span>02</span>
+            <div><small>Next</small>
+              <h3>BoloSite for apps</h3>
+              <p>Bring the same experience to web and mobile apps so users can get help, guidance, and action inside the
+                product itself.</p>
+            </div>
+          </article><i>→</i>
+          <article><span>03</span>
+            <div><small>Future</small>
+              <h3>BoloSite OS</h3>
+              <p>Create an operating layer for 3D apps and website experiences, giving products a shared brain for
+                context, guidance, and controlled action.</p>
+            </div>
+          </article><i>→</i>
+          <article><span>04</span>
+            <div><small>Long-term vision</small>
+              <h3>Voice-led digital life</h3>
+              <p>Move beyond typing. Voice becomes the natural way people interact with machines, tools, and digital
+                environments — with texting as an option, not the default.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer compact-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="BoloSite home"><img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true"><span>BoloSite</span></a>
+        <p>The vision is bigger, but the next useful step should stay simple.</p>
+      </div>
+      <div class="footer-links" aria-label="Related links">
+        <a href="/what-is-bolosite">What is BoloSite</a><a href="/pricing">Pricing</a><a href="/contact">Contact</a><a href="/visitor">Visitor guide</a><button type="button" data-open-modal="privacyModal">Privacy</button><button type="button" data-open-modal="termsModal">Terms</button>
+      </div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; <span id="year"></span> BoloSite. Built with purpose in India.</span><div><button type="button" id="footerThemeToggle">Switch theme</button></div></div>
+  </footer>
+
+  <div class="modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">3-day full trial</span>
+      <h2 id="demoTitle">Let’s see where BoloSite fits on your website.</h2>
+      <p>No credit card. Share your site and we’ll help plan the first useful AI layer for your visitors.</p>
+      <form id="demoForm">
+        <div class="field-row"><label>Full name<input name="name" type="text" autocomplete="name"
+              placeholder="Your name" required></label><label>Work email<input name="email" type="email"
+              autocomplete="email" placeholder="you@company.com" required></label></div>
+        <div class="field-row"><label>Mobile number<input name="phone" type="tel" autocomplete="tel"
+              placeholder="+91 98765 43210" required></label><label>Profession<input name="profession" type="text"
+              placeholder="Founder, developer, student..." required></label></div>
+        <div class="field-row"><label>Business type<select name="business">
+              <option value="">Select one</option>
+              <option>Small business</option>
+              <option>Startup / SaaS</option>
+              <option>E-commerce</option>
+              <option>Education</option>
+              <option>Enterprise</option>
+              <option>Other</option>
+            </select></label><label>Website URL<input name="website" type="url"
+              placeholder="https://yourwebsite.com"></label></div><label>What should BoloSite help with?<textarea
+            name="message" rows="4"
+            placeholder="Visitor questions, stuck pages, product guidance, support, approved actions..."></textarea></label><button
+          class="button button-primary full" type="submit">Request my free trial <span>→</span></button><small
+          class="form-note">Your request is saved securely. We will reply with the next setup step.</small>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal auth-modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button>
+      <div class="auth-brand"><img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt=""
+          aria-hidden="true">
+        <div><strong>BoloSite account</strong><small>Secure server-side account and session.</small></div>
+      </div>
+      <div class="auth-tabs"><button class="active" type="button" data-auth-tab="login">Log in</button><button
+          type="button" data-auth-tab="signup">Create account</button></div>
+      <form class="auth-form" id="loginForm" data-auth-panel="login"><span class="section-kicker">Welcome back</span>
+        <h2 id="authTitle">Continue to BoloSite.</h2><label>Email address<input name="email" type="email"
+            autocomplete="email" required placeholder="you@example.com"></label><label>Password<input name="password"
+            type="password" autocomplete="current-password" required minlength="6"
+            placeholder="Minimum 6 characters"></label><button class="button button-primary full" type="submit">Log in
+          <span>→</span></button>
+        <p class="auth-switch">New here? <button type="button" data-auth-view="signup">Create your account</button></p>
+      </form>
+      <form class="auth-form is-hidden" id="signupForm" data-auth-panel="signup"><span class="section-kicker">Create
+          your profile</span>
+        <h2>Tell us who you are.</h2>
+        <div class="role-selector"><label><input type="radio" name="role" value="user" checked><span><b>Website
+                visitor</b><small>I want a personal BoloSite profile</small></span></label><label><input type="radio"
+              name="role" value="client"><span><b>Website owner</b><small>I want to add the AI layer to my
+                site</small></span></label></div>
+        <div class="field-row"><label>Full name<input name="name" type="text" autocomplete="name" required
+              placeholder="Your full name"></label><label>Email address<input name="email" type="email"
+              autocomplete="email" required placeholder="you@example.com"></label></div>
+        <div class="field-row"><label>Mobile number<input name="mobile" type="tel" autocomplete="tel" required
+              placeholder="+91 98765 43210"></label><label>Profession<input name="profession" type="text" required
+              placeholder="Founder, student, developer..."></label></div><label>Website URL
+          <small>(optional)</small><input name="website" type="url"
+            placeholder="https://yourwebsite.com"></label><label>Password<input name="password" type="password"
+            autocomplete="new-password" required minlength="6" placeholder="Minimum 6 characters"></label><button
+          class="button button-primary full" type="submit">Create account <span>→</span></button>
+        <p class="auth-switch">Already registered? <button type="button" data-auth-view="login">Log in</button></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal feedback-modal" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle"
+    hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">Help us improve</span>
+      <h2 id="feedbackTitle">How is your BoloSite experience?</h2>
+      <p>One quick response helps us make the website clearer and more useful.</p>
+      <form id="feedbackForm">
+        <fieldset>
+          <legend>Overall experience</legend>
+          <div class="rating-options"><label><input type="radio" name="rating" value="1" required><span>😕<small>Needs
+                  work</small></span></label><label><input type="radio" name="rating"
+                value="3"><span>🙂<small>Good</small></span></label><label><input type="radio" name="rating"
+                value="5"><span>😍<small>Excellent</small></span></label></div>
+        </fieldset><label>What should we improve?<textarea name="feedback" rows="4"
+            placeholder="Tell us what felt confusing, useful or missing..."></textarea></label><label>Email
+          <small>(optional)</small><input name="email" type="email" placeholder="you@example.com"></label><button
+          class="button button-primary full" type="submit">Send feedback <span>→</span></button><button
+          class="feedback-later" type="button" data-close-modal>Maybe later</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal legal-modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle"
+    hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">Legal</span>
+      <h2 id="privacyTitle">Privacy policy</h2>
+      <div class="legal-copy">
+        <p>We collect only information needed to provide BoloSite, respond to enquiries and improve the product. We do
+          not sell personal information.</p>
+        <h3>Account security</h3>
+        <p>Account details are stored on the server. Passwords are stored as secure hashes and login state uses an
+          HTTP-only session cookie.</p>
+        <h3>Service information</h3>
+        <p>Contact details, website integration information and anonymised service analytics may be used to operate the
+          service. Contact <a href="mailto:hello@bolosite.ai">hello@bolosite.ai</a> for access or deletion requests.</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal legal-modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" type="button" data-close-modal
+        aria-label="Close modal">×</button><span class="section-kicker">Legal</span>
+      <h2 id="termsTitle">Terms of service</h2>
+      <div class="legal-copy">
+        <p>By using BoloSite, you agree to use the service lawfully and provide accurate, approved business content for
+          your AI operating layer.</p>
+        <h3>Trial and billing</h3>
+        <p>The published model includes a three-day trial followed by usage-based billing. Final prices and measurement
+          rules are confirmed in the owner portal before payment.</p>
+        <h3>AI responses</h3>
+        <p>Customers remain responsible for reviewing business content, instructions and BoloSite configuration.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span>✓</span>
+    <p><strong id="toastTitle">Done.</strong><small id="toastMessage">Your action was completed.</small></p>
+
+  <script src="assets/js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const homepageAnimationsDisabled = document.documentElement.dataset.homepageAnimations === 'off';
+      const carouselAutoplayDisabled = homepageAnimationsDisabled || window.matchMedia('(max-width: 760px)').matches;
+      const useCaseFilters = document.querySelectorAll('.use-case-filter-chip');
+      const useCaseTrack = document.querySelector('.use-case-card-grid');
+      const useCaseCards = Array.from(document.querySelectorAll('.use-case-card'));
+
+      const getVisibleCards = () => useCaseCards.filter((card) => !card.classList.contains('is-hidden'));
+
+      const updateUseCaseFilter = (filter) => {
+        useCaseFilters.forEach((item) => item.classList.toggle('active', item.getAttribute('data-filter') === filter));
+        useCaseCards.forEach((card) => {
+          const matches = filter === 'all' || card.getAttribute('data-group') === filter;
+          card.classList.toggle('is-hidden', !matches);
+        });
+
+        const visibleCards = getVisibleCards();
+        if (visibleCards.length && useCaseTrack) {
+          useCaseTrack.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+      };
+
+      useCaseFilters.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          updateUseCaseFilter(chip.getAttribute('data-filter'));
+        });
+      });
+
+      if (useCaseTrack) {
+        let useCaseAutoplayTimer;
+        let useCaseHovering = false;
+        let useCaseInViewport = false;
+        let useCaseIndex = 0;
+
+        const advanceUseCaseTrack = () => {
+          const visibleCards = getVisibleCards();
+          if (!visibleCards.length) return;
+          if (useCaseHovering) return;
+
+          useCaseIndex = (useCaseIndex + 1) % visibleCards.length;
+          const targetCard = visibleCards[useCaseIndex];
+          if (targetCard) {
+            const left = targetCard.offsetLeft - 12;
+            useCaseTrack.scrollTo({ left, behavior: 'smooth' });
+          }
+        };
+
+        const startUseCaseAutoplay = () => {
+          clearInterval(useCaseAutoplayTimer);
+          if (carouselAutoplayDisabled || !useCaseInViewport || useCaseHovering || document.hidden) return;
+          useCaseAutoplayTimer = setInterval(advanceUseCaseTrack, 2000);
+        };
+
+        const stopUseCaseAutoplay = () => {
+          clearInterval(useCaseAutoplayTimer);
+          useCaseAutoplayTimer = undefined;
+        };
+
+        useCaseTrack.addEventListener('mouseenter', () => {
+          useCaseHovering = true;
+          clearInterval(useCaseAutoplayTimer);
+        });
+
+        useCaseTrack.addEventListener('mouseleave', () => {
+          useCaseHovering = false;
+          startUseCaseAutoplay();
+        });
+
+        useCaseTrack.addEventListener('touchstart', () => {
+          useCaseHovering = true;
+          clearInterval(useCaseAutoplayTimer);
+        }, { passive: true });
+
+        useCaseTrack.addEventListener('touchend', () => {
+          useCaseHovering = false;
+          startUseCaseAutoplay();
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window) {
+          const useCaseAutoplayObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              useCaseInViewport = entry.isIntersecting;
+              if (useCaseInViewport) startUseCaseAutoplay();
+              else stopUseCaseAutoplay();
+            });
+          }, { rootMargin: '160px 0px', threshold: 0.01 });
+          useCaseAutoplayObserver.observe(useCaseTrack);
+        } else {
+          useCaseInViewport = true;
+          startUseCaseAutoplay();
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stopUseCaseAutoplay();
+          else startUseCaseAutoplay();
+        });
+      }
+
+      const thinkingShell = document.querySelector('[data-thinking-carousel]');
+      if (thinkingShell) {
+        const grid = thinkingShell.querySelector('.thinking-case-grid');
+        const cards = Array.from(thinkingShell.querySelectorAll('.thinking-case-card'));
+        const chips = Array.from(thinkingShell.querySelectorAll('.thinking-carousel-chip'));
+        const total = cards.length;
+        let currentIndex = 0;
+        let autoplayTimer;
+        let isPaused = false;
+        let thinkingInViewport = false;
+        const intervalMs = 2000;
+
+        const setActiveChip = (index) => {
+          chips.forEach((chip, chipIndex) => chip.classList.toggle('active', chipIndex === index));
+        };
+
+        const updateCarousel = (index, fromUser = false) => {
+          currentIndex = (index + total) % total;
+          const targetCard = cards[currentIndex];
+          if (targetCard) {
+            grid.scrollTo({
+              left: targetCard.offsetLeft,
+              behavior: 'smooth'
+            });
+          }
+          setActiveChip(currentIndex);
+          if (fromUser) {
+            resetAutoplay();
+          }
+        };
+
+        const syncCarouselFromScroll = () => {
+          const nearestIndex = cards.reduce((closestIndex, card, index) => {
+            const distance = Math.abs(card.offsetLeft - grid.scrollLeft);
+            if (distance < closestIndex.distance) {
+              return { index, distance };
+            }
+            return closestIndex;
+          }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+
+          currentIndex = nearestIndex;
+          setActiveChip(currentIndex);
+        };
+
+        const resetAutoplay = () => {
+          clearInterval(autoplayTimer);
+          if (carouselAutoplayDisabled || isPaused || !thinkingInViewport || document.hidden) return;
+          autoplayTimer = setInterval(() => {
+            updateCarousel(currentIndex + 1);
+          }, intervalMs);
+        };
+
+        const pauseCarousel = () => {
+          isPaused = true;
+          clearInterval(autoplayTimer);
+        };
+
+        const resumeCarousel = () => {
+          isPaused = false;
+          resetAutoplay();
+        };
+
+        thinkingShell.addEventListener('mouseenter', pauseCarousel);
+        thinkingShell.addEventListener('mouseleave', resumeCarousel);
+        thinkingShell.addEventListener('touchstart', pauseCarousel, { passive: true });
+        thinkingShell.addEventListener('touchend', resumeCarousel, { passive: true });
+
+        let syncFrame;
+        grid.addEventListener('scroll', () => {
+          if (syncFrame) {
+            cancelAnimationFrame(syncFrame);
+          }
+          syncFrame = requestAnimationFrame(syncCarouselFromScroll);
+        }, { passive: true });
+
+        chips.forEach((chip, index) => {
+          chip.addEventListener('click', () => updateCarousel(index, true));
+        });
+
+        window.addEventListener('resize', () => {
+          if (thinkingInViewport) updateCarousel(currentIndex);
+        });
+
+        updateCarousel(0);
+        if ('IntersectionObserver' in window) {
+          const thinkingAutoplayObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              thinkingInViewport = entry.isIntersecting;
+              if (thinkingInViewport) resetAutoplay();
+              else clearInterval(autoplayTimer);
+            });
+          }, { rootMargin: '160px 0px', threshold: 0.01 });
+          thinkingAutoplayObserver.observe(thinkingShell);
+        } else {
+          thinkingInViewport = true;
+          resetAutoplay();
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) clearInterval(autoplayTimer);
+          else resetAutoplay();
+        });
+      }
+
+      const valueShell = document.querySelector('[data-value-carousel]');
+      if (!valueShell) return;
+
+      const valueGrid = valueShell.querySelector('.client-type-grid');
+      const valueCards = Array.from(valueShell.querySelectorAll('.client-type-card'));
+      const valueChips = Array.from(valueShell.querySelectorAll('.industry-carousel-chip'));
+      const valueTotal = valueCards.length;
+      let valueCurrentIndex = 0;
+      let valueAutoplayTimer;
+      let valueIsPaused = false;
+      let valueInViewport = false;
+      const valueIntervalMs = 2200;
+
+      const setValueActiveChip = (index) => {
+        valueChips.forEach((chip, chipIndex) => chip.classList.toggle('active', chipIndex === index));
+      };
+
+      const updateValueCarousel = (index, fromUser = false) => {
+        valueCurrentIndex = (index + valueTotal) % valueTotal;
+        const targetCard = valueCards[valueCurrentIndex];
+        if (targetCard) {
+          valueGrid.scrollTo({
+            left: Math.max(0, targetCard.offsetLeft - 8),
+            behavior: 'smooth'
+          });
+        }
+        setValueActiveChip(valueCurrentIndex);
+        if (fromUser) {
+          resetValueAutoplay();
+        }
+      };
+
+      const syncValueCarouselFromScroll = () => {
+        const nearestIndex = valueCards.reduce((closestIndex, card, index) => {
+          const distance = Math.abs(card.offsetLeft - valueGrid.scrollLeft);
+          if (distance < closestIndex.distance) {
+            return { index, distance };
+          }
+          return closestIndex;
+        }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+
+        valueCurrentIndex = nearestIndex;
+        setValueActiveChip(valueCurrentIndex);
+      };
+
+      const resetValueAutoplay = () => {
+        clearInterval(valueAutoplayTimer);
+        if (carouselAutoplayDisabled || valueIsPaused || !valueInViewport || document.hidden) return;
+        valueAutoplayTimer = setInterval(() => {
+          updateValueCarousel(valueCurrentIndex + 1);
+        }, valueIntervalMs);
+      };
+
+      const pauseValueCarousel = () => {
+        valueIsPaused = true;
+        clearInterval(valueAutoplayTimer);
+      };
+
+      const resumeValueCarousel = () => {
+        valueIsPaused = false;
+        resetValueAutoplay();
+      };
+
+      valueShell.addEventListener('mouseenter', pauseValueCarousel);
+      valueShell.addEventListener('mouseleave', resumeValueCarousel);
+      valueShell.addEventListener('touchstart', pauseValueCarousel, { passive: true });
+      valueShell.addEventListener('touchend', resumeValueCarousel, { passive: true });
+
+      let valueSyncFrame;
+      valueGrid.addEventListener('scroll', () => {
+        if (valueSyncFrame) {
+          cancelAnimationFrame(valueSyncFrame);
+        }
+        valueSyncFrame = requestAnimationFrame(syncValueCarouselFromScroll);
+      }, { passive: true });
+
+      valueChips.forEach((chip, index) => {
+        chip.addEventListener('click', () => updateValueCarousel(index, true));
+      });
+
+      window.addEventListener('resize', () => {
+        if (valueInViewport) updateValueCarousel(valueCurrentIndex);
+      });
+
+      updateValueCarousel(0);
+      if ('IntersectionObserver' in window) {
+        const valueAutoplayObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            valueInViewport = entry.isIntersecting;
+            if (valueInViewport) resetValueAutoplay();
+            else clearInterval(valueAutoplayTimer);
+          });
+        }, { rootMargin: '160px 0px', threshold: 0.01 });
+        valueAutoplayObserver.observe(valueShell);
+      } else {
+        valueInViewport = true;
+        resetValueAutoplay();
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) clearInterval(valueAutoplayTimer);
+        else resetValueAutoplay();
+      });
+    });
+  </script>
+  <script src="/bolosite-runtime.min.js" data-site-id="SITE_BOLOSITE" data-page="1" data-page-id="future" data-page-title="The Future - BoloSite"></script>
+
+</body>
+
+</html>

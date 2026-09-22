@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 185" role="img" aria-label="BoloSite bot">
+  <defs>
+    <linearGradient id="botAccent" x1="33" y1="56" x2="78" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0fd0ff"/>
+      <stop offset="1" stop-color="#1669ff"/>
+    </linearGradient>
+    <filter id="botShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#07111f" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <g transform="translate(-10 13) scale(.86)" filter="url(#botShadow)">
+    <path d="M31 52c1-13 10-21 23-21s22 8 23 21" fill="none" stroke="#f8fbff" stroke-width="8.5" stroke-linecap="round"/>
+    <path d="M31 52c1-13 10-21 23-21s22 8 23 21" fill="none" stroke="#111827" stroke-width="4.2" stroke-linecap="round"/>
+    <rect x="25" y="47" width="58" height="45" rx="21" fill="#f8fbff" stroke="#d7e1ec" stroke-width="1.4"/>
+    <rect x="32" y="55" width="44" height="25" rx="11" fill="#07111f"/>
+    <rect x="36" y="61" width="6" height="10" rx="3" fill="url(#botAccent)"/>
+    <rect x="65" y="61" width="6" height="10" rx="3" fill="url(#botAccent)"/>
+    <path d="M49 71c3 4 7 4 10 0" fill="none" stroke="url(#botAccent)" stroke-width="2.2" stroke-linecap="round"/>
+    <rect x="21" y="57" width="7" height="19" rx="3.5" fill="#f8fbff" stroke="#111827" stroke-width="1.1"/>
+    <rect x="80" y="57" width="7" height="19" rx="3.5" fill="#f8fbff" stroke="#111827" stroke-width="1.1"/>
+    <path d="M84 70c1 10-6 15-13 15" fill="none" stroke="#f8fbff" stroke-width="4.4" stroke-linecap="round"/>
+    <path d="M84 70c1 10-6 15-13 15" fill="none" stroke="#111827" stroke-width="2.1" stroke-linecap="round"/>
+    <rect x="65" y="81" width="12" height="6" rx="3" fill="#111827" stroke="#f8fbff" stroke-width=".6"/>
+  </g>
+</svg>

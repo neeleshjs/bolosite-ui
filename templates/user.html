@@ -1,0 +1,2494 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F8FAFC">
+  <meta name="description" content="A complete, friendly guide to using BoloSite by voice or text on any BoloSite-powered website.">
+  <link rel="icon" type="image/jpeg" href="/favicon.ico">
+  <link rel="canonical" href="https://www.bolosite.com/visitor">
+  <title>BoloSite Visitor Guide — Talk to the Website</title>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('bolosite-theme')||'light'}catch(e){}</script>
+  <script src="/assets/js/clean-navigation.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/homepage.css">
+  <link rel="stylesheet" href="/assets/css/guide-pages.css">
+  <style>
+
+    :root {
+      color-scheme: light;
+      --ink: #0F172A;
+      --ink-2: #1E293B;
+      --muted: #64748B;
+      --paper: #F8FAFC;
+      --paper-2: #F1F5F9;
+      --white: #ffffff;
+      --blue: #2563EB;
+      --teal: #06B6D4;
+      --accent: #7C3AED;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --line: #E2E8F0;
+      --dark-line: rgba(255, 255, 255, .14);
+      --radius-sm: 10px;
+      --radius: 16px;
+      --radius-lg: 24px;
+      --font-head: "Manrope", "Arial", sans-serif;
+      --font-body: "DM Sans", "Arial", sans-serif;
+      --brand-gradient: linear-gradient(135deg, #2563EB, #06B6D4 52%, #7C3AED);
+      --soft-gradient: linear-gradient(135deg, rgba(37, 99, 235, .09), rgba(6, 182, 212, .09) 52%, rgba(124, 58, 237, .08));
+      --shadow: 0 28px 80px rgba(15, 23, 42, .11);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, .08);
+      --nav-bg: rgba(255, 255, 255, .84);
+      --surface: #ffffff;
+      --surface-soft: #F1F5F9;
+      --surface-strong: #0F172A;
+      --text: var(--ink);
+      --bg: var(--paper);
+      --brand: var(--blue);
+      --accent-button: var(--brand-gradient);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #E5EDF7;
+      --ink-2: #F8FAFC;
+      --muted: #94A3B8;
+      --paper: #0B1220;
+      --paper-2: #111827;
+      --white: #13202B;
+      --line: rgba(255, 255, 255, .12);
+      --nav-bg: rgba(15, 23, 42, .84);
+      --surface: #111827;
+      --surface-soft: #162033;
+      --surface-strong: #F8FAFC;
+      --text: #E5EDF7;
+      --bg: #0B1220;
+      --shadow: 0 28px 90px rgba(0, 0, 0, .34);
+      --shadow-soft: 0 18px 50px rgba(0, 0, 0, .26);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 116px;
+    }
+
+    html.page-is-hidden *,
+    html.page-is-hidden *::before,
+    html.page-is-hidden *::after {
+      animation-play-state: paused !important;
+      transition: none !important;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 4% 4%, rgba(6, 182, 212, .10), transparent 28rem),
+        radial-gradient(circle at 94% 12%, rgba(37, 99, 235, .11), transparent 32rem),
+        var(--paper);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body.menu-open { overflow: hidden; }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; }
+    p, h1, h2, h3, h4 { margin-top: 0; }
+
+    :focus-visible {
+      outline: 3px solid rgba(6, 182, 212, .55);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 2000;
+      left: 18px;
+      top: -70px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: var(--white);
+      background: var(--blue);
+      font-weight: 800;
+      transition: top .2s;
+    }
+
+    html[data-theme="dark"] .skip-link { color: #F8FAFC; }
+    .skip-link:focus { top: 18px; }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section { padding: 112px 0; position: relative; }
+    .section.alt {
+      border-block: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(37, 99, 235, .08), transparent 28rem),
+        radial-gradient(circle at 88% 86%, rgba(6, 182, 212, .08), transparent 30rem),
+        var(--paper-2);
+    }
+
+    .section-head { max-width: 780px; margin-bottom: 42px; }
+    .section-head.center { text-align: center; margin-inline: auto; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--blue);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 5px rgba(6, 182, 212, .13);
+      animation: pulse 1.7s infinite;
+    }
+
+    @keyframes pulse { 50% { box-shadow: 0 0 0 9px rgba(6, 182, 212, 0); } }
+
+    h1, h2, h3, h4 {
+      margin-bottom: 0;
+      font-family: var(--font-head);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(48px, 5.8vw, 84px);
+      font-weight: 800;
+      line-height: .98;
+    }
+
+    h2 {
+      margin-top: 14px;
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    p { margin: 0; color: var(--muted); }
+    .lead {
+      max-width: 720px;
+      margin-top: 18px;
+      font-size: clamp(16px, 1.55vw, 19px);
+      line-height: 1.72;
+    }
+
+    .button {
+      min-height: 52px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .22s, box-shadow .22s, background .22s, border-color .22s;
+      white-space: nowrap;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button.primary {
+      color: #fff;
+      background: var(--accent-button);
+      box-shadow: 0 16px 36px rgba(37, 99, 235, .23);
+    }
+    .button.primary:hover { box-shadow: 0 18px 42px rgba(37, 99, 235, .30); }
+    .button.secondary {
+      color: var(--ink);
+      border-color: var(--line);
+      background: rgba(255,255,255,.68);
+      backdrop-filter: blur(10px);
+    }
+    html[data-theme="dark"] .button.secondary { background: rgba(255, 255, 255, .06); }
+    .button.dark { color: #fff; background: #0F172A; }
+
+    /* Header — aligned with the main BoloSite page */
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 840px;
+      padding: 160px 0 84px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .guide-bg-grid {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      opacity: .48;
+      background-image:
+        linear-gradient(rgba(15, 23, 42, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, .045) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    html[data-theme="dark"] .guide-bg-grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .055) 1px, transparent 1px);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    .hero::before {
+      width: 620px;
+      height: 620px;
+      right: -260px;
+      top: -220px;
+      background: radial-gradient(circle, rgba(6, 182, 212, .18), transparent 68%);
+    }
+
+    .hero::after {
+      width: 450px;
+      height: 450px;
+      left: -230px;
+      bottom: -230px;
+      background: radial-gradient(circle, rgba(124, 58, 237, .14), transparent 68%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, .98fr) minmax(450px, 1.02fr);
+      align-items: center;
+      gap: 68px;
+    }
+
+    .hero-copy .eyebrow {
+      margin-bottom: 24px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .68);
+      backdrop-filter: blur(10px);
+    }
+
+    html[data-theme="dark"] .hero-copy .eyebrow { background: rgba(255,255,255,.06); }
+
+    .hero h1 em {
+      display: inline-block;
+      color: transparent;
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-style: normal;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .hero h1 em::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      right: 3px;
+      bottom: -7px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(37,99,235,.28), rgba(6,182,212,.28), rgba(124,58,237,.28));
+      transform: rotate(-1.2deg);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.55);
+    }
+
+    html[data-theme="dark"] .hero-note span { background: rgba(255,255,255,.05); }
+    .hero-note span::before { content: "✓"; color: var(--teal); font-weight: 900; }
+
+    .assistant-preview {
+      position: relative;
+      min-height: 590px;
+      padding: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 28px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 22% 14%, rgba(6, 182, 212, .25), transparent 34%),
+        radial-gradient(circle at 84% 82%, rgba(124, 58, 237, .28), transparent 34%),
+        linear-gradient(145deg, #0F172A, #111827 58%, #172554);
+      box-shadow: 0 38px 90px rgba(15, 23, 42, .24);
+      transform: rotate(.45deg);
+    }
+
+    .assistant-preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .20;
+      background-image:
+        linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, black, transparent 84%);
+    }
+
+    .assistant-preview::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -76px;
+      top: -78px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6, 182, 212, .24), transparent 68%);
+      animation: glow-breathe 4.8s ease-in-out infinite;
+    }
+
+    @keyframes glow-breathe {
+      50% { transform: scale(1.16); opacity: .72; }
+    }
+
+    .preview-top,
+    .preview-card,
+    .preview-caption {
+      position: relative;
+      z-index: 2;
+    }
+
+    .preview-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .preview-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .preview-mark {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 0 36px rgba(6,182,212,.24);
+    }
+
+    .preview-mark i {
+      width: 3px;
+      border-radius: 6px;
+      background: #67E8F9;
+      animation: wave 1s ease-in-out infinite alternate;
+    }
+    .preview-mark i:nth-child(1) { height: 10px; }
+    .preview-mark i:nth-child(2) { height: 22px; animation-delay: -.32s; }
+    .preview-mark i:nth-child(3) { height: 15px; animation-delay: -.64s; }
+
+    @keyframes wave { to { transform: scaleY(.45); opacity: .74; } }
+
+    .preview-top strong { font-family: var(--font-head); font-size: 15px; }
+    .live-pill {
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      color: #CFFAFE;
+      background: rgba(6, 182, 212, .10);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .preview-card {
+      margin-top: 56px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      background: rgba(255,255,255,.075);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.16);
+    }
+
+    .preview-bubble {
+      max-width: 82%;
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px 16px 16px 4px;
+      color: #E5EDF7;
+      background: rgba(255,255,255,.09);
+      font-size: 14px;
+    }
+
+    .preview-bubble.user {
+      margin-left: auto;
+      color: #0F172A;
+      border-color: rgba(255,255,255,.55);
+      border-radius: 16px 16px 4px 16px;
+      background: rgba(255,255,255,.94);
+    }
+
+    .preview-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .preview-flow span {
+      padding: 7px 10px;
+      border: 1px solid rgba(103,232,249,.18);
+      border-radius: 999px;
+      color: #A5F3FC;
+      background: rgba(6,182,212,.10);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .preview-caption {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 18px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .mini-orb {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: radial-gradient(circle at 36% 28%, #A7F3D0, #10B981 58%, #047857);
+      box-shadow: 0 0 0 12px rgba(16,185,129,.12), 0 0 48px rgba(16,185,129,.42);
+      animation: orb-pulse 2.4s ease-out infinite;
+    }
+
+    .mini-orb::after {
+      content: "";
+      width: 17px;
+      height: 24px;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      border-top-width: 5px;
+      box-shadow: 0 10px 0 -7px #fff;
+    }
+
+    @keyframes orb-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .preview-caption strong { display: block; font-size: 13px; }
+    .preview-caption p { margin-top: 3px; color: #CBD5E1; font-size: 12px; }
+
+    /* Sticky guide index */
+    .toc {
+      position: sticky;
+      top: 92px;
+      z-index: 50;
+      padding: 13px 0;
+      border-block: 1px solid var(--line);
+      background: rgba(248,250,252,.86);
+      backdrop-filter: blur(14px);
+    }
+
+    html[data-theme="dark"] .toc { background: rgba(11,18,32,.86); }
+
+    .toc-track {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+    }
+    .toc-track::-webkit-scrollbar { display: none; }
+    .toc a {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.70);
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+      scroll-snap-align: start;
+      transition: color .2s, border-color .2s, background .2s, transform .2s;
+    }
+    html[data-theme="dark"] .toc a { background: rgba(255,255,255,.055); }
+    .toc a:hover,
+    .toc a.active { color: var(--ink); border-color: rgba(37,99,235,.35); background: rgba(37,99,235,.10); transform: translateY(-1px); }
+
+    .site-header {
+      transition: padding .3s ease, transform .26s ease, opacity .22s ease;
+    }
+
+    body.toc-heading-active:not(.menu-open) .site-header {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-120%);
+    }
+
+    body.toc-heading-active:not(.menu-open) .toc {
+      top: 0;
+      z-index: 1001;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, .10);
+    }
+
+    body.user-guide-page .toc {
+      position: sticky;
+    }
+
+    /* Cards and sections */
+    .about-grid,
+    .flow-grid,
+    .feature-grid,
+    .trouble-grid,
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .about-card,
+    .feature-card,
+    .trouble-card,
+    .link-card,
+    .flow-step,
+    .command-group,
+    .writing-item,
+    .state-card,
+    details {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, .045);
+    }
+
+    html[data-theme="dark"] .about-card,
+    html[data-theme="dark"] .feature-card,
+    html[data-theme="dark"] .trouble-card,
+    html[data-theme="dark"] .link-card,
+    html[data-theme="dark"] .flow-step,
+    html[data-theme="dark"] .command-group,
+    html[data-theme="dark"] .writing-item,
+    html[data-theme="dark"] .state-card,
+    html[data-theme="dark"] details {
+      box-shadow: none;
+    }
+
+    .about-card,
+    .feature-card,
+    .trouble-card,
+    .link-card {
+      position: relative;
+      min-height: 260px;
+      padding: 28px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+
+    .about-card::before,
+    .feature-card::before,
+    .link-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: var(--soft-gradient);
+      transition: opacity .25s;
+      pointer-events: none;
+    }
+
+    .about-card:hover,
+    .feature-card:hover,
+    .link-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(37, 99, 235, .25);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-card:hover::before,
+    .feature-card:hover::before,
+    .link-card:hover::before { opacity: 1; }
+
+    .about-card > *, .feature-card > *, .link-card > * { position: relative; z-index: 1; }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--blue);
+      background: rgba(37, 99, 235, .10);
+      font-weight: 900;
+    }
+
+    .about-card:nth-child(2) .card-icon,
+    .feature-card:nth-child(3n+2) .card-icon { color: var(--teal); background: rgba(6,182,212,.11); }
+    .about-card:nth-child(3) .card-icon,
+    .feature-card:nth-child(3n) .card-icon { color: var(--accent); background: rgba(124,58,237,.10); }
+
+    .about-card p,
+    .feature-card p,
+    .trouble-card p,
+    .link-card p {
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.72;
+    }
+
+    .visitor-journey-section {
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(6, 182, 212, .10), transparent 28rem),
+        radial-gradient(circle at 92% 22%, rgba(124, 58, 237, .08), transparent 30rem),
+        linear-gradient(180deg, var(--paper), var(--paper-2));
+    }
+
+    .visitor-journey-panel {
+      position: relative;
+      display: grid;
+      gap: clamp(18px, 2.4vw, 28px);
+      padding: clamp(18px, 2.5vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .visitor-journey-hero {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(310px, 390px);
+      gap: clamp(22px, 4vw, 42px);
+      align-items: center;
+      min-height: 330px;
+      padding: clamp(28px, 4vw, 48px);
+      border-radius: 26px;
+      color: #F8FAFC;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(103, 232, 249, .22), transparent 34%),
+        linear-gradient(135deg, #0F172A, #172554 55%, #312E81);
+    }
+
+    .visitor-journey-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -180px auto;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 58, 237, .34), transparent 68%);
+      pointer-events: none;
+    }
+
+    .visitor-journey-copy,
+    .visitor-journey-brand {
+      position: relative;
+      min-width: 0;
+      z-index: 1;
+    }
+
+    .visitor-journey-copy .eyebrow {
+      color: #A5F3FC;
+    }
+
+    .visitor-journey-copy h2 {
+      max-width: 790px;
+      color: #FFFFFF;
+      font-size: clamp(38px, 5vw, 64px);
+      overflow-wrap: break-word;
+    }
+
+    .visitor-journey-copy .lead {
+      max-width: 690px;
+      color: #CBD5E1;
+    }
+
+    .visitor-journey-brand {
+      min-height: 342px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(6, 182, 212, .18), transparent 34%),
+        radial-gradient(circle at 88% 78%, rgba(124, 58, 237, .18), transparent 37%),
+        rgba(255, 255, 255, .08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 24px 52px rgba(0, 0, 0, .18);
+      backdrop-filter: blur(16px);
+    }
+
+    .visitor-journey-brand::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      opacity: .36;
+      background:
+        linear-gradient(rgba(103, 232, 249, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(103, 232, 249, .08) 1px, transparent 1px);
+      background-size: 26px 26px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .9), transparent 92%);
+    }
+
+    .visitor-journey-brand .what-brand-stage {
+      width: min(100%, 330px);
+      height: 282px;
+    }
+
+    .visitor-journey-brand .what-logo-orb {
+      width: 202px;
+      height: 202px;
+      border-radius: 48px;
+    }
+
+    .visitor-journey-brand .what-logo-orb::before {
+      border-radius: 38px;
+    }
+
+    .visitor-journey-brand .what-logo-orb::after {
+      border-radius: 62px;
+    }
+
+    .visitor-journey-brand .what-brand-logo {
+      width: 166px;
+      border-radius: 27px;
+    }
+
+    .visitor-journey-brand .what-brand-chip {
+      color: #0F172A;
+    }
+
+    .visitor-journey-brand .what-brand-caption {
+      margin-top: 10px;
+    }
+
+    .visitor-brand-copy {
+      width: min(100%, 330px);
+      margin-top: 12px;
+      padding: 13px 14px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 16px;
+      background: rgba(15, 23, 42, .32);
+      backdrop-filter: blur(12px);
+    }
+
+    .visitor-brand-copy span {
+      display: block;
+      color: #A5F3FC;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .visitor-brand-copy strong {
+      display: block;
+      margin-top: 6px;
+      color: #FFFFFF;
+      font-family: var(--font-head);
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: -.03em;
+    }
+
+    .visitor-journey-index {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .66);
+    }
+
+    .visitor-journey-index-track {
+      width: max-content;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      animation: visitorIndexMove 22s linear infinite;
+    }
+
+    .visitor-journey-index:hover .visitor-journey-index-track {
+      animation-play-state: paused;
+    }
+
+    .visitor-journey-index-set {
+      display: flex;
+      gap: 10px;
+    }
+
+    .visitor-journey-index span {
+      min-width: 118px;
+      padding: 9px 12px;
+      border: 1px solid rgba(37, 99, 235, .13);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(37, 99, 235, .07);
+      font-size: 11px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    @keyframes visitorIndexMove {
+      to { transform: translateX(calc(-50% - 5px)); }
+    }
+
+    .visitor-journey-intro,
+    .visitor-journey-footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .visitor-journey-block {
+      display: grid;
+      gap: 16px;
+    }
+
+    .visitor-journey-intro > div,
+    .visitor-journey-intro aside,
+    .visitor-journey-footer,
+    .visitor-journey-tip,
+    .visitor-feature-grid article,
+    .visitor-moment-grid article {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(15, 23, 42, .055);
+    }
+
+    .visitor-journey-intro > div {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 18px;
+      padding: 28px;
+    }
+
+    .visitor-journey-number {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #FFFFFF;
+      background: var(--brand-gradient);
+      font: 800 13px/1 var(--font-head);
+      box-shadow: 0 16px 30px rgba(37, 99, 235, .20);
+    }
+
+    .visitor-journey-intro small,
+    .visitor-section-head small,
+    .visitor-journey-tip > span,
+    .visitor-journey-footer .eyebrow {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .visitor-journey-intro h3,
+    .visitor-section-head h3,
+    .visitor-journey-footer h3 {
+      margin-top: 10px;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.12;
+    }
+
+    .visitor-journey-intro p,
+    .visitor-journey-footer p {
+      margin-top: 12px;
+      line-height: 1.72;
+    }
+
+    .visitor-journey-intro aside {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(6, 182, 212, .12), transparent 38%),
+        var(--surface);
+    }
+
+    .visitor-journey-intro aside strong {
+      max-width: 34ch;
+      color: var(--ink-2);
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2vw, 25px);
+      font-weight: 750;
+      line-height: 1.28;
+      letter-spacing: -.025em;
+    }
+
+    .visitor-journey-intro aside p {
+      margin-top: 0;
+      max-width: 38ch;
+      font-size: 14px;
+    }
+
+    .visitor-section-head {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 8px;
+      padding: 8px 4px 0;
+    }
+
+    .visitor-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .visitor-feature-grid article {
+      min-height: 188px;
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 16px;
+      padding: 24px;
+      transition: transform .24s, border-color .24s, box-shadow .24s;
+    }
+
+    .visitor-feature-grid article:hover,
+    .visitor-moment-grid article:hover {
+      transform: translateY(-4px);
+      border-color: rgba(6, 182, 212, .28);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .visitor-feature-grid i {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(37, 99, 235, .14);
+      border-radius: 16px;
+      color: #FFFFFF;
+      background: linear-gradient(135deg, #2563EB, #06B6D4);
+      box-shadow: 0 14px 28px rgba(37, 99, 235, .16);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .visitor-feature-grid i::before {
+      content: attr(data-icon);
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-head);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .visitor-feature-grid i::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 12px;
+    }
+
+    .visitor-feature-grid article:nth-child(2) i {
+      background: linear-gradient(135deg, #0E7490, #06B6D4);
+    }
+
+    .visitor-feature-grid article:nth-child(3) i {
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+    }
+
+    .visitor-feature-grid article:nth-child(4) i {
+      background: linear-gradient(135deg, #475569, #0F172A);
+    }
+
+    .visitor-feature-grid article:nth-child(5) i {
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+    }
+
+    .visitor-feature-grid article:nth-child(6) i {
+      background: linear-gradient(135deg, #059669, #10B981);
+    }
+
+    .visitor-feature-grid strong,
+    .visitor-moment-grid span,
+    .visitor-journey-tip b {
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .visitor-feature-grid p,
+    .visitor-moment-grid p,
+    .visitor-journey-tip p {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .visitor-moment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .visitor-moment-grid article {
+      min-height: 204px;
+      padding: 22px;
+    }
+
+    .visitor-moment-grid b {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 15px;
+      color: #FFFFFF;
+      background: var(--brand-gradient);
+      font: 800 12px/1 var(--font-head);
+      box-shadow: 0 13px 26px rgba(37, 99, 235, .16);
+    }
+
+    .visitor-journey-tip {
+      display: grid;
+      grid-template-columns: minmax(220px, .32fr) minmax(0, 1fr);
+      gap: 18px;
+      padding: 26px;
+      background:
+        radial-gradient(circle at 96% 0%, rgba(6, 182, 212, .12), transparent 32%),
+        linear-gradient(135deg, rgba(37, 99, 235, .07), rgba(6, 182, 212, .06));
+    }
+
+    .visitor-journey-tip > div {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .visitor-journey-tip p {
+      margin: 0;
+      padding: 16px;
+      border: 1px solid rgba(6, 182, 212, .14);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .42);
+    }
+
+    .visitor-journey-footer {
+      padding: 28px;
+      align-items: center;
+    }
+
+    .visitor-journey-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .visitor-journey-actions .button.secondary {
+      color: var(--blue);
+      background: rgba(37, 99, 235, .08);
+      border-color: rgba(37, 99, 235, .16);
+    }
+
+    html[data-theme="dark"] .visitor-journey-panel,
+    html[data-theme="dark"] .visitor-journey-intro > div,
+    html[data-theme="dark"] .visitor-journey-intro aside,
+    html[data-theme="dark"] .visitor-journey-footer,
+    html[data-theme="dark"] .visitor-journey-tip,
+    html[data-theme="dark"] .visitor-feature-grid article,
+    html[data-theme="dark"] .visitor-moment-grid article {
+      background-color: rgba(17, 24, 39, .82);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+    }
+
+    html[data-theme="dark"] .visitor-journey-index {
+      background: rgba(15, 23, 42, .70);
+    }
+
+    html[data-theme="dark"] .visitor-journey-index span,
+    html[data-theme="dark"] .visitor-journey-actions .button.secondary {
+      color: #BAE6FD;
+      border-color: rgba(103, 232, 249, .20);
+      background: rgba(8, 47, 73, .36);
+    }
+
+    html[data-theme="dark"] .visitor-feature-grid i {
+      color: #FFFFFF;
+      border-color: rgba(103, 232, 249, .18);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, .22);
+    }
+
+    html[data-theme="dark"] .visitor-journey-tip p {
+      background: rgba(15, 23, 42, .48);
+    }
+
+    .steps {
+      display: grid;
+      gap: 13px;
+      counter-reset: guide-step;
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      counter-increment: guide-step;
+      transition: transform .22s, border-color .22s, box-shadow .22s;
+    }
+
+    .step:hover {
+      transform: translateX(4px);
+      border-color: rgba(6, 182, 212, .32);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .step::before {
+      content: counter(guide-step, decimal-leading-zero);
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #fff;
+      background: var(--brand-gradient);
+      font: 800 14px/1 var(--font-head);
+      box-shadow: 0 14px 28px rgba(37, 99, 235, .20);
+    }
+
+    .step p { margin-top: 5px; font-size: 14px; }
+    .step-tag {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(37, 99, 235, .08);
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .practice {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr .68fr;
+      gap: 24px;
+      padding: 42px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-lg);
+      color: #fff;
+      background:
+        radial-gradient(circle at 92% 0%, rgba(6, 182, 212, .18), transparent 34%),
+        linear-gradient(135deg, #0F172A, #172554 58%, #312E81);
+      box-shadow: var(--shadow);
+    }
+
+    .practice::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -110px;
+      bottom: -190px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,.30), transparent 66%);
+    }
+
+    .practice .eyebrow { color: #A5F3FC; }
+    .practice h2 { color: #fff; }
+    .practice p { margin-top: 14px; color: #CBD5E1; }
+    .practice-hint {
+      position: relative;
+      z-index: 1;
+      align-self: center;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 18px;
+      background: rgba(255,255,255,.075);
+      backdrop-filter: blur(12px);
+    }
+    .practice-hint span {
+      display: block;
+      color: #67E8F9;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .10em;
+    }
+    .practice-hint strong {
+      display: block;
+      margin-top: 9px;
+      font: 800 20px/1.35 var(--font-head);
+    }
+
+    .flow-grid { grid-template-columns: repeat(3, 1fr); }
+    .flow-step {
+      min-height: 245px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, .07), transparent 38%),
+        var(--surface);
+    }
+    .flow-step b {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 9px;
+      color: var(--blue);
+      background: rgba(37,99,235,.10);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+    .flow-step h3 { margin-top: 32px; }
+    .flow-step p { margin-top: 12px; font-size: 14px; line-height: 1.72; }
+
+    .command-layout {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .command-note {
+      position: sticky;
+      top: 150px;
+      padding: 28px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      color: #fff;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(6,182,212,.18), transparent 35%),
+        linear-gradient(145deg, #0F172A, #172554);
+      box-shadow: var(--shadow-soft);
+    }
+    .command-note::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -42px;
+      bottom: -42px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,.28), transparent 70%);
+    }
+    .command-note p { margin-top: 12px; color: #CBD5E1; }
+    .command-note strong { color: #A5F3FC; }
+    .command-list { display: grid; gap: 12px; }
+    .command-group {
+      padding: 22px;
+      border-radius: 18px;
+    }
+    .command-group header { display: flex; align-items: center; gap: 12px; }
+    .command-group header span {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--teal);
+      background: rgba(6,182,212,.11);
+      font-weight: 900;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .chips span {
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.46);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    html[data-theme="dark"] .chips span { background: rgba(255,255,255,.04); }
+
+    .writing-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .writing-flow { display: grid; gap: 10px; }
+    .writing-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 13px;
+      padding: 18px;
+      border-radius: 16px;
+    }
+    .writing-item b {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--brand-gradient);
+      box-shadow: 0 12px 24px rgba(37,99,235,.18);
+    }
+    .writing-item p { margin-top: 4px; font-size: 14px; }
+
+    .conversation {
+      position: relative;
+      padding: 26px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      color: #fff;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(6, 182, 212, .16), transparent 32%),
+        linear-gradient(145deg, #0F172A, #111827);
+      box-shadow: var(--shadow-soft);
+    }
+    .conversation > span {
+      display: block;
+      margin-bottom: 18px;
+      color: #67E8F9;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .chat-line {
+      max-width: 84%;
+      margin-bottom: 10px;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 15px 15px 15px 4px;
+      color: #E5EDF7;
+      background: rgba(255,255,255,.09);
+      font-size: 14px;
+    }
+    .chat-line.you {
+      margin-left: auto;
+      color: #0F172A;
+      border-radius: 15px 15px 4px 15px;
+      background: rgba(255,255,255,.94);
+    }
+    .safe-note {
+      margin-top: 15px;
+      padding: 13px;
+      border: 1px solid rgba(103,232,249,.20);
+      border-radius: 13px;
+      color: #CBD5E1;
+      background: rgba(6,182,212,.06);
+      font-size: 13px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 13px;
+    }
+    .state-card {
+      padding: 22px 16px;
+      text-align: center;
+      border-radius: 18px;
+      transition: transform .22s, border-color .22s;
+    }
+    .state-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--orb) 38%, var(--line)); }
+    .state-orb {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 10px color-mix(in srgb, var(--orb) 14%, transparent), 0 0 34px color-mix(in srgb, var(--orb) 42%, transparent);
+      background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--orb) 58%, white), var(--orb));
+      animation: state-breathe 2.5s ease-in-out infinite;
+    }
+    @keyframes state-breathe { 50% { transform: scale(1.06); } }
+    .state-card p { margin-top: 7px; font-size: 13px; }
+    .state-card small { display: block; margin-top: 12px; color: var(--muted); font-weight: 700; font-size: 12px; }
+
+    .feature-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .feature-card { min-height: 230px; }
+    .feature-card .shortcut {
+      display: inline-flex;
+      margin-top: 15px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      color: var(--blue);
+      background: rgba(37,99,235,.09);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .sleep-panel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      padding: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+    .sleep-panel article { padding: 30px; background: var(--surface); }
+    .sleep-panel span {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .sleep-panel h3 { margin-top: 17px; }
+    .sleep-panel p { margin-top: 10px; font-size: 14px; line-height: 1.72; }
+
+    details {
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    details + details { margin-top: 10px; }
+    details:hover { border-color: rgba(37,99,235,.25); box-shadow: var(--shadow-soft); }
+    summary {
+      position: relative;
+      padding: 19px 56px 19px 20px;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-head);
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      top: 14px;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--blue);
+      font-size: 20px;
+    }
+    details[open] summary::after { content: "−"; }
+    details p { padding: 0 20px 20px; font-size: 14px; line-height: 1.75; }
+
+    .link-grid { grid-template-columns: repeat(4, 1fr); }
+    .link-card {
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .link-card b {
+      position: relative;
+      z-index: 1;
+      margin-top: auto;
+      padding-top: 22px;
+      color: var(--blue);
+      font-size: 13px;
+    }
+
+    .final-cta { padding: 82px 0; }
+    .final-box {
+      position: relative;
+      min-height: 340px;
+      padding: 54px 58px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      color: #fff;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(6,182,212,.22), transparent 34%),
+        linear-gradient(135deg, #0F172A, #172554 56%, #312E81);
+      box-shadow: var(--shadow);
+    }
+    .final-box::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -130px;
+      top: -220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,.34), transparent 68%);
+    }
+    .final-box > * { position: relative; z-index: 1; }
+    .final-box p { margin-top: 12px; color: #CBD5E1; }
+    .final-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    .final-box .button.secondary { color: #0F172A; background: #fff; border-color: #fff; }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2, .75, .3, 1);
+    }
+    html.reveal-ready .reveal { opacity: 0; transform: translateY(24px); }
+    html.reveal-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+
+    @media (max-width: 1120px) {
+      .hero { min-height: auto; padding-bottom: 92px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 58px; }
+      .hero-copy { max-width: 840px; text-align: center; margin-inline: auto; }
+      .hero h1, .hero .lead { margin-left: auto; margin-right: auto; }
+      .hero-actions, .hero-note { justify-content: center; }
+      .assistant-preview { width: min(720px, 100%); margin-inline: auto; transform: none; }
+      .link-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .section { padding: 88px 0; }
+      .toc { top: 78px; }
+      .about-grid, .flow-grid { grid-template-columns: 1fr; }
+      .visitor-journey-hero,
+      .visitor-journey-intro,
+      .visitor-journey-footer,
+      .visitor-journey-tip,
+      .visitor-feature-grid,
+      .visitor-moment-grid,
+      .visitor-journey-tip > div {
+        grid-template-columns: 1fr;
+      }
+      .visitor-journey-hero {
+        min-height: 0;
+      }
+      .visitor-journey-brand {
+        width: min(100%, 390px);
+        margin-inline: auto;
+      }
+      .visitor-journey-brand .what-brand-stage {
+        width: min(100%, 315px);
+        height: 268px;
+      }
+      .visitor-journey-brand .what-logo-orb {
+        width: 186px;
+        height: 186px;
+      }
+      .visitor-journey-brand .what-brand-logo {
+        width: 152px;
+      }
+      .visitor-section-head {
+        padding-inline: 0;
+      }
+      .command-layout, .writing-layout, .practice { grid-template-columns: 1fr; }
+      .command-note { position: static; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .state-grid { grid-template-columns: repeat(3, 1fr); }
+      .sleep-panel { grid-template-columns: 1fr; }
+      .final-box { grid-template-columns: 1fr; }
+      .final-actions { justify-content: flex-start; }
+    }
+
+    @media (max-width: 620px) {
+      html { scroll-padding-top: 96px; }
+      .container { width: min(100% - 32px, 1180px); }
+      .section { padding: 74px 0; }
+      .hero { min-height: auto; padding: 126px 0 72px; }
+      .hero-grid { gap: 42px; }
+      .hero-copy .eyebrow { font-size: 10px; }
+      h1 { font-size: clamp(42px, 13vw, 62px); }
+      h2 { font-size: 38px; }
+      .lead { font-size: 16px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .button { width: 100%; white-space: normal; }
+      .hero-note { justify-content: flex-start; gap: 8px; }
+      .hero-note span { width: 100%; justify-content: flex-start; }
+      .assistant-preview { min-height: 520px; padding: 20px; border-radius: 24px; }
+      .preview-top { align-items: flex-start; }
+      .preview-card { margin-top: 38px; padding: 17px; }
+      .preview-bubble { max-width: 94%; font-size: 13px; }
+      .preview-caption { left: 20px; right: 20px; bottom: 20px; padding: 15px; align-items: flex-start; }
+      .mini-orb { width: 48px; height: 48px; }
+      .toc { top: 80px; padding: 10px 0; }
+      .section-head { margin-bottom: 32px; }
+      .about-card, .feature-card, .link-card { min-height: 0; padding: 24px; }
+      .visitor-journey-panel { padding: 14px; border-radius: 24px; }
+      .visitor-journey-hero {
+        padding: 24px;
+        border-radius: 20px;
+        gap: 22px;
+        background:
+          radial-gradient(circle at 90% 8%, rgba(103, 232, 249, .18), transparent 34%),
+          linear-gradient(150deg, #0F172A, #172554 62%, #1E1B4B);
+      }
+      .visitor-journey-hero::after {
+        display: none;
+      }
+      .visitor-journey-copy h2 {
+        font-size: clamp(30px, 9.2vw, 38px);
+        line-height: 1.08;
+      }
+      .visitor-journey-copy .lead {
+        font-size: 15px;
+        line-height: 1.68;
+      }
+      .visitor-journey-brand {
+        min-height: 324px;
+        padding: 18px;
+        align-items: center;
+      }
+      .visitor-journey-brand .what-brand-stage {
+        width: min(100%, 292px);
+        height: 250px;
+      }
+      .visitor-journey-brand .what-logo-orb {
+        width: 164px;
+        height: 164px;
+        border-radius: 40px;
+      }
+      .visitor-journey-brand .what-logo-orb::before {
+        inset: 8px;
+        border-radius: 32px;
+      }
+      .visitor-journey-brand .what-logo-orb::after {
+        inset: -12px;
+        border-radius: 52px;
+      }
+      .visitor-journey-brand .what-brand-logo {
+        width: 134px;
+        border-radius: 22px;
+      }
+      .visitor-journey-brand .what-brand-chip {
+        min-height: 31px;
+        padding: 6px 8px;
+        gap: 6px;
+        font-size: 9px;
+      }
+      .visitor-journey-brand .what-brand-chip i {
+        width: 20px;
+        height: 20px;
+      }
+      .visitor-journey-brand .what-brand-chip-language {
+        top: 13px;
+      }
+      .visitor-journey-brand .what-brand-chip-mode {
+        bottom: 38px;
+      }
+      .visitor-journey-brand .what-brand-wave {
+        min-width: 122px;
+        height: 33px;
+        padding-inline: 10px;
+        gap: 4px;
+      }
+      .visitor-brand-copy {
+        margin-top: 9px;
+        padding: 12px;
+      }
+      .visitor-brand-copy strong {
+        font-size: 16px;
+      }
+      .visitor-journey-index span {
+        min-width: 104px;
+        font-size: 9px;
+      }
+      .visitor-journey-intro > div,
+      .visitor-journey-intro aside,
+      .visitor-journey-footer,
+      .visitor-journey-tip,
+      .visitor-feature-grid article,
+      .visitor-moment-grid article {
+        padding: 20px;
+        border-radius: 18px;
+      }
+      .visitor-journey-intro aside {
+        justify-content: flex-start;
+      }
+      .visitor-journey-intro > div,
+      .visitor-section-head {
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: 13px;
+      }
+      .visitor-journey-number {
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+      }
+      .visitor-feature-grid article {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+      .visitor-feature-grid i {
+        width: 44px;
+        height: 44px;
+      }
+      .visitor-moment-grid article {
+        min-height: 0;
+      }
+      .visitor-journey-tip > div {
+        gap: 10px;
+      }
+      .visitor-journey-tip p {
+        padding: 14px;
+      }
+      .visitor-journey-footer {
+        gap: 18px;
+      }
+      .visitor-journey-actions {
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .visitor-journey-actions .button {
+        width: 100%;
+        white-space: normal;
+      }
+      .card-icon { margin-bottom: 32px; }
+      .step { grid-template-columns: 50px 1fr; gap: 13px; padding: 16px; }
+      .step::before { width: 46px; height: 46px; border-radius: 13px; }
+      .step-tag { grid-column: 2; justify-self: start; }
+      .practice { padding: 28px 24px; border-radius: 24px; }
+      .command-note, .conversation { border-radius: 22px; }
+      .state-grid, .feature-grid, .link-grid { grid-template-columns: 1fr; }
+      .sleep-panel article { padding: 24px; }
+      .final-cta { padding: 62px 0; }
+      .final-box { min-height: 410px; padding: 38px 25px; border-radius: 24px; align-content: center; }
+      .final-actions { flex-direction: column; align-items: stretch; }
+      .final-actions .button { width: 100%; }
+    }
+
+    @media (max-width: 380px) {
+      h1 { font-size: 40px; }
+      .assistant-preview { min-height: 550px; }
+      .visitor-journey-panel {
+        padding: 10px;
+        border-radius: 20px;
+      }
+      .visitor-journey-hero,
+      .visitor-journey-intro > div,
+      .visitor-journey-intro aside,
+      .visitor-journey-footer,
+      .visitor-journey-tip,
+      .visitor-feature-grid article,
+      .visitor-moment-grid article {
+        padding: 18px;
+      }
+      .visitor-journey-copy h2 {
+        font-size: 29px;
+      }
+      .visitor-section-head,
+      .visitor-journey-intro > div {
+        grid-template-columns: 1fr;
+      }
+      .visitor-journey-brand {
+        min-height: 300px;
+        padding: 14px;
+      }
+      .visitor-journey-brand .what-brand-stage {
+        width: min(100%, 264px);
+        height: 228px;
+      }
+      .visitor-journey-brand .what-logo-orb {
+        width: 146px;
+        height: 146px;
+        border-radius: 36px;
+      }
+      .visitor-journey-brand .what-brand-logo {
+        width: 118px;
+        border-radius: 20px;
+      }
+      .visitor-journey-brand .what-brand-chip {
+        font-size: 8px;
+      }
+      .visitor-journey-brand .what-brand-chip-voice {
+        left: -2px;
+      }
+      .visitor-journey-brand .what-brand-chip-language {
+        right: -2px;
+      }
+      .visitor-journey-brand .what-brand-wave {
+        min-width: 112px;
+      }
+      .visitor-journey-index span {
+        min-width: 92px;
+        padding-inline: 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+  </style>
+</head>
+<body class="user-guide-page owner-portal-muted">
+  <a class="skip-link" href="#main">Skip to the guide</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-shell">
+      <a class="brand" href="/" data-bolosite-scroll-target="top" aria-label="BoloSite home">
+        <img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true">
+        <span>BoloSite</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <button class="nav-audience nav-audience-user nav-guide-trigger" type="button" data-open-modal="userJourneyModal" data-fallback-href="user.html" aria-current="page"><span>For visitors</span><i>Guide</i></button>
+        <button class="nav-audience nav-audience-client nav-guide-trigger" type="button" data-open-modal="clientJourneyModal" data-fallback-href="client.html"><span>For owners</span><i>Guide</i></button>
+        <a href="index.html#what-is-bolosite">What is BoloSite?</a>
+        <a href="index.html#vision">The Future</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-guide-pills" aria-label="Guide shortcuts">
+          <button class="nav-guide-pill user" type="button" data-open-modal="userJourneyModal" data-fallback-href="user.html"><span>For visitors</span><i>Guide</i></button>
+          <button class="nav-guide-pill client" type="button" data-open-modal="clientJourneyModal" data-fallback-href="client.html"><span>For owners</span><i>Guide</i></button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode"><span class="theme-sun">&#9728;</span><span class="theme-moon">&#9790;</span></button>
+        <button class="auth-link" id="loginButton" type="button" data-auth-view="login" data-fallback-href="index.html">Log in</button>
+        <a class="nav-signup" id="clientPortalButton" href="client-portal.html">Owner Portal</a>
+        <div class="profile-wrap is-hidden" id="profileWrap">
+          <button class="profile-button" id="profileButton" type="button" aria-expanded="false"><span class="profile-avatar" id="profileAvatar">A</span><span class="profile-short-name" id="profileShortName">Account</span><i>&#8964;</i></button>
+          <div class="profile-menu" id="profileMenu">
+            <div class="profile-menu-head"><span class="profile-avatar large" id="profileMenuAvatar">A</span><div><strong id="profileMenuName">Account</strong><small id="profileMenuRole">Visitor</small></div></div>
+            <dl><div><dt>Email</dt><dd id="profileMenuEmail">&mdash;</dd></div><div><dt>Mobile</dt><dd id="profileMenuMobile">&mdash;</dd></div><div><dt>Profession</dt><dd id="profileMenuProfession">&mdash;</dd></div></dl>
+            <button class="profile-logout" id="logoutButton" type="button">Log out</button>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <button class="mobile-guide-trigger user" type="button" data-open-modal="userJourneyModal" data-fallback-href="user.html"><span><small>Complete guide</small>For website visitors</span><i>&rarr;</i></button>
+      <button class="mobile-guide-trigger client" type="button" data-open-modal="clientJourneyModal" data-fallback-href="client.html"><span><small>Complete guide</small>For website owners</span><i>&rarr;</i></button>
+      <a href="index.html#what-is-bolosite">What is BoloSite? <span>&nearr;</span></a>
+      <a class="mobile-future-link" href="index.html#vision">The Future <span>&rarr;</span></a>
+      <a href="index.html#pricing">Pricing <span>&nearr;</span></a>
+      <a href="index.html#contact">Contact <span>&nearr;</span></a>
+      <button class="mobile-theme-toggle" id="mobileThemeToggle" type="button"><span class="theme-sun">&#9728;</span><span class="theme-moon">&#9790;</span><b>Switch theme</b></button>
+      <div class="mobile-auth"><button type="button" data-auth-view="login" data-fallback-href="index.html">Log in</button></div>
+      <a class="mobile-portal" id="mobileClientPortalButton" href="client-portal.html">Owner portal <span>&rarr;</span></a>
+    </nav>
+  </header>
+
+  <!-- Previous user guide header disabled; shared index header is rendered above.
+  <header class="site-header" id="siteHeader">
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="BoloSite home">
+        <img class="brand-logo" src="assets/images/bolosite%20white.jpeg" alt="">
+        <span>BoloSite</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="active" href="user.html" aria-current="page">User Guide</a>
+        <a href="client.html">Client Guide</a>
+        <a href="index.html#learn">Videos</a>
+        <a href="index.html#for-users">Website Guide</a>
+        <a href="index.html#what-is-bolosite">About BoloSite</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode"><span class="sun">☀</span><span class="moon">☾</span></button>
+        <a class="nav-portal" href="client-portal.html">Client Portal</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="user.html" aria-current="page">User Guide <span>•</span></a>
+      <a href="client.html">Client Guide <span>→</span></a>
+      <a href="index.html#learn">Videos <span>→</span></a>
+      <a href="index.html#for-users">Website Guide <span>→</span></a>
+      <a href="index.html#what-is-bolosite">About BoloSite <span>→</span></a>
+      <button id="mobileThemeToggle" type="button">Switch theme <span>☀ / ☾</span></button>
+      <a class="mobile-portal" href="client-portal.html">Open Client Portal <span>→</span></a>
+    </nav>
+  </header>
+
+  -->
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="guide-bg-grid" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">The complete visitor guide</span>
+          <h1>Do not search the website. <em>Talk to it.</em></h1>
+          <p class="lead">BoloSite adds a helpful AI layer to a website. Ask by voice or text, get an answer from approved website information, and move to the right page, form, product, or next step.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#quick-start">Start in 7 simple steps <span>&darr;</span></a>
+            <a class="button secondary" href="index.html#user-guide-video">Watch the visitor video <span>&#9654;</span></a>
+          </div>
+          <div class="hero-note"><span>Voice or text</span><span>Hindi, English, or a natural mix</span><span>No special command language</span></div>
+        </div>
+        <div class="assistant-preview reveal delay-1" aria-label="Example BoloSite conversation">
+          <div class="preview-top"><div class="preview-brand"><span class="preview-mark" aria-hidden="true"><i></i><i></i><i></i></span><strong>BoloSite AI</strong></div><span class="live-pill">READY TO HELP</span></div>
+          <div class="preview-card">
+            <div class="preview-bubble user">Which plan is right for a small business?</div>
+            <div class="preview-bubble">I can explain the available plans and guide you to the approved pricing section.</div>
+            <div class="preview-flow"><span>Listen</span><span>Understand</span><span>Find</span><span>Answer</span><span>Act</span></div>
+          </div>
+          <div class="preview-caption"><div class="mini-orb" aria-hidden="true"></div><div><strong>Green means BoloSite is listening</strong><p>Speak naturally. You do not need to memorise a command.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="toc" aria-label="Guide contents">
+      <div class="container toc-track">
+        <a href="#visitor-journey">Visitor journey</a><a href="#quick-start">Quick start</a><a href="#text-chat">Text-chat feature</a><a href="#how-it-works">What happens</a><a href="#commands">What to say</a><a href="#writing">Form writing</a><a href="#status-guide">Orb colours</a><a href="#close-sleep">Close &amp; sleep</a><a href="#troubleshooting">Help</a>
+      </div>
+    </nav>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head center reveal"><span class="eyebrow">What BoloSite is</span><h2>A website that can understand and guide you.</h2><p class="lead">BoloSite sits on top of an existing website. It connects your natural question to the site owner’s approved knowledge and approved actions.</p></div>
+        <div class="about-grid">
+          <article class="about-card reveal"><div class="card-icon">&#128172;</div><h3>Ask naturally</h3><p>Speak or type in the way you normally talk. Short questions, full sentences, Hindi, English, and everyday Hinglish are all welcome.</p></article>
+          <article class="about-card reveal"><div class="card-icon">&#10003;</div><h3>Get a grounded answer</h3><p>BoloSite uses information selected by the website owner, such as pages, FAQs, policies, products, and sales details.</p></article>
+          <article class="about-card reveal"><div class="card-icon">&#8594;</div><h3>Move forward</h3><p>When allowed, it can scroll, open a section, guide you to a form, or help complete the next useful step.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section visitor-journey-section" id="visitor-journey">
+      <div class="container">
+        <div class="visitor-journey-panel reveal">
+          <header class="visitor-journey-hero">
+            <div class="visitor-journey-copy">
+              <span class="eyebrow">BoloSite for website visitors</span>
+              <h2>Find the solution without getting lost inside the website.</h2>
+              <p class="lead">You came for an answer, a product, a form, or a decision. BoloSite helps you ask naturally and reach the right thing without fighting menus, buttons, and long content.</p>
+            </div>
+            <div class="visitor-journey-brand" role="img" aria-label="BoloSite AI operating layer">
+              <div class="what-brand-stage">
+                <span class="what-brand-chip what-brand-chip-voice"><i>&#9673;</i> Voice + text</span>
+                <span class="what-brand-chip what-brand-chip-language"><i>Hi</i> Natural language</span>
+                <div class="what-logo-orb">
+                  <img class="what-brand-logo what-brand-logo-light" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true" loading="eager" decoding="async">
+                  <img class="what-brand-logo what-brand-logo-dark" src="assets/images/bolosite%20black.jpeg" alt="" aria-hidden="true" loading="eager" decoding="async">
+                  <span class="what-logo-live"><i></i> Ready</span>
+                </div>
+                <span class="what-brand-chip what-brand-chip-mode"><i>&#8769;</i> Approved actions</span>
+                <div class="what-brand-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="what-brand-caption"><strong>BoloSite</strong><span>AI operating layer</span></div>
+              <div class="visitor-brand-copy"><span>What is BoloSite?</span><strong>It lets a website understand visitors and complete approved tasks.</strong></div>
+            </div>
+          </header>
+
+          <nav class="visitor-journey-index" aria-label="Visitor journey contents">
+            <div class="visitor-journey-index-track">
+              <div class="visitor-journey-index-set"><span>Pain point</span><span>Ask</span><span>Understand</span><span>Act</span><span>Peace</span></div>
+              <div class="visitor-journey-index-set" aria-hidden="true"><span>Pain point</span><span>Ask</span><span>Understand</span><span>Act</span><span>Peace</span></div>
+            </div>
+          </nav>
+
+          <section class="visitor-journey-intro">
+            <div>
+              <span class="visitor-journey-number">01</span>
+              <div>
+                <small>The normal website problem</small>
+                <h3>You visit a website to find a solution. Then the website makes you do the work.</h3>
+                <p>You click through menus, scan long sections, open multiple pages, compare details, and still wonder where the right answer is. The solution may already exist on the website, but it is hidden behind messy navigation, scattered content, and unclear buttons.</p>
+              </div>
+            </div>
+            <aside>
+              <small>The feeling visitors know</small>
+              <strong>You get distracted, your time is wasted, your patience drops, and you may leave before finding the right product, answer, or knowledge.</strong>
+              <p>BoloSite gives you a direct way to ask the website instead of hunting through it alone.</p>
+            </aside>
+          </section>
+
+          <section class="visitor-journey-block">
+            <div class="visitor-section-head">
+              <span class="visitor-journey-number">02</span>
+              <div><small>What BoloSite changes</small><h3>Instead of searching the website, you talk to it.</h3></div>
+            </div>
+            <div class="visitor-feature-grid">
+              <article><i data-icon="?" aria-hidden="true"></i><div><strong>Find the right answer faster</strong><p>Ask what you need and let BoloSite guide you to the relevant information, page, product, policy, or form.</p></div></article>
+              <article><i data-icon="i" aria-hidden="true"></i><div><strong>Understand the page</strong><p>When content feels complicated, ask for a simple explanation in natural language.</p></div></article>
+              <article><i data-icon="&rarr;" aria-hidden="true"></i><div><strong>Move without confusion</strong><p>Say or type things like "show pricing", "open contact", or "which product is right for me?"</p></div></article>
+              <article><i data-icon="T" aria-hidden="true"></i><div><strong>Type when privacy matters</strong><p>If you cannot speak because you are in public, at work, in a noisy place, or asking something private, typing works too.</p></div></article>
+              <article><i data-icon="Hi" aria-hidden="true"></i><div><strong>Use your natural language</strong><p>Ask in Hindi, English, or the mix you normally use. The goal is comfort, not perfect commands.</p></div></article>
+              <article><i data-icon="OK" aria-hidden="true"></i><div><strong>Reach the next step</strong><p>BoloSite can help you continue from the answer to the correct section, product, form, or action approved by the website owner.</p></div></article>
+            </div>
+          </section>
+
+          <section class="visitor-journey-block">
+            <div class="visitor-section-head">
+              <span class="visitor-journey-number">03</span>
+              <div><small>Real visitor moments</small><h3>Use BoloSite when the website starts feeling heavy.</h3></div>
+            </div>
+            <div class="visitor-moment-grid">
+              <article><b>1</b><span>You arrive with a need</span><p>You want a solution, product, price, support answer, service detail, contact option, or next step.</p></article>
+              <article><b>2</b><span>The website feels messy</span><p>Too many buttons, too much content, unclear navigation, and no direct answer create mental load.</p></article>
+              <article><b>3</b><span>You ask naturally</span><p>Speak or type one clear question: "What does this do?", "Show plans", "Can this solve my problem?"</p></article>
+              <article><b>4</b><span>BoloSite guides you</span><p>You get a clear answer and a practical next step without manually searching every page.</p></article>
+            </div>
+          </section>
+
+          <section class="visitor-journey-tip">
+            <span>Why this matters for you</span>
+            <div>
+              <p><b>Time saving:</b> Understand the website and its function in 1-2 minutes by naturally talking or typing.</p>
+              <p><b>Mental peace:</b> Less frustration, less guessing, and less pressure to understand a complex interface.</p>
+              <p><b>Better decisions:</b> Get the right answer, product, page, or knowledge before you lose patience.</p>
+            </div>
+          </section>
+
+          <section class="visitor-journey-footer">
+            <div>
+              <span class="eyebrow">Simple idea</span>
+              <h3>The website should help you, not confuse you.</h3>
+              <p>BoloSite makes supported websites feel easier, faster, and more human because you can ask the website directly instead of hunting through it alone.</p>
+            </div>
+            <div class="visitor-journey-actions">
+              <a class="button primary" href="#quick-start">Go to quick start <span>&darr;</span></a>
+              <a class="button secondary" href="index.html#user-guide-video">Watch visitor video <span>&#9654;</span></a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="quick-start">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Quick start</span><h2>From arriving to getting help.</h2><p class="lead">These seven steps work on any website where the BoloSite orb appears.</p></div>
+        <div class="steps">
+          <article class="step reveal"><div><h3>Open the BoloSite-powered website</h3><p>Look for the round BoloSite orb near the bottom-right corner.</p></div><span class="step-tag">Find the orb</span></article>
+          <article class="step reveal"><div><h3>Allow microphone access if you want voice</h3><p>Your browser may ask for permission after you interact with the orb. You can choose text instead if speaking is not suitable.</p></div><span class="step-tag">Your choice</span></article>
+          <article class="step reveal"><div><h3>Say “Hello” or “Hi” — or tap once</h3><p>This wakes BoloSite and starts voice listening. Wait for the orb to turn green before giving a longer request.</p></div><span class="step-tag">Voice start</span></article>
+          <article class="step reveal"><div><h3>Double-click or double-tap for text chat</h3><p>The chat panel opens with a text box, quick suggestions, voice controls, history, and answer tools.</p></div><span class="step-tag">Text start</span></article>
+          <article class="step reveal"><div><h3>Ask in your own words</h3><p>Try “Show me pricing,” “Explain this simply,” or “Which option fits a small team?”</p></div><span class="step-tag">No fixed syntax</span></article>
+          <article class="step reveal"><div><h3>Watch, listen, and follow the result</h3><p>BoloSite may answer, scroll, open an approved section, or guide you into an approved form.</p></div><span class="step-tag">Answer + action</span></article>
+          <article class="step reveal"><div><h3>Continue, interrupt, close, or let it rest</h3><p>Ask a follow-up, speak over a reply to redirect it, close the panel with ×, or leave it inactive so it sleeps.</p></div><span class="step-tag">You stay in control</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="text-chat">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Text chat controls</span><h2>Everything inside the chat panel.</h2><p class="lead">Double-click or double-tap the orb to open it. On desktop, drag the header to move the panel; its position resets after a page refresh.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><div class="card-icon">&#9000;</div><h3>Type and send</h3><p>Write up to 700 characters. Press Enter to send or Shift+Enter for a new line.</p><span class="shortcut">Enter / Shift+Enter</span></article>
+          <article class="feature-card reveal"><div class="card-icon">&#128172;</div><h3>Quick messages</h3><p>Tap a suggestion such as pricing, contact, demo, or setup help, then edit it if needed.</p></article>
+          <article class="feature-card reveal"><div class="card-icon">&#9786;</div><h3>Emoji picker</h3><p>Add a simple emoji to your typed message without leaving the panel.</p></article>
+          <article class="feature-card reveal"><div class="card-icon">&#127908;</div><h3>Voice input on/off</h3><p>The microphone button controls voice input. Text chat still works when the mic is off.</p></article>
+          <article class="feature-card reveal"><div class="card-icon">&#8634;</div><h3>Voice history</h3><p>See up to 24 recent spoken exchanges from the current page session. Refreshing starts a new session.</p></article>
+          <article class="feature-card reveal"><div class="card-icon">&#9790;</div><h3>Chat theme</h3><p>Switch the chat panel between light and dark independently from the website theme.</p></article>
+          <article class="feature-card reveal"><div class="card-icon">&#128266;</div><h3>Speak or stop</h3><p>Use the speaker tool below an answer to hear it, then use the same control to stop playback.</p></article>
+          <article class="feature-card reveal"><div class="card-icon">&#8635;</div><h3>Regenerate and compare</h3><p>Ask for another answer, then use previous and next controls to compare available versions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="practice">
+      <div class="container">
+        <div class="practice reveal">
+          <div><span class="eyebrow">Try it on this page</span><h2>The real assistant is available here.</h2><p>Look at the bottom-right corner. Single-click the orb for voice, or double-click it for text. Try asking, “What is BoloSite?” or “Scroll down.”</p></div>
+          <div class="practice-hint"><span>Good first request</span><strong>“Hello. Explain BoloSite in simple English.”</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="how-it-works">
+      <div class="container">
+        <div class="section-head center reveal"><span class="eyebrow">What happens after you ask</span><h2>One conversation, five clear stages.</h2><p class="lead">The website does the searching work while you stay focused on your need.</p></div>
+        <div class="flow-grid">
+          <article class="flow-step reveal"><b>01 · LISTEN</b><h3>Your request is captured</h3><p>BoloSite receives your spoken words or typed message and detects the language being used.</p></article>
+          <article class="flow-step reveal"><b>02 · UNDERSTAND</b><h3>Your intent is identified</h3><p>It works out whether you need information, navigation, comparison, support, or a form action.</p></article>
+          <article class="flow-step reveal"><b>03 · FIND</b><h3>Approved knowledge is searched</h3><p>It checks the website content and business knowledge provided by the owner.</p></article>
+          <article class="flow-step reveal"><b>04 · ANSWER</b><h3>A clear reply is prepared</h3><p>The answer is matched to your language and the context of your conversation.</p></article>
+          <article class="flow-step reveal"><b>05 · ACT</b><h3>The website may move with you</h3><p>If approved, BoloSite can open, scroll, click, guide, or begin filling a form.</p></article>
+          <article class="flow-step reveal"><b>OWNER CONTROL</b><h3>Not every site enables every action</h3><p>If an action is unavailable, ask for the nearest alternative or use the website controls directly.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="commands">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">What you can say</span><h2>Speak like a person, not a command line.</h2><p class="lead">Use these as ideas. Change the words, add context, or ask a follow-up naturally.</p></div>
+        <div class="command-layout">
+          <aside class="command-note reveal"><h3>No magic phrase is required.</h3><p><strong>Good requests say what outcome you want.</strong> The exact pages and actions available depend on what the website owner has approved.</p></aside>
+          <div class="command-list">
+            <article class="command-group reveal"><header><span>?</span><h3>Ask and understand</h3></header><div class="chips"><span>“What does this service do?”</span><span>“Explain this in simple English.”</span><span>“Is there a refund policy?”</span><span>“Hindi mein samjhao.”</span></div></article>
+            <article class="command-group reveal"><header><span>&#8599;</span><h3>Move around the website</h3></header><div class="chips"><span>“Show me pricing.”</span><span>“Open the contact section.”</span><span>“Scroll down.”</span><span>“Go back to the top.”</span></div></article>
+            <article class="command-group reveal"><header><span>&#8644;</span><h3>Compare and decide</h3></header><div class="chips"><span>“Which plan is best for a small team?”</span><span>“Compare these two options.”</span><span>“What should I choose for my business?”</span><span>“What is the next step?”</span></div></article>
+            <article class="command-group reveal"><header><span>&#10003;</span><h3>Ask for an approved action</h3></header><div class="chips"><span>“Help me book a demo.”</span><span>“Open the support form.”</span><span>“Help me fill the contact form.”</span><span>“Take me to sign up.”</span></div></article>
+            <article class="command-group reveal"><header><span>&#128483;</span><h3>Change the way it responds</h3></header><div class="chips"><span>“Answer in English.”</span><span>“Hindi mein baat karo.”</span><span>“Make that shorter.”</span><span>“Give me an example.”</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="writing">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Writing mode</span><h2>Let BoloSite help with an approved form.</h2><p class="lead">You provide the information, BoloSite fills the mapped fields, and you remain responsible for reviewing and confirming submission.</p></div>
+        <div class="writing-layout">
+          <div class="writing-flow">
+            <article class="writing-item reveal"><b>1</b><div><h3>Ask for the form</h3><p>Say or type, “Help me fill the contact form.”</p></div></article>
+            <article class="writing-item reveal"><b>2</b><div><h3>Answer naturally</h3><p>Give one field or several fields together: “My name is Asha and my email is…”</p></div></article>
+            <article class="writing-item reveal"><b>3</b><div><h3>Correct anything</h3><p>Say, “Change my phone number to…” or “Use my work email instead.”</p></div></article>
+            <article class="writing-item reveal"><b>4</b><div><h3>Review the visible form</h3><p>Check names, contact details, selections, and the message before sending.</p></div></article>
+            <article class="writing-item reveal"><b>5</b><div><h3>Confirm or cancel</h3><p>Submit only when you are ready, or say that you want to cancel the form process.</p></div></article>
+          </div>
+          <div class="conversation reveal" aria-label="Example form-filling conversation">
+            <span>Example conversation</span>
+            <div class="chat-line you">Help me fill the contact form.</div>
+            <div class="chat-line">Sure. What name should I use?</div>
+            <div class="chat-line you">Use Riya Sharma. My email is riya@example.com.</div>
+            <div class="chat-line">I added those details. What would you like to ask the team?</div>
+            <div class="chat-line you">Change the email to work@example.com.</div>
+            <div class="chat-line">Updated. Please review the form before you confirm submission.</div>
+            <div class="safe-note">Passwords can be entered when a verified form needs them, but BoloSite should not repeat the password in its spoken or written reply.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="status-guide">
+      <div class="container">
+        <div class="section-head center reveal"><span class="eyebrow">Orb colour guide</span><h2>The colour tells you what BoloSite is doing.</h2><p class="lead">If you are unsure, check the orb and the status word inside the chat header.</p></div>
+        <div class="state-grid">
+          <article class="state-card reveal" style="--orb:#64748b"><div class="state-orb"></div><h3>Grey</h3><p>Sleeping</p><small>Say “Hello/Hi” or tap once.</small></article>
+          <article class="state-card reveal" style="--orb:#6366f1"><div class="state-orb"></div><h3>Purple</h3><p>Ready or idle, when shown</p><small>Start speaking or open chat.</small></article>
+          <article class="state-card reveal" style="--orb:#22c55e"><div class="state-orb"></div><h3>Green</h3><p>Listening</p><small>Speak naturally now.</small></article>
+          <article class="state-card reveal" style="--orb:#06b6d4"><div class="state-orb"></div><h3>Cyan</h3><p>Thinking</p><small>Wait for the answer.</small></article>
+          <article class="state-card reveal" style="--orb:#f59e0b"><div class="state-orb"></div><h3>Yellow</h3><p>Speaking</p><small>Listen or interrupt politely.</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="close-sleep">
+      <div class="container">
+        <div class="section-head center reveal"><span class="eyebrow">Close, sleep, and wake again</span><h2>Stopping the panel and resting the assistant are different.</h2></div>
+        <div class="sleep-panel reveal">
+          <article><span>01 - CLOSE CHAT</span><h3>Tap the X button</h3><p>This hides the text panel and its history view. It does not immediately put the voice assistant to sleep.</p></article>
+          <article><span>02 - AUTO SLEEP</span><h3>Leave it inactive</h3><p>When chat is closed and BoloSite is not thinking or speaking, it sleeps after about 60 seconds of inactivity.</p></article>
+          <article><span>03 - WAKE AGAIN</span><h3>Greet or tap</h3><p>Say “Hello” or “Hi,” or tap the orb. If voice input is off, open chat and turn the mic back on or keep typing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="troubleshooting">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Troubleshooting</span><h2>If something does not work, try this.</h2><p class="lead">Most issues can be solved by checking permission, colour, connection, or whether the website owner enabled the action.</p></div>
+        <details class="reveal"><summary>The microphone permission was blocked</summary><p>Continue with text chat, or open your browser’s site permissions and allow the microphone for this website. Reload the page after changing permission.</p></details>
+        <details class="reveal"><summary>BoloSite does not react to my voice</summary><p>Check that the mic icon is on, the orb is green, and no other app is using the microphone. Move closer, reduce background noise, or switch to text.</p></details>
+        <details class="reveal"><summary>The orb is cyan for a while</summary><p>Cyan means BoloSite is thinking. Wait for the current request to finish. If the connection fails, use the text panel to retry once with a shorter request.</p></details>
+        <details class="reveal"><summary>It cannot open a page or perform an action</summary><p>The action may not be approved on this website. Ask for the information instead, request the nearest available section, or use the website’s visible navigation.</p></details>
+        <details class="reveal"><summary>I am in a noisy or private place</summary><p>Double-tap the orb to open chat, switch voice input off with the mic button, and type. Voice output can also be stopped from the answer’s speaker control.</p></details>
+        <details class="reveal"><summary>A form field looks wrong</summary><p>Tell BoloSite exactly what to change, then inspect the visible form yourself. Do not confirm submission until every important field is correct.</p></details>
+        <details class="reveal"><summary>What should I avoid sharing?</summary><p>Share only information required for your task. Treat passwords, payment data, OTPs, health information, and private identifiers carefully, and verify the website before entering them.</p></details>
+      </div>
+    </section>
+
+    <section class="section" id="explore">
+      <div class="container">
+        <div class="section-head center reveal"><span class="eyebrow">Keep exploring</span><h2>Choose what you need next.</h2></div>
+        <div class="link-grid">
+          <a class="link-card reveal" href="client.html"><div class="card-icon">&#128188;</div><h3>Owner operations guide</h3><p>Learn how website owners configure knowledge, actions, forms, domains, and billing.</p><b>Open owner guide -></b></a>
+          <a class="link-card reveal" href="index.html#user-guide-video"><div class="card-icon">&#9654;</div><h3>Watch the visitor video</h3><p>See voice, answer, and navigation behavior in a short walkthrough.</p><b>Go to the video -></b></a>
+          <a class="link-card reveal" href="index.html#for-users"><div class="card-icon">&#128100;</div><h3>Website visitor overview</h3><p>See how BoloSite reduces searching and confusion for everyday visitors.</p><b>Open website guide -></b></a>
+          <a class="link-card reveal" href="index.html#what-is-bolosite"><div class="card-icon">&#9432;</div><h3>About BoloSite</h3><p>Understand the product vision, operating layer, approved knowledge, and actions.</p><b>Learn about BoloSite -></b></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-box reveal">
+        <div><h2>Ready? Start with one simple question.</h2><p>Use the live orb on this page or watch the complete visitor walkthrough.</p></div>
+        <div class="final-actions"><a class="button primary" href="#practice">Try BoloSite here</a><a class="button secondary" href="index.html#user-guide-video">Watch video</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand footer-spotlight">
+        <a class="brand" href="/" data-bolosite-scroll-target="top" aria-label="BoloSite home">
+          <img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true">
+          <span>BoloSite</span>
+        </a>
+        <p>BoloSite is building the AI interaction layer for digital experiences. The mission is to help people ask naturally while businesses stay in control of answers, actions, privacy, and usage. Join the shift toward websites and products that understand people instead of making people learn every interface.</p>
+        <div class="footer-status" aria-label="Service details">
+          <span><i></i> India based</span>
+          <span>Natural questions</span>
+          <span>Approved answers</span>
+        </div>
+      </div>
+      <div class="footer-connect">
+        <div class="footer-action-row footer-social-action-row" aria-label="BoloSite social and sharing actions">
+          <a class="footer-action instagram" href="https://www.instagram.com/bolosite" target="_blank" rel="noreferrer" aria-label="BoloSite on Instagram">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4"></rect><circle cx="12" cy="12" r="3.2"></circle><circle cx="16.7" cy="7.3" r="1"></circle></svg></span>
+            <span>Instagram</span>
+          </a>
+          <a class="footer-action linkedin" href="https://www.linkedin.com/company/bolosite" target="_blank" rel="noreferrer" aria-label="BoloSite on LinkedIn">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8"></path><path d="M6.5 7v.01"></path><path d="M11 18v-8"></path><path d="M11 13.6c0-2.3 1.4-3.8 3.5-3.8 2 0 3 1.3 3 3.7V18"></path></svg></span>
+            <span>LinkedIn</span>
+          </a>
+          <a class="footer-action twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.bolosite.com&text=Try%20BoloSite%2C%20the%20AI%20operating%20layer%20for%20websites" target="_blank" rel="noreferrer" aria-label="Share BoloSite on Twitter">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5l12 14"></path><path d="M18 5L6 19"></path></svg></span>
+            <span>Twitter</span>
+          </a>
+          <a class="footer-action gmail" href="mailto:hello@bolosite.ai" aria-label="Email BoloSite">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 6.5h15v11h-15z"></path><path d="m5 7 7 5.5L19 7"></path></svg></span>
+            <span>Gmail</span>
+          </a>
+          <a class="footer-action whatsapp" href="https://wa.me/918797448400" target="_blank" rel="noreferrer" aria-label="Message BoloSite on WhatsApp">
+            <span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.3 18.2 4.8 19l.8-2.4A7.2 7.2 0 1 1 7.3 18.2z"></path><path d="M9.2 8.7c.3 2 1.9 4.2 4.2 5.4l1.5-.9 1.2 1.6c-.7 1-1.7 1.3-2.9.9-2.9-1-5.2-3.3-6.1-6.1-.4-1.1 0-2.2.9-2.8z"></path></svg></span>
+            <span>WhatsApp</span>
+          </a>
+          <button class="footer-action bolosite-share" type="button" id="footerShareButton" data-share-url="https://www.bolosite.com" aria-label="Share BoloSite">
+            <span class="footer-action-icon logo"><img src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+            <span>Share</span>
+          </button>
+        </div>
+
+        <div class="footer-links">
+          <div><strong>For visitors</strong><a href="user.html">How to use BoloSite</a><a href="index.html#user-guide-video">Visitor video</a><a href="index.html#faq">FAQs</a><button type="button" data-open-modal="feedbackModal" data-fallback-href="index.html#contact">Give feedback</button></div>
+          <div><strong>For owners</strong><a href="client.html">Business benefits</a><a href="index.html#how">Integration</a><a href="/pricing">Pricing</a><a href="/contact">Contact</a></div>
+          <div><strong>Company</strong><a href="index.html#what-is-bolosite">What is BoloSite?</a><a href="index.html#vision">The Future</a><a href="index.html#about">Founder</a><a href="index.html#learn">Video hub</a><a href="mailto:hello@bolosite.ai">Email us</a></div>
+          <div><strong>Legal</strong><button type="button" data-open-modal="privacyModal" data-fallback-href="index.html">Privacy policy</button><button type="button" data-open-modal="termsModal" data-fallback-href="index.html">Terms of service</button><span>India | IST</span></div>
+        </div>
+        <button class="footer-feedback-cta" type="button" data-open-modal="feedbackModal" data-fallback-href="index.html#contact"><span>&#9825;</span> Share feedback</button>
+      </div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; <span id="year"></span> BoloSite. Built with purpose in India.</span><div><button type="button" data-open-modal="feedbackModal" data-fallback-href="index.html#contact">Feedback</button><button type="button" id="footerThemeToggle">Switch theme</button></div></div>
+  </footer>
+
+  <!-- Previous compact footer disabled; shared index footer is rendered above.
+  <footer>
+    <div class="container footer-row"><div><strong>BoloSite</strong><p>AI operating layer for websites.</p></div><div class="footer-links"><a href="index.html">Home</a><a href="client.html">Client Guide</a><a href="client-portal.html">Client Portal</a><button class="footer-theme" id="footerThemeToggle" type="button">Switch theme</button><span>© <span id="year"></span></span></div></div>
+  </footer>
+
+  -->
+  <script>
+    (() => {
+      const html = document.documentElement;
+      html.classList.add('reveal-ready');
+      window.setTimeout(() => html.classList.remove('reveal-ready'), 2500);
+      const body = document.body;
+      const header = document.getElementById('siteHeader');
+      const guideToc = document.querySelector('.toc');
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      const themeButtons = [document.getElementById('themeToggle'), document.getElementById('mobileThemeToggle'), document.getElementById('footerThemeToggle')].filter(Boolean);
+
+      const setTheme = theme => {
+        const selected = theme === 'dark' ? 'dark' : 'light';
+        html.dataset.theme = selected;
+        try { localStorage.setItem('bolosite-theme', selected); } catch (e) {}
+        document.querySelector('meta[name="theme-color"]').content = selected === 'dark' ? '#0B1220' : '#F8FAFC';
+        themeButtons.forEach(button => button.setAttribute('aria-label', selected === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'));
+      };
+      setTheme(html.dataset.theme);
+      themeButtons.forEach(button => button.addEventListener('click', () => setTheme(html.dataset.theme === 'dark' ? 'light' : 'dark')));
+
+      const closeMenu = () => {
+        mobileNav.classList.remove('open');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+        body.classList.remove('menu-open');
+      };
+      menuToggle.addEventListener('click', () => {
+        const opening = !mobileNav.classList.contains('open');
+        mobileNav.classList.toggle('open', opening);
+        menuToggle.classList.toggle('active', opening);
+        menuToggle.setAttribute('aria-expanded', String(opening));
+        menuToggle.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
+        body.classList.toggle('menu-open', opening);
+      });
+      mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.querySelectorAll('[data-open-modal]').forEach(button => {
+        button.addEventListener('click', () => {
+          const modal = document.getElementById(button.dataset.openModal);
+          if (modal) return;
+          closeMenu();
+          if (button.dataset.fallbackHref) window.location.href = button.dataset.fallbackHref;
+        });
+      });
+      document.querySelectorAll('[data-auth-view]').forEach(button => {
+        button.addEventListener('click', () => {
+          closeMenu();
+          window.location.href = button.dataset.fallbackHref || 'index.html';
+        });
+      });
+      document.addEventListener('click', event => { if (mobileNav.classList.contains('open') && !event.target.closest('.site-header')) closeMenu(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+      window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
+
+      let guideTocStart = guideToc ? guideToc.getBoundingClientRect().top + window.scrollY : 0;
+      const updateTocHeading = () => {
+        if (!guideToc) return;
+        const navbarSpace = window.innerWidth <= 760 ? 74 : 92;
+        const active = window.scrollY + navbarSpace >= guideTocStart;
+        body.classList.toggle('toc-heading-active', active);
+      };
+      const refreshTocHeading = () => {
+        if (!guideToc) return;
+        body.classList.remove('toc-heading-active');
+        guideTocStart = guideToc.getBoundingClientRect().top + window.scrollY;
+        updateTocHeading();
+      };
+
+      const updateHeader = () => {
+        header.classList.toggle('scrolled', window.scrollY > 18);
+        updateTocHeading();
+      };
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      window.addEventListener('resize', refreshTocHeading);
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const footerShareButton = document.getElementById('footerShareButton');
+      footerShareButton?.addEventListener('click', async () => {
+        const shareUrl = footerShareButton.dataset.shareUrl || 'https://www.bolosite.com';
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: 'BoloSite', text: 'Try BoloSite, the AI operating layer for websites.', url: shareUrl });
+          } else {
+            await navigator.clipboard.writeText(shareUrl);
+          }
+        } catch (error) {}
+      });
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reveals = document.querySelectorAll('.reveal');
+      if (reduced || !('IntersectionObserver' in window)) reveals.forEach(item => item.classList.add('visible'));
+      else {
+        const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        }), { threshold: .09, rootMargin: '0px 0px -40px' });
+        reveals.forEach(item => observer.observe(item));
+      }
+
+
+      document.addEventListener('visibilitychange', () => {
+        html.classList.toggle('page-is-hidden', document.hidden);
+      });
+
+      const tocLinks = [...document.querySelectorAll('.toc a')];
+      const tocTargets = tocLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const updateActiveToc = () => {
+        const viewportCenter = window.innerHeight / 2;
+        let activeId = tocTargets[0]?.id || '';
+        let closestDistance = Number.POSITIVE_INFINITY;
+        tocTargets.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const sectionCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(sectionCenter - viewportCenter);
+          const crossesCenter = rect.top <= viewportCenter && rect.bottom >= viewportCenter;
+          if (crossesCenter || distance < closestDistance) {
+            activeId = section.id;
+            closestDistance = crossesCenter ? -1 : distance;
+          }
+        });
+        tocLinks.forEach(link => {
+          const isActive = link.getAttribute('href') === `#${activeId}`;
+          link.classList.toggle('active', isActive);
+        });
+      };
+      updateActiveToc();
+      window.addEventListener('scroll', updateActiveToc, { passive: true });
+    })();
+  </script>
+<script src="/bolosite-runtime.min.js" data-site-id="SITE_BOLOSITE" data-page="2" data-page-id="visitor" data-page-title="BoloSite Visitor Guide"></script>
+</body>
+</html>

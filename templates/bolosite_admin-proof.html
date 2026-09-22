@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Feedback moderation · BoloSite</title><link rel="stylesheet" href="/assets/css/proof.css"></head><body>
+<header class="proof-header"><a class="brand" href="/admin">BoloSite Admin</a><a href="/trust">Public results page</a></header>
+<main class="proof-container">
+<section class="hero"><div class="eyebrow">Private workspace</div><h1>Feedback &amp; publication</h1><p>Keep critical reviews. Reject spam, abuse, duplicated content or exposed personal details with a specific reason. Private feedback stays private even after approval.</p></section>
+{% if error %}<div class="notice error" role="alert">{{ error }}</div>{% endif %}
+<form method="get" action="/admin/proof" class="filters"><label>Status<select name="status">{% for value,label in [('pending','Awaiting review'),('approved','Reviewed'),('rejected','Not published'),('withdrawn','Withdrawn'),('','All')] %}<option value="{{ value }}" {% if status==value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label><button class="button" type="submit">Filter</button><span>{{ total }} records</span></form>
+<form method="get" action="/admin/proof" class="filters"><input type="hidden" name="status" value="{{ status }}"><label>Topic<select name="category"><option value="">All topics</option>{% for c in categories %}<option value="{{ c }}" {% if category==c %}selected{% endif %}>{{ c }}</option>{% endfor %}</select></label><label>Website<input name="website" value="{{ website }}" maxlength="200"></label><label>Order<select name="order"><option value="newest" {% if order=='newest' %}selected{% endif %}>Newest first</option><option value="oldest" {% if order=='oldest' %}selected{% endif %}>Oldest first</option></select></label><label><input type="checkbox" name="reported" value="1" {% if reported %}checked{% endif %}>Reported reviews only</label><button class="button" type="submit">Apply filters</button></form>
+{% for item in rows %}{% set r=item.record %}{% set p=item.feedback %}
+<article class="panel admin-card">
+<div class="admin-meta"><strong>{{ p.display_name or 'Anonymous' }}</strong><span>{{ r.role }}</span><span>{{ r.language }}</span><span>{{ r.rating or 'No rating' }}{% if r.rating %}/5{% endif %}</span><span>{{ r.category }}</span></div>
+<p class="fine-print">{{ r.created_at }} · {{ r.id }} · {{ r.status }}</p>
+<div class="notice"><strong>Sharing choice: {{ r.visibility }}</strong><br>{% if r.visibility=='private' %}Team only. Never publish the text or include this record in public analytics.{% elif r.visibility=='aggregate' %}Include in aggregate analysis after approval. Do not publish text or identity.{% else %}Review text and chosen display name may be public after approval. Website display: {{ 'permitted' if p.allow_website else 'not permitted' }}.{% endif %}</div>
+{% if r.status!='withdrawn' %}
+<p><strong>Website:</strong> {{ p.website or 'Not supplied' }} · {{ 'Owner verified through account' if p.owner_verified else 'Self-reported' }}<br><strong>Private email:</strong> {{ p.email or 'Not supplied' }}<br><strong>Channel:</strong> {{ p.channel }} · <strong>Goal outcome:</strong> {{ p.outcome }}</p>
+<p class="fine-print">Website activity counts: {{ 'owner permitted public display' if p.allow_metrics else 'not permitted for public display' }}. Source theme analysis is automatic; read the original review before drawing conclusions.</p>
+{% if p.goal %}<p><strong>Goal:</strong> {{ p.goal }}</p>{% endif %}
+{% if p.owner_benefit %}<p><strong>Owner-reported benefit:</strong> {{ p.owner_benefit }}</p>{% endif %}
+<blockquote>{{ p.comment or 'Rating only; no written review.' }}</blockquote>
+<form action="/admin/proof/{{ r.id }}" method="post">
+{% if item.reports %}<div class="notice"><strong>Open reports</strong>{% for report in item.reports %}<p>{{ report.reason }} · {{ report.created_at }}</p>{% endfor %}<label><input type="checkbox" name="resolve_reports" value="1">Mark reports reviewed with this decision</label></div>{% endif %}
+{% if r.author_resolution %}<p><strong>Reviewer confirmation:</strong> {{ r.author_resolution }}</p>{% endif %}
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<div class="form-grid">
+<label>Decision<select name="status">{% for value,label in [('pending','Keep pending'),('approved','Approve / mark reviewed'),('rejected','Reject with reason')] %}<option value="{{ value }}" {% if r.status==value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+<label>Issue progress<select name="issue_status">{% for value,label in [('reviewing','Under review'),('planned','Planned'),('in_progress','In progress'),('released','Released — evidence required')] %}<option value="{{ value }}" {% if r.issue_status==value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+<label class="full">BoloSite reply (public only with an approved public review)<textarea name="reply" maxlength="1200" rows="3">{{ r.reply }}</textarea></label>
+<label>Release evidence URL<input name="release_url" maxlength="500" value="{{ r.release_url }}" placeholder="https://…"></label>
+<label>Expected next update<input type="date" name="next_update" value="{{ r.next_update }}"></label>
+<label>Rejection reason (required when rejecting)<input name="reason" maxlength="400" value="{{ r.reason }}" placeholder="Explain the issue; a negative rating is not a reason"></label>
+</div><div class="form-actions"><button type="submit" class="button">Save review decision</button></div>
+</form>
+{% endif %}</article>
+{% else %}<div class="empty">No feedback in this selection.</div>{% endfor %}
+<nav class="closing" aria-label="Pagination">{% if page>0 %}<a class="button secondary" href="/admin/proof?{{ filters }}&amp;page={{ page-1 }}">Previous</a>{% endif %}{% if (page+1)*30<total %}<a class="button secondary" href="/admin/proof?{{ filters }}&amp;page={{ page+1 }}">Next</a>{% endif %}</nav>
+</main></body></html>

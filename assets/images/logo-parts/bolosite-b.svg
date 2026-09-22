@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 185" role="img" aria-label="BoloSite B mark">
+  <defs>
+    <linearGradient id="bolositeBlue" x1="16" y1="20" x2="118" y2="146" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b7ff"/>
+      <stop offset=".56" stop-color="#1677ff"/>
+      <stop offset="1" stop-color="#7b2cff"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-25%" width="160%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#1185ff" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <g transform="translate(10 0)" filter="url(#softGlow)">
+    <path d="M14 28.5 32 13.5h19L38 28.5Z" fill="url(#bolositeBlue)"/>
+    <g fill="none" stroke="url(#bolositeBlue)" stroke-width="15" stroke-linecap="butt" stroke-linejoin="miter">
+      <path d="M35 21h38c20 0 31 14 31 33 0 19-11 31-30 31H64"/>
+    </g>
+    <path d="M64 85h9c19 0 30 12 30 29 0 19-12 31-32 31H36c-18 0-27-11-27-27" fill="none" stroke="url(#bolositeBlue)" stroke-width="15" stroke-linecap="butt" stroke-linejoin="miter"/>
+    <path d="M45 92.5 61 77.5h23l-12 15H45Z" fill="url(#bolositeBlue)"/>
+    <circle cx="9" cy="118" r="7.5" fill="url(#bolositeBlue)"/>
+  </g>
+</svg>

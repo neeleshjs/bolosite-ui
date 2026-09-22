@@ -1,0 +1,170 @@
+{
+  "description": "Exact original website source copies; preview helpers are separate. Hashes describe the handoff baseline, not later team edits.",
+  "files": [
+    {
+      "path": "templates/bolosite_admin-enquiry.html",
+      "sha256": "03ce397b5c6ac6fe174bfff375e5c1dc562d1541fa5cb395208ca0aaa764e411",
+      "bytes": 7753
+    },
+    {
+      "path": "templates/bolosite_admin-proof.html",
+      "sha256": "283410a938968a9b38e18734329d79a062a1d576495c8ca37cefe455d42344af",
+      "bytes": 6090
+    },
+    {
+      "path": "templates/bolosite_admin.html",
+      "sha256": "a8037991ea7c48b8652401bf99bba97ad1fa8d023150394850babdb9a2133d7d",
+      "bytes": 4878
+    },
+    {
+      "path": "templates/bolosite_enquiry-data.html",
+      "sha256": "39e501a28834865641a8c1810e84eaa3956dd6eb9fd937e92c02d235ec8bda50",
+      "bytes": 46553
+    },
+    {
+      "path": "templates/bolosite_owner-portal.html",
+      "sha256": "4d5b4225aaf0a22ca50a2d634512f0f941ee2a6661c18eea866e26fa567516f3",
+      "bytes": 543489
+    },
+    {
+      "path": "templates/bolosite_test.html",
+      "sha256": "c1ec3ad02bff954c993e6b1f8da245ff99d7aa576b8203365755f167059ef6d5",
+      "bytes": 79059
+    },
+    {
+      "path": "templates/client.html",
+      "sha256": "3d0a2ccf6bf4565bafa2fd4061885aa21f4d289d565af0140c33c4b032fac9b9",
+      "bytes": 172965
+    },
+    {
+      "path": "templates/index.html",
+      "sha256": "07340f9cf269f619fee5823ae702cd77e3e45ef1ad6d0472527ca8b86e2efd20",
+      "bytes": 129797
+    },
+    {
+      "path": "templates/proof.html",
+      "sha256": "eead02ffc3cde2d3be2b5d62fdf944a5dc63cb735558bdc43fa9da9f2ed5666e",
+      "bytes": 24824
+    },
+    {
+      "path": "templates/user.html",
+      "sha256": "d0e10da1bfc9716e1adefa8c833fa14613037793b48754da365248de1a5a35f7",
+      "bytes": 102633
+    },
+    {
+      "path": "assets/css/guide-pages.css",
+      "sha256": "d1e5943e672d8b07ee70df8c79d8f06ac785448285c1c372bd01caf80be6c3bd",
+      "bytes": 13082
+    },
+    {
+      "path": "assets/css/homepage.css",
+      "sha256": "6f94dc13710d93b8fe888d146296c007340ca18d5f2a5dc251daeed02e805f94",
+      "bytes": 378878
+    },
+    {
+      "path": "assets/css/legacy-portal.css",
+      "sha256": "81e693ffaf82126c8b80cfda45c9fe2756bb292353f8f9d00506c747c4d9b9ac",
+      "bytes": 17355
+    },
+    {
+      "path": "assets/css/proof.css",
+      "sha256": "67dcc1669f01d72a55f2f2b13cf7a5e1fd60a2c4c4ec567f5509bce57affcd95",
+      "bytes": 27403
+    },
+    {
+      "path": "assets/css/style.css",
+      "sha256": "ccf9f6de1ac7252feafe0ae3624c0a6cfb96bc45daf4143a3c3824cd818c46cb",
+      "bytes": 68655
+    },
+    {
+      "path": "assets/js/clean-navigation.js",
+      "sha256": "e20dc242941825b32d93345bb67cde5291536a00c17fb1e9b3c0b6c99ea02150",
+      "bytes": 10055
+    },
+    {
+      "path": "assets/js/script.js",
+      "sha256": "1af32e5d7f9fb56f8ed469ddb83467a205194e0ce292c59564046bbc5a4b0bba",
+      "bytes": 45728
+    },
+    {
+      "path": "assets/js/proof.js",
+      "sha256": "3b8493e18a488dd6c3f103d2908e37e65d116fc653338fec8071320b9e86f2de",
+      "bytes": 57213
+    },
+    {
+      "path": "assets/js/owner-quick-suggestions.js",
+      "sha256": "c2fe6848507723688fc9687002f4a8bfd93ed663ed0fe5a2053fce9ae1d47006",
+      "bytes": 9930
+    },
+    {
+      "path": "assets/js/client-portal.js",
+      "sha256": "2d16baf61f112cdaf307a407be9eab21431c882a74a2537426ce1a71a1827a27",
+      "bytes": 3075
+    },
+    {
+      "path": "assets/js/script_old.js",
+      "sha256": "0cc7ab4c47acb8455027398896ef0c37b3c64d551cd0b10fc433ec86131cc445",
+      "bytes": 39951
+    },
+    {
+      "path": "assets/images/bolosite black.jpeg",
+      "sha256": "58c7158e8d14ce49c0862f38f8c72f589466151cdd466552ddc02fce5db81303",
+      "bytes": 50974
+    },
+    {
+      "path": "assets/images/bolosite white.jpeg",
+      "sha256": "d3b7b358f65888a2cb04449a9658b7249b207f2bdd33877540e1029bb0076f8f",
+      "bytes": 57354
+    },
+    {
+      "path": "assets/images/founder.jpeg",
+      "sha256": "3471a65049435c79c6b215847c1a50689d9839c7d1c3e17cc60e4ed2a525cffc",
+      "bytes": 478648
+    },
+    {
+      "path": "assets/images/logo-parts/bolosite-b.svg",
+      "sha256": "197e141dbaceeee527cdff3c3d42c5520b37c531baecf36536bfe2dd1fe253c4",
+      "bytes": 1231
+    },
+    {
+      "path": "assets/images/logo-parts/bolosite-bot.svg",
+      "sha256": "231f4b0943aaf4236c2c1eb7fc8dd98855af38b98aea9a0865adcc169121dfb9",
+      "bytes": 1838
+    },
+    {
+      "path": "assets/images/logo-parts/bolosite-voice.svg",
+      "sha256": "c27bd85e1e3b88b6d933fa44a87df49949d3d11a5af6c80564ec93415b22fab2",
+      "bytes": 1090
+    },
+    {
+      "path": "assets/images/logo-parts/bolosite-word.svg",
+      "sha256": "745ee55f53a0002bcde5f0707bbefbf98f5d34cdcf1754bfad5fdc1a4adcad17",
+      "bytes": 2562
+    },
+    {
+      "path": "assets/video/BoloSite_Client_Guide.mp4",
+      "sha256": "a4faf7d900bea26cd65ad152b44e222708458792100c9da0dc36b9e544d57d0a",
+      "bytes": 46523612
+    },
+    {
+      "path": "assets/video/BoloSite_Product_Overview.mp4",
+      "sha256": "99c039063493c19db2d9953b72eb39dfbcb894e7ead72960ebb3a38933767812",
+      "bytes": 5958888
+    },
+    {
+      "path": "assets/video/BoloSite_Updated_demo.mp4",
+      "sha256": "369de6369cbce95515ff49bdeeb450533a4f544bd5f32dd20bda5b9717debcab",
+      "bytes": 34409842
+    },
+    {
+      "path": "website_owner_analysis/dashboard.css",
+      "sha256": "b921069a0a50e9b9b9112d4181550cd00aef4073dd8eaf49d9870a2f26d7a319",
+      "bytes": 9968
+    },
+    {
+      "path": "website_owner_analysis/dashboard.js",
+      "sha256": "d46e30a3b4b89e9471ce892da9e471c5d2b40b549247535fc2fdf8512e9a21dd",
+      "bytes": 34111
+    }
+  ]
+}

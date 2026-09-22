@@ -1,0 +1,3975 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#F8FAFC" name="theme-color"/>
+<meta content="A complete operational guide for setting up, launching, and managing BoloSite from the owner portal." name="description"/>
+<link href="/favicon.ico" rel="icon" type="image/jpeg"/>
+<link href="https://www.bolosite.com/owner" rel="canonical"/>
+<title>BoloSite Owner Guide — Set Up and Operate Your AI Layer</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('bolosite-theme')||'light'}catch(e){}</script>
+<script src="/assets/js/clean-navigation.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="/assets/css/homepage.css" rel="stylesheet"/>
+<link href="/assets/css/guide-pages.css" rel="stylesheet"/>
+<style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7f2;
+      --surface: #fff;
+      --surface-soft: #edf2e9;
+      --text: #152019;
+      --muted: #647066;
+      --line: #dbe3d8;
+      --brand: #165c45;
+      --blue: #275dd7;
+      --blue-soft: #edf2ff;
+      --accent: #dff46c;
+      --good: #168b61;
+      --warn: #b66b13;
+      --shadow: 0 22px 65px rgba(21,32,25,.10);
+      --header: rgba(245,247,242,.88);
+      --radius: 22px;
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0d120d;
+      --surface: #151c15;
+      --surface-soft: #1b251b;
+      --text: #f3f7f0;
+      --muted: #a8b4a6;
+      --line: #2e3a2d;
+      --brand: #87d8b4;
+      --blue: #82a7ff;
+      --blue-soft: #1b2540;
+      --accent: #dff46c;
+      --good: #65d6a7;
+      --warn: #f3b35c;
+      --shadow: 0 24px 70px rgba(0,0,0,.28);
+      --header: rgba(13,18,13,.88);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans", sans-serif; line-height: 1.65; }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid #4b8ef0; outline-offset: 3px; }
+    .skip-link { position: fixed; left: 16px; top: -80px; z-index: 10000; padding: 11px 16px; border-radius: 12px; background: var(--text); color: var(--bg); font-weight: 800; transition: top .2s; }
+    .skip-link:focus { top: 14px; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 92px 0; }
+    .section.alt { background: var(--surface-soft); border-block: 1px solid var(--line); }
+    .section-head { max-width: 790px; margin-bottom: 34px; }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--brand); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 6px color-mix(in srgb, var(--blue) 14%, transparent); }
+    h1, h2, h3, h4 { margin: 0; font-family: "Manrope", sans-serif; line-height: 1.12; letter-spacing: -.035em; }
+    h1 { font-size: clamp(2.65rem, 5.8vw, 5.35rem); }
+    h2 { margin-top: 10px; font-size: clamp(2rem, 4vw, 3.55rem); }
+    h3 { font-size: clamp(1.16rem, 2vw, 1.5rem); }
+    p { margin: 0; color: var(--muted); }
+    .lead { margin-top: 18px; font-size: clamp(1.02rem, 1.8vw, 1.22rem); }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 19px; border: 1px solid transparent; border-radius: 999px; font-weight: 800; text-decoration: none; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--accent); color: #152019; box-shadow: 0 12px 30px rgba(152,180,44,.22); }
+    .button.secondary { background: var(--surface); color: var(--text); border-color: var(--line); }
+    .button.blue { background: var(--blue); color: #fff; }
+
+    .site-header { position: sticky; top: 0; z-index: 1000; background: var(--header); border-bottom: 1px solid transparent; backdrop-filter: blur(18px); transition: border-color .2s, box-shadow .2s; }
+    .site-header.scrolled { border-color: var(--line); box-shadow: 0 10px 35px rgba(20,33,25,.07); }
+    .nav-shell { width: min(1240px, calc(100% - 32px)); height: 76px; margin: auto; display: flex; align-items: center; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Manrope", sans-serif; font-size: 1.18rem; font-weight: 800; }
+    .brand-logo { width: 38px; height: 38px; border-radius: 11px; object-fit: cover; background: #102018; }
+    .desktop-nav { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .desktop-nav a { padding: 9px 11px; border-radius: 999px; color: var(--muted); text-decoration: none; font-size: .91rem; font-weight: 700; }
+    .desktop-nav a:hover, .desktop-nav a.active { color: var(--text); background: var(--surface-soft); }
+    .nav-actions { display: flex; align-items: center; gap: 9px; }
+    .theme-toggle, .menu-toggle { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; }
+    .theme-toggle { font-size: 1.1rem; }
+    .theme-toggle .moon, html[data-theme="dark"] .theme-toggle .sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .moon { display: inline; }
+    .nav-portal { min-height: 44px; padding: 0 17px; border-radius: 999px; background: var(--text); color: var(--bg); display: inline-flex; align-items: center; text-decoration: none; font-weight: 800; font-size: .9rem; }
+    .menu-toggle { display: none; padding: 0; position: relative; }
+    .menu-toggle span { position: absolute; left: 12px; width: 19px; height: 2px; border-radius: 2px; background: currentColor; transition: .2s; }
+    .menu-toggle span:nth-child(1) { top: 14px; } .menu-toggle span:nth-child(2) { top: 21px; } .menu-toggle span:nth-child(3) { top: 28px; }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav { display: none; }
+
+    .hero { position: relative; overflow: hidden; padding: 76px 0 62px; }
+    .hero::before { content: ""; position: absolute; width: 630px; height: 630px; right: -250px; top: -210px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--blue) 18%, transparent), transparent 68%); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(430px, .9fr); align-items: center; gap: 52px; }
+    .hero h1 em { color: var(--blue); font-style: normal; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 28px; }
+    .hero-points { display: flex; flex-wrap: wrap; gap: 16px 23px; margin-top: 26px; color: var(--muted); font-size: .87rem; font-weight: 700; }
+    .hero-points span::before { content: "✓"; color: var(--good); margin-right: 7px; }
+    .portal-preview { position: relative; padding: 18px; border-radius: 28px; background: #111d18; color: #fff; box-shadow: 0 35px 100px rgba(16,39,29,.26); }
+    .portal-bar { display: flex; align-items: center; justify-content: space-between; padding: 2px 4px 15px; color: #c7d4cc; font-size: .78rem; font-weight: 800; }
+    .portal-bar span:last-child { color: #91ecba; }
+    .portal-shell { display: grid; grid-template-columns: 130px 1fr; min-height: 410px; border-radius: 18px; overflow: hidden; background: #f2f5f0; color: #172019; }
+    .portal-side { padding: 18px 12px; background: #173b2d; color: #c8d7ce; }
+    .portal-side strong { display: block; margin-bottom: 18px; color: #fff; }
+    .portal-side span { display: block; margin: 6px 0; padding: 7px 8px; border-radius: 8px; font-size: .72rem; }
+    .portal-side span.active { background: rgba(255,255,255,.11); color: #efffa9; }
+    .portal-main { padding: 18px; }
+    .portal-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+    .portal-title b { font-family: "Manrope", sans-serif; }
+    .portal-title span { padding: 6px 8px; border-radius: 8px; background: #285dd6; color: #fff; font-size: .65rem; font-weight: 800; }
+    .portal-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+    .portal-stats div, .portal-block { padding: 12px; border: 1px solid #d9e1da; border-radius: 10px; background: #fff; }
+    .portal-stats small { display: block; color: #718077; font-size: .58rem; }
+    .portal-stats b { font-size: 1rem; }
+    .portal-block { margin-top: 9px; }
+    .portal-block > span { font-size: .68rem; font-weight: 800; }
+    .portal-lines { display: grid; gap: 6px; margin-top: 10px; }
+    .portal-lines i { display: block; height: 7px; border-radius: 99px; background: #e4e9e3; }
+    .portal-lines i:nth-child(2) { width: 72%; } .portal-lines i:nth-child(3) { width: 88%; }
+
+    .toc { padding: 17px 0; border-block: 1px solid var(--line); background: var(--surface); position: sticky; top: 76px; z-index: 50; }
+    .toc-track { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+    .toc-track::-webkit-scrollbar { display: none; }
+    .toc a { flex: 0 0 auto; padding: 8px 12px; border-radius: 999px; background: var(--surface-soft); color: var(--muted); text-decoration: none; font-size: .82rem; font-weight: 800; }
+
+    .launch-board { display: grid; grid-template-columns: .7fr 1.3fr; gap: 24px; align-items: start; }
+    .launch-summary { position: sticky; top: 150px; padding: 28px; border-radius: 26px; background: linear-gradient(145deg, #11261b, #164a35); color: #fff; }
+    .launch-summary p { margin-top: 12px; color: #c2d5c9; }
+    .launch-summary ul { margin: 22px 0 0; padding: 0; list-style: none; }
+    .launch-summary li { display: flex; gap: 10px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.12); color: #deebe3; font-size: .9rem; }
+    .launch-summary li::before { content: "✓"; color: #e5f780; font-weight: 900; }
+    .launch-steps { display: grid; gap: 11px; counter-reset: launch; }
+    .launch-step { counter-increment: launch; display: grid; grid-template-columns: 50px 1fr; gap: 14px; padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .launch-step::before { content: counter(launch, decimal-leading-zero); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 13px; background: var(--blue-soft); color: var(--blue); font: 800 .9rem/1 "Manrope", sans-serif; }
+    .launch-step p { margin-top: 5px; }
+    .launch-step a { color: var(--blue); font-weight: 800; }
+
+    .principle-grid, .reference-grid, .test-grid, .link-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .principle, .reference-card, .test-card, .link-card { padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 12px 35px rgba(21,32,25,.04); }
+    .card-icon { width: 44px; height: 44px; margin-bottom: 20px; border-radius: 14px; display: grid; place-items: center; background: var(--blue-soft); color: var(--blue); font-weight: 900; }
+    .principle p, .reference-card p, .test-card p, .link-card p { margin-top: 10px; font-size: .94rem; }
+
+    .reference-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .reference-card { min-height: 300px; position: relative; overflow: hidden; }
+    .reference-card::after { content: attr(data-number); position: absolute; right: 18px; top: 5px; color: var(--surface-soft); font: 800 5.2rem/1 "Manrope", sans-serif; pointer-events: none; }
+    .reference-card > * { position: relative; z-index: 1; }
+    .reference-card ul { margin: 17px 0 0; padding: 0; list-style: none; }
+    .reference-card li { position: relative; padding: 7px 0 7px 20px; color: var(--muted); font-size: .91rem; }
+    .reference-card li::before { content: ""; position: absolute; left: 0; top: 16px; width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
+    .reference-card .source { display: inline-flex; margin-top: 18px; padding: 6px 9px; border-radius: 8px; background: var(--surface-soft); color: var(--muted); font-size: .72rem; font-weight: 800; }
+
+    .intent-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .intent-flow article { min-height: 190px; padding: 22px; border: 1px solid var(--line); border-radius: 19px; background: var(--surface); }
+    .intent-flow b { color: var(--blue); font-size: .75rem; }
+    .intent-flow h3 { margin-top: 24px; }
+    .intent-flow p { margin-top: 9px; font-size: .9rem; }
+
+    .forms-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+    .forms-copy { padding: 29px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
+    .forms-copy ol { margin: 20px 0 0; padding-left: 22px; color: var(--muted); }
+    .forms-copy li { padding: 6px 0; }
+    .form-mock { padding: 26px; border-radius: 24px; background: #12271c; color: #fff; }
+    .form-mock > span { color: #e4f477; font-size: .75rem; font-weight: 800; letter-spacing: .08em; }
+    .mock-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .mock-field { padding: 11px; border: 1px solid rgba(255,255,255,.15); border-radius: 11px; background: rgba(255,255,255,.07); }
+    .mock-field small { display: block; color: #9fb4a7; }
+    .mock-field strong { display: block; margin-top: 3px; font-size: .88rem; }
+    .verify-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 15px; padding: 12px; border-radius: 12px; background: rgba(101,214,167,.12); color: #bff4d9; font-size: .82rem; font-weight: 800; }
+
+    .embed-box { display: grid; grid-template-columns: .85fr 1.15fr; gap: 22px; padding: 31px; border-radius: 28px; background: #111d18; color: #fff; }
+    .embed-box p { margin-top: 12px; color: #becdc3; }
+    .codebox { align-self: center; padding: 20px; overflow-x: auto; border: 1px solid rgba(255,255,255,.13); border-radius: 15px; background: #09120d; color: #bff4d9; font: 500 .78rem/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .codebox b { color: #e7f887; }
+
+    .test-card { min-height: 225px; }
+    .test-card b { display: block; margin-top: 16px; color: var(--good); font-size: .77rem; letter-spacing: .06em; text-transform: uppercase; }
+    .warning { display: grid; grid-template-columns: auto 1fr; gap: 16px; padding: 24px; border: 1px solid color-mix(in srgb, var(--warn) 35%, var(--line)); border-radius: 20px; background: color-mix(in srgb, var(--warn) 8%, var(--surface)); }
+    .warning span { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 13px; background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); font-weight: 900; }
+    .warning p { margin-top: 6px; }
+    .guide-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .process-grid, .knowledge-grid, .security-grid, .billing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .process-card, .knowledge-card, .security-card, .billing-card, .field-card { padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 12px 35px rgba(21,32,25,.04); }
+    .process-card h3, .knowledge-card h3, .security-card h3, .billing-card h3, .field-card h3 { margin-top: 14px; }
+    .process-card p, .knowledge-card p, .security-card p, .billing-card p, .field-card p { margin-top: 10px; font-size: .94rem; }
+    .process-card ol, .process-card ul, .knowledge-card ul, .security-card ul, .billing-card ul, .field-card ul { margin: 16px 0 0; padding-left: 20px; color: var(--muted); }
+    .process-card li, .knowledge-card li, .security-card li, .billing-card li, .field-card li { padding: 5px 0; }
+    .security-layout { display: grid; grid-template-columns: .95fr 1.05fr; gap: 22px; align-items: start; }
+    .security-stack { display: grid; gap: 14px; }
+    .security-note { padding: 30px; border-radius: 26px; background: linear-gradient(145deg, #111d18, #173f30); color: #fff; box-shadow: var(--shadow); }
+    .security-note p { margin-top: 12px; color: #c6d8cc; }
+    .security-note ul { margin: 22px 0 0; padding-left: 20px; color: #e2efe6; }
+    .security-note li { padding: 6px 0; }
+    .mini-steps { display: grid; gap: 10px; counter-reset: mini; }
+    .mini-step { counter-increment: mini; display: grid; grid-template-columns: auto 1fr; gap: 13px; padding: 17px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); }
+    .mini-step::before { content: counter(mini); width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: var(--blue-soft); color: var(--blue); font-weight: 900; }
+    .mini-step p { margin-top: 4px; font-size: .92rem; }
+    .guide-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .guide-table { width: 100%; min-width: 760px; border-collapse: collapse; }
+    .guide-table th, .guide-table td { padding: 15px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .guide-table th { color: var(--text); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; background: var(--surface-soft); }
+    .guide-table td { color: var(--muted); font-size: .92rem; }
+    .guide-table tr:last-child td { border-bottom: 0; }
+    .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+    .field-card strong { display: inline-flex; margin-bottom: 6px; color: var(--blue); font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .pill-list span { padding: 7px 10px; border-radius: 999px; background: var(--surface-soft); color: var(--muted); font-size: .8rem; font-weight: 800; }
+    .truth-box { margin-top: 22px; padding: 22px; border: 1px solid color-mix(in srgb, var(--blue) 28%, var(--line)); border-radius: 20px; background: color-mix(in srgb, var(--blue) 7%, var(--surface)); }
+    .truth-box h3 { margin-bottom: 8px; }
+    .truth-box p + p { margin-top: 10px; }
+
+    details { border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+    details + details { margin-top: 10px; }
+    summary { position: relative; padding: 18px 52px 18px 20px; cursor: pointer; list-style: none; font-family: "Manrope", sans-serif; font-weight: 800; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 20px; top: 16px; color: var(--blue); font-size: 1.3rem; }
+    details[open] summary::after { content: "−"; }
+    details p { padding: 0 20px 19px; }
+
+    .link-card { display: flex; flex-direction: column; min-height: 250px; text-decoration: none; transition: transform .2s, border-color .2s; }
+    .link-card:hover { transform: translateY(-4px); border-color: var(--blue); }
+    .link-card b { margin-top: auto; padding-top: 22px; color: var(--blue); }
+    .final-cta { padding: 70px 0; }
+    .final-box { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; padding: 42px; border-radius: 28px; background: linear-gradient(135deg, #11271c, #183f30); color: #fff; }
+    .final-box p { margin-top: 10px; color: #c4d7ca; }
+    .final-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    footer { padding: 34px 0; border-top: 1px solid var(--line); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .footer-row p { font-size: .86rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 15px; }
+    .footer-links a, .footer-theme { border: 0; padding: 0; background: transparent; color: var(--muted); font-weight: 700; text-decoration: none; cursor: pointer; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1020px) {
+      .desktop-nav, .nav-portal { display: none; }
+      .nav-actions { margin-left: auto; }
+      .menu-toggle { display: block; }
+      .mobile-nav { display: grid; position: fixed; inset: 76px 0 auto 0; max-height: calc(100dvh - 76px); overflow-y: auto; padding: 18px 20px 26px; border-bottom: 1px solid var(--line); background: var(--bg); transform: translateY(-120%); opacity: 0; visibility: hidden; transition: .25s; box-shadow: var(--shadow); }
+      .mobile-nav.open { transform: none; opacity: 1; visibility: visible; }
+      .mobile-nav a, .mobile-nav button { min-height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--text); text-align: left; text-decoration: none; font-weight: 800; }
+      .mobile-nav .mobile-portal { margin-top: 14px; padding: 0 17px; border: 0; border-radius: 14px; background: var(--text); color: var(--bg); }
+      .hero-grid { grid-template-columns: 1fr; }
+      .portal-preview { max-width: 690px; width: 100%; margin-inline: auto; }
+      .reference-grid { grid-template-columns: 1fr; }
+      .intent-flow { grid-template-columns: repeat(2, 1fr); }
+      .process-grid, .knowledge-grid, .security-grid, .billing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .security-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .section { padding: 68px 0; }
+      .hero { padding-top: 52px; }
+      .hero-grid { gap: 36px; }
+      .portal-shell { grid-template-columns: 92px 1fr; min-height: 380px; }
+      .portal-side { padding: 14px 8px; }
+      .portal-stats { grid-template-columns: 1fr; }
+      .portal-stats div:nth-child(3) { display: none; }
+      .launch-board, .forms-panel, .embed-box { grid-template-columns: 1fr; }
+      .launch-summary { position: static; }
+      .principle-grid, .test-grid, .link-grid { grid-template-columns: 1fr; }
+      .intent-flow { grid-template-columns: 1fr; }
+      .process-grid, .knowledge-grid, .security-grid, .billing-grid, .field-grid { grid-template-columns: 1fr; }
+      .final-box { grid-template-columns: 1fr; padding: 30px 24px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      h1 { font-size: 2.5rem; }
+      .nav-shell { width: calc(100% - 20px); }
+      .brand span { font-size: 1.02rem; }
+      .theme-toggle, .menu-toggle { width: 41px; height: 41px; }
+      .hero-actions .button { width: 100%; }
+      .portal-preview { padding: 10px; }
+      .portal-shell { grid-template-columns: 76px 1fr; }
+      .portal-main { padding: 12px; }
+      .mock-row { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  
+
+/* ============================================================
+   BOLOSITE CLIENT GUIDE — HOMEPAGE STYLE OVERRIDE
+   Keeps the guide standalone while matching index.html design.
+============================================================ */
+:root {
+  color-scheme: light;
+  --ink: #0F172A;
+  --ink-2: #1E293B;
+  --muted: #64748B;
+  --paper: #F8FAFC;
+  --paper-2: #F1F5F9;
+  --white: #ffffff;
+  --lime: #2563EB;
+  --lime-2: #06B6D4;
+  --blue: #2563EB;
+  --teal: #06B6D4;
+  --accent: #7C3AED;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --coral: #7C3AED;
+  --line: #E2E8F0;
+  --dark-line: rgba(255, 255, 255, .14);
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --font-head: "Manrope", "Arial", sans-serif;
+  --font-body: "DM Sans", "Arial", sans-serif;
+  --brand-gradient: linear-gradient(135deg, #2563EB, #06B6D4 52%, #7C3AED);
+  --soft-gradient: linear-gradient(135deg, rgba(37, 99, 235, .09), rgba(6, 182, 212, .09) 52%, rgba(124, 58, 237, .08));
+  --shadow: 0 28px 80px rgba(15, 23, 42, .11);
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, .08);
+  --nav-bg: rgba(255, 255, 255, .84);
+  --bg: var(--paper);
+  --surface: var(--white);
+  --surface-soft: var(--paper-2);
+  --text: var(--ink);
+  --brand: var(--blue);
+  --accent-button: var(--brand-gradient);
+  --blue-soft: rgba(37, 99, 235, .10);
+  --good: var(--success);
+  --warn: var(--warning);
+  --header: transparent;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #E5EDF7;
+  --ink-2: #F8FAFC;
+  --muted: #94A3B8;
+  --paper: #0B1220;
+  --paper-2: #111827;
+  --white: #13202B;
+  --line: rgba(255, 255, 255, .12);
+  --nav-bg: rgba(15, 23, 42, .86);
+  --bg: #0B1220;
+  --surface: #111827;
+  --surface-soft: #162033;
+  --text: #E5EDF7;
+  --blue-soft: rgba(37, 99, 235, .16);
+  --shadow: 0 28px 90px rgba(0, 0, 0, .34);
+  --shadow-soft: 0 18px 50px rgba(0, 0, 0, .26);
+}
+
+html { scroll-padding-top: 112px; }
+html.page-is-hidden *,
+html.page-is-hidden *::before,
+html.page-is-hidden *::after { animation-play-state: paused !important; transition: none !important; }
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 4% 4%, rgba(6, 182, 212, .10), transparent 29rem),
+    radial-gradient(circle at 94% 10%, rgba(37, 99, 235, .12), transparent 33rem),
+    radial-gradient(circle at 50% 55%, rgba(124, 58, 237, .055), transparent 32rem),
+    var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+p { color: var(--muted); }
+.container { width: min(1180px, calc(100% - 48px)); }
+.section { padding: 112px 0; position: relative; }
+.section.alt {
+  background:
+    radial-gradient(circle at 90% 15%, rgba(37, 99, 235, .07), transparent 30rem),
+    var(--paper-2);
+  border-block: 1px solid var(--line);
+}
+.section-head { margin-bottom: 44px; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--blue);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  width: 8px;
+  height: 8px;
+  background: var(--teal);
+  box-shadow: 0 0 0 5px rgba(6, 182, 212, .13);
+  animation: pulse 1.6s infinite;
+}
+@keyframes pulse { 50% { box-shadow: 0 0 0 9px rgba(6, 182, 212, 0); } }
+
+h1, h2, h3, h4 { font-family: var(--font-head); }
+h1 {
+  font-size: clamp(52px, 6.1vw, 82px);
+  line-height: .99;
+  letter-spacing: -.065em;
+}
+h2 {
+  font-size: clamp(38px, 4.6vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+h3 { letter-spacing: -.035em; }
+.lead { max-width: 760px; color: var(--muted); line-height: 1.72; }
+
+.button {
+  min-height: 52px;
+  border-radius: 12px;
+  padding: 0 22px;
+  font-size: 15px;
+  transition: transform .22s, box-shadow .22s, background .22s, border-color .22s, filter .22s;
+}
+.button.primary,
+.button.blue {
+  color: #fff;
+  background: var(--brand-gradient);
+  box-shadow: 0 14px 32px rgba(37, 99, 235, .24);
+}
+.button.secondary {
+  border-color: var(--line);
+  color: var(--ink);
+  background: rgba(255,255,255,.7);
+}
+html[data-theme="dark"] .button.secondary { background: rgba(255,255,255,.055); }
+.button:hover { transform: translateY(-2px); filter: saturate(1.06); }
+
+.skip-link {
+  background: var(--blue);
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* Header copied visually from the homepage, but standalone links stay functional. */
+.site-header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 24px;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+  transition: padding .3s ease;
+}
+.site-header.scrolled { padding-top: 9px; border: 0; box-shadow: none; }
+.nav-shell {
+  width: min(1240px, 100%);
+  height: 68px;
+  margin: 0 auto;
+  padding: 0 12px 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid rgba(15, 23, 42, .10);
+  border-radius: 18px;
+  background: var(--nav-bg);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, .07);
+  backdrop-filter: blur(18px);
+}
+html[data-theme="dark"] .nav-shell { border-color: rgba(255,255,255,.12); box-shadow: 0 18px 50px rgba(0,0,0,.26); }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-logo-image,
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.34);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, .18);
+  animation: logo-float 4.2s ease-in-out infinite;
+}
+@keyframes logo-float { 50% { transform: translateY(-3px) rotate(-2deg); box-shadow: 0 16px 34px rgba(6, 182, 212, .22); } }
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+.desktop-nav a,
+.desktop-nav .nav-guide-trigger {
+  border: 0;
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .2s, transform .2s, background .2s, box-shadow .2s;
+}
+.desktop-nav a:hover,
+.desktop-nav a.active { color: var(--ink); }
+.desktop-nav .nav-guide-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border-radius: 10px;
+}
+.desktop-nav .nav-guide-trigger:hover,
+.desktop-nav .nav-guide-trigger.active {
+  transform: translateY(-1px);
+  color: var(--ink);
+  box-shadow: 0 7px 18px rgba(15, 23, 42, .08);
+}
+.nav-audience-user { background: rgba(37, 99, 235, .10) !important; }
+.nav-audience-client { background: rgba(6, 182, 212, .16) !important; }
+.nav-guide-trigger i {
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: var(--muted);
+  background: rgba(255,255,255,.68);
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+html[data-theme="dark"] .nav-guide-trigger i { background: rgba(255,255,255,.08); }
+.nav-actions { display: flex; align-items: center; gap: 10px; margin-left: 0; }
+.nav-signup,
+.nav-portal {
+  min-height: 44px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+html[data-theme="dark"] .nav-signup { color: #0B1220; background: #F8FAFC; }
+.nav-signup:hover { transform: translateY(-2px); }
+.theme-toggle {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, .58);
+  cursor: pointer;
+  overflow: hidden;
+}
+html[data-theme="dark"] .theme-toggle { background: rgba(255,255,255,.06); }
+.theme-toggle span { position: absolute; inset: 0; display: grid; place-items: center; transition: transform .3s, opacity .3s; }
+.theme-toggle .theme-moon { transform: translateY(34px); opacity: 0; font-size: 20px; }
+html[data-theme="dark"] .theme-toggle .theme-sun { transform: translateY(-34px); opacity: 0; }
+html[data-theme="dark"] .theme-toggle .theme-moon { transform: translateY(0); opacity: 1; }
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ink);
+  cursor: pointer;
+}
+.menu-toggle span {
+  position: static;
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  margin: 5px auto;
+  border-radius: 3px;
+  background: #fff;
+  transition: transform .25s, opacity .25s;
+}
+html[data-theme="dark"] .menu-toggle { background: #F8FAFC; }
+html[data-theme="dark"] .menu-toggle span { background: #0B1220; }
+.menu-toggle.active span:first-child { transform: translateY(6.5px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:last-child { transform: translateY(-6.5px) rotate(-45deg); }
+.mobile-nav { display: none; }
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 170px 0 104px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .46;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, .045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 84%);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  right: -240px;
+  top: -230px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, .20), rgba(37, 99, 235, .10) 48%, transparent 70%);
+  pointer-events: none;
+}
+.hero-grid { position: relative; z-index: 1; grid-template-columns: minmax(0, .96fr) minmax(470px, 1.04fr); gap: 72px; }
+.hero h1 em {
+  display: inline-block;
+  color: var(--teal);
+  font-style: normal;
+  position: relative;
+}
+.hero h1 em::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: -8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(37,99,235,.22), rgba(6,182,212,.48), rgba(124,58,237,.22));
+}
+.hero-actions { gap: 12px; margin-top: 32px; }
+.hero-points {
+  gap: 11px;
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+.hero-points span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.58);
+}
+html[data-theme="dark"] .hero-points span { background: rgba(255,255,255,.045); }
+.hero-points span::before { content: "✓"; margin: 0; color: var(--teal); font-weight: 900; }
+
+.portal-preview {
+  position: relative;
+  padding: 14px;
+  border: 1px solid rgba(15, 23, 42, .12);
+  border-radius: 26px;
+  color: #E5EDF7;
+  background: #0F172A;
+  box-shadow: 0 38px 90px rgba(15, 23, 42, .22);
+  overflow: hidden;
+  animation: float-card 5.2s ease-in-out infinite;
+}
+@keyframes float-card { 50% { transform: translateY(-7px); } }
+.portal-preview::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(6, 182, 212, .24), transparent 32%),
+    radial-gradient(circle at 12% 82%, rgba(124, 58, 237, .18), transparent 35%);
+  pointer-events: none;
+}
+.portal-bar,
+.portal-shell { position: relative; z-index: 1; }
+.portal-bar { padding: 8px 8px 16px; color: #B6C2D2; letter-spacing: .08em; text-transform: uppercase; }
+.portal-bar span:last-child { color: #67E8F9; }
+.portal-shell {
+  grid-template-columns: 142px 1fr;
+  min-height: 440px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  background: #F8FAFC;
+  color: #0F172A;
+  box-shadow: inset 0 1px rgba(255,255,255,.6);
+}
+.portal-side {
+  padding: 20px 12px;
+  background: linear-gradient(180deg, #0F172A, #1E293B);
+  color: #CBD5E1;
+}
+.portal-side strong { color: #fff; font-size: 13px; }
+.portal-side span { color: #AEBBCA; }
+.portal-side span.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(37,99,235,.75), rgba(6,182,212,.50));
+}
+.portal-main { padding: 20px; }
+.portal-title span { background: var(--brand-gradient); }
+.portal-stats div, .portal-block {
+  border-color: #E2E8F0;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .06);
+}
+.portal-lines i { background: linear-gradient(90deg, #E2E8F0, #C7D2FE); }
+.portal-lines i:first-child { background: var(--brand-gradient); width: 62%; }
+
+/* Sticky guide nav */
+.toc {
+  top: 96px;
+  padding: 14px 0;
+  border-block: 1px solid var(--line);
+  background: rgba(255,255,255,.76);
+  backdrop-filter: blur(16px);
+}
+html[data-theme="dark"] .toc { background: rgba(15,23,42,.74); }
+.toc a {
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: rgba(255,255,255,.70);
+  transition: color .2s, background .2s, border-color .2s, transform .2s;
+}
+html[data-theme="dark"] .toc a { background: rgba(255,255,255,.045); }
+.toc a:hover,
+.toc a.active { color: #fff; border-color: transparent; background: var(--brand-gradient); transform: translateY(-1px); }
+
+/* Cards, tables and panels */
+.launch-summary,
+.security-note,
+.embed-box,
+.final-box,
+.form-mock {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(6, 182, 212, .18), transparent 36%),
+    linear-gradient(145deg, #0F172A, #172033);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, .20);
+}
+.launch-summary li::before { color: #67E8F9; }
+.launch-step,
+.principle,
+.reference-card,
+.test-card,
+.link-card,
+.process-card,
+.knowledge-card,
+.security-card,
+.billing-card,
+.field-card,
+.mini-step,
+details,
+.forms-copy,
+.guide-table-wrap,
+.intent-flow article {
+  border-color: var(--line);
+  background: rgba(255,255,255,.84);
+  box-shadow: var(--shadow-soft);
+}
+html[data-theme="dark"] .launch-step,
+html[data-theme="dark"] .principle,
+html[data-theme="dark"] .reference-card,
+html[data-theme="dark"] .test-card,
+html[data-theme="dark"] .link-card,
+html[data-theme="dark"] .process-card,
+html[data-theme="dark"] .knowledge-card,
+html[data-theme="dark"] .security-card,
+html[data-theme="dark"] .billing-card,
+html[data-theme="dark"] .field-card,
+html[data-theme="dark"] .mini-step,
+html[data-theme="dark"] details,
+html[data-theme="dark"] .forms-copy,
+html[data-theme="dark"] .guide-table-wrap,
+html[data-theme="dark"] .intent-flow article {
+  background: rgba(17, 24, 39, .84);
+}
+.launch-step,
+.principle,
+.reference-card,
+.test-card,
+.link-card,
+.process-card,
+.knowledge-card,
+.security-card,
+.billing-card,
+.field-card,
+.mini-step,
+.intent-flow article { transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease; }
+.launch-step:hover,
+.principle:hover,
+.reference-card:hover,
+.test-card:hover,
+.link-card:hover,
+.process-card:hover,
+.knowledge-card:hover,
+.security-card:hover,
+.billing-card:hover,
+.field-card:hover,
+.mini-step:hover,
+.intent-flow article:hover {
+  transform: translateY(-5px);
+  border-color: rgba(6, 182, 212, .35);
+  box-shadow: var(--shadow);
+}
+.launch-step::before,
+.mini-step::before,
+.card-icon {
+  color: #fff;
+  background: var(--brand-gradient);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, .18);
+}
+.reference-card::after { color: rgba(37, 99, 235, .08); }
+.reference-card .source,
+.pill-list span,
+.step-tag {
+  background: var(--soft-gradient);
+  color: var(--blue);
+}
+.truth-box {
+  border-color: rgba(6, 182, 212, .22);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(6, 182, 212, .11), transparent 38%),
+    rgba(255,255,255,.72);
+}
+html[data-theme="dark"] .truth-box { background: rgba(255,255,255,.045); }
+.warning {
+  border-color: rgba(245, 158, 11, .34);
+  background: rgba(245, 158, 11, .09);
+}
+.warning span { background: rgba(245, 158, 11, .18); color: var(--warning); }
+.guide-table th { background: var(--paper-2); color: var(--ink); }
+.guide-table td { color: var(--muted); }
+.guide-table code,
+code {
+  padding: 2px 5px;
+  border-radius: 6px;
+  color: var(--blue);
+  background: rgba(37, 99, 235, .08);
+}
+.mock-field,
+.verify-bar { border-color: rgba(255,255,255,.14); }
+.verify-bar { background: rgba(6, 182, 212, .13); color: #CFFAFE; }
+.codebox { color: #CFFAFE; background: #0B1220; }
+.codebox b { color: #67E8F9; }
+
+/* Footer like the homepage */
+.site-footer {
+  padding-top: 70px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(6, 182, 212, .08), transparent 32rem),
+    var(--paper-2);
+}
+.footer-main {
+  padding-bottom: 58px;
+  display: grid;
+  grid-template-columns: .9fr 1.3fr;
+  gap: 70px;
+}
+.footer-brand p {
+  max-width: 420px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.footer-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.footer-status span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255,255,255,.58);
+  font-size: 11px;
+  font-weight: 800;
+}
+html[data-theme="dark"] .footer-status span { background: rgba(255,255,255,.045); }
+.footer-status i { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px rgba(6,182,212,.12); }
+.footer-connect { display: flex; flex-direction: column; gap: 30px; }
+.footer-action-row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+.footer-action {
+  min-height: 72px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  background: rgba(255,255,255,.70);
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+html[data-theme="dark"] .footer-action { background: rgba(255,255,255,.045); }
+.footer-action:hover { transform: translateY(-3px); border-color: rgba(6,182,212,.35); box-shadow: var(--shadow-soft); }
+.footer-action-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  color: #fff;
+  background: var(--brand-gradient);
+  font-weight: 900;
+}
+.footer-action-icon.logo { overflow: hidden; padding: 0; background: #0F172A; }
+.footer-action-icon.logo img { width: 100%; height: 100%; object-fit: cover; }
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+.footer-links div { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.footer-links strong { margin-bottom: 5px; font-family: var(--font-head); font-size: 12px; color: var(--ink); }
+.footer-links a,
+.footer-links button,
+.footer-links span {
+  padding: 0;
+  border: 0;
+  color: var(--muted);
+  background: none;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.footer-links a:hover,
+.footer-links button:hover { color: var(--ink); }
+.footer-bottom {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+.footer-bottom div { display: flex; gap: 18px; }
+.footer-bottom a { color: var(--muted); font-weight: 800; }
+.footer-bottom a:hover { color: var(--ink); }
+
+/* Reveal and micro animation */
+.reveal { opacity: 1; transform: none; transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.3,1); }
+.reveal-ready .reveal { opacity: 0; transform: translateY(24px); }
+.reveal-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+.portal-lines i { position: relative; overflow: hidden; }
+.portal-lines i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
+  animation: shimmer 2.8s ease-in-out infinite;
+}
+@keyframes shimmer { 55%,100% { transform: translateX(100%); } }
+
+@media (max-width: 1120px) {
+  .desktop-nav { gap: 18px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 58px; }
+  .hero .reveal:first-child { max-width: 820px; text-align: center; margin-inline: auto; }
+  .hero .lead { margin-left: auto; margin-right: auto; }
+  .hero-actions, .hero-points { justify-content: center; }
+  .portal-preview { width: min(760px, 100%); margin-inline: auto; }
+}
+@media (max-width: 920px) {
+  .desktop-nav, .nav-signup { display: none; }
+  .menu-toggle { display: block; }
+  .site-header { padding: 12px 16px; }
+  .mobile-nav {
+    position: absolute;
+    top: 88px;
+    left: 16px;
+    right: 16px;
+    display: block;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--nav-bg);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, .15);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .25s, visibility .25s, transform .25s;
+    max-height: calc(100dvh - 105px);
+    overflow-y: auto;
+  }
+  .mobile-nav.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .mobile-nav a,
+  .mobile-nav button {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    background: transparent;
+    text-align: left;
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .mobile-guide-trigger { min-height: 62px !important; border-radius: 13px; border-bottom: 0 !important; margin-bottom: 8px; }
+  .mobile-guide-trigger span { display: flex; flex-direction: column; }
+  .mobile-guide-trigger small { margin-bottom: 3px; color: var(--muted); font-family: var(--font-body); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; }
+  .mobile-guide-trigger i { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 8px; font-style: normal; }
+  .mobile-guide-trigger.user { background: rgba(37, 99, 235, .10); }
+  .mobile-guide-trigger.client { background: rgba(6, 182, 212, .14); }
+  .mobile-theme-toggle { margin-top: 8px; border: 1px solid var(--line) !important; border-radius: 12px; justify-content: center !important; gap: 9px; }
+  .mobile-portal { margin-top: 8px; border-bottom: 0 !important; border-radius: 12px; color: #fff !important; background: var(--ink) !important; }
+  html[data-theme="dark"] .mobile-portal { color: #0B1220 !important; background: #F8FAFC !important; }
+  .launch-board,
+  .forms-panel,
+  .embed-box,
+  .security-layout { grid-template-columns: 1fr; }
+  .launch-summary { position: static; }
+  .footer-main { grid-template-columns: 1fr; gap: 46px; }
+  .footer-action-row { grid-template-columns: repeat(3, 1fr); }
+  .footer-links { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  html { scroll-padding-top: 96px; }
+  .container { width: min(100% - 32px, 1180px); }
+  .section { padding: 76px 0; }
+  .site-header { padding: 10px 12px; }
+  .nav-shell { height: 60px; padding-left: 13px; border-radius: 15px; }
+  .brand { font-size: 18px; }
+  .brand-logo-image, .brand-logo { width: 32px; height: 32px; border-radius: 10px; }
+  .theme-toggle, .menu-toggle { width: 40px; height: 40px; }
+  .mobile-nav { top: 78px; left: 12px; right: 12px; }
+  .hero { padding: 132px 0 76px; }
+  h1 { font-size: clamp(42px, 12.5vw, 60px); }
+  h2 { font-size: 36px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .button { width: 100%; }
+  .hero-points { justify-content: flex-start; }
+  .portal-preview { padding: 10px; border-radius: 22px; animation: none; }
+  .portal-shell { grid-template-columns: 88px 1fr; min-height: 380px; }
+  .portal-side { padding: 14px 8px; }
+  .portal-side strong { font-size: 11px; }
+  .portal-side span { padding: 6px 5px; font-size: 10px; }
+  .portal-main { padding: 13px; }
+  .portal-stats { grid-template-columns: 1fr; }
+  .portal-stats div:nth-child(3) { display: none; }
+  .toc { top: 78px; padding: 11px 0; }
+  .toc-track { padding-bottom: 2px; }
+  .toc a { padding: 8px 10px; font-size: 12px; }
+  .principle-grid,
+  .test-grid,
+  .link-grid,
+  .process-grid,
+  .knowledge-grid,
+  .security-grid,
+  .billing-grid,
+  .field-grid,
+  .intent-flow,
+  .reference-grid { grid-template-columns: 1fr !important; }
+  .reference-card { min-height: auto; }
+  .guide-table { min-width: 680px; }
+  .final-box { grid-template-columns: 1fr; padding: 32px 24px; border-radius: 24px; }
+  .final-actions { flex-direction: column; }
+  .final-actions .button { width: 100%; }
+  .footer-action-row { grid-template-columns: repeat(2, 1fr); }
+  .footer-links { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; padding: 22px 0; }
+}
+@media (max-width: 420px) {
+  .container { width: min(100% - 28px, 1180px); }
+  .portal-shell { grid-template-columns: 76px 1fr; }
+  .mock-row { grid-template-columns: 1fr; }
+  .footer-action-row { grid-template-columns: 1fr 1fr; }
+  .footer-links { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo-image, .brand-logo, .portal-preview, .portal-lines i::after { animation: none !important; }
+  .reveal, .reveal-ready .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ============================================================
+   READABILITY PASS — content only, navbar/footer untouched
+   Keeps the BoloSite theme but removes extra fancy styling from the guide body.
+============================================================ */
+main {
+  --content-shadow: 0 10px 28px rgba(15, 23, 42, .055);
+  --content-shadow-dark: 0 14px 34px rgba(0, 0, 0, .18);
+}
+
+main .section {
+  padding: 78px 0;
+}
+
+main .section.alt {
+  background: color-mix(in srgb, var(--paper-2) 72%, var(--white));
+}
+
+html[data-theme="dark"] main .section.alt {
+  background: color-mix(in srgb, var(--paper-2) 82%, #020617);
+}
+
+main .section-head {
+  max-width: 820px;
+  margin-bottom: 28px;
+}
+
+main .section-head.center {
+  max-width: 780px;
+}
+
+main .eyebrow {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: .09em;
+}
+
+main .eyebrow::before {
+  width: 7px;
+  height: 7px;
+  background: var(--teal);
+  box-shadow: 0 0 0 5px rgba(6, 182, 212, .12);
+}
+
+main h1 {
+  font-size: clamp(42px, 5.2vw, 70px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+}
+
+main h2 {
+  font-size: clamp(31px, 3.5vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+
+main h3 {
+  font-size: clamp(17px, 1.65vw, 22px);
+  line-height: 1.24;
+  letter-spacing: -.028em;
+}
+
+main p,
+main li,
+main td,
+main details p {
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+main .lead {
+  max-width: 760px;
+  margin-top: 14px;
+  font-size: clamp(16px, 1.55vw, 18px);
+  line-height: 1.72;
+}
+
+main .hero {
+  padding: 145px 0 74px;
+  background:
+    radial-gradient(circle at 88% 6%, rgba(37, 99, 235, .09), transparent 30rem),
+    linear-gradient(180deg, rgba(248,250,252,.86), rgba(248,250,252,0));
+}
+
+html[data-theme="dark"] main .hero {
+  background:
+    radial-gradient(circle at 88% 6%, rgba(6, 182, 212, .10), transparent 30rem),
+    linear-gradient(180deg, rgba(15,23,42,.62), rgba(15,23,42,0));
+}
+
+main .hero::before,
+main .hero::after {
+  opacity: .18;
+  filter: none;
+}
+
+main .hero-grid {
+  gap: 52px;
+}
+
+main .hero h1 em::after {
+  height: 5px;
+  bottom: -5px;
+  opacity: .65;
+}
+
+main .hero-actions {
+  margin-top: 26px;
+}
+
+main .hero-points {
+  margin-top: 22px;
+  gap: 9px;
+}
+
+main .hero-points span {
+  padding: 7px 10px;
+  background: var(--white);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] main .hero-points span {
+  background: rgba(255,255,255,.045);
+}
+
+main .portal-preview {
+  animation: none;
+  padding: 12px;
+  border-radius: 22px;
+  background: #0F172A;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, .16);
+}
+
+main .portal-preview::before {
+  opacity: .55;
+}
+
+main .portal-shell {
+  min-height: 390px;
+  border-radius: 15px;
+}
+
+main .portal-side {
+  background: #111827;
+}
+
+main .portal-main {
+  padding: 18px;
+}
+
+main .portal-stats div,
+main .portal-block {
+  box-shadow: none;
+}
+
+main .portal-lines i,
+main .portal-lines i:first-child {
+  background: #D8E1EE;
+}
+
+main .portal-lines i::after {
+  display: none;
+}
+
+main .toc {
+  background: color-mix(in srgb, var(--white) 88%, transparent);
+}
+
+html[data-theme="dark"] main .toc {
+  background: rgba(15, 23, 42, .88);
+}
+
+main .toc a {
+  background: transparent;
+  transform: none !important;
+}
+
+main .toc a:hover,
+main .toc a.active {
+  color: var(--blue);
+  border-color: color-mix(in srgb, var(--blue) 30%, var(--line));
+  background: color-mix(in srgb, var(--blue) 8%, transparent);
+}
+
+main .launch-summary,
+main .security-note,
+main .embed-box,
+main .final-box,
+main .form-mock {
+  background: #111827;
+  box-shadow: var(--content-shadow);
+}
+
+html[data-theme="dark"] main .launch-summary,
+html[data-theme="dark"] main .security-note,
+html[data-theme="dark"] main .embed-box,
+html[data-theme="dark"] main .final-box,
+html[data-theme="dark"] main .form-mock {
+  background: #0B1220;
+  box-shadow: var(--content-shadow-dark);
+}
+
+main .launch-summary {
+  padding: 24px;
+  border-radius: 20px;
+}
+
+main .launch-summary li {
+  padding: 9px 0;
+  font-size: 14px;
+}
+
+main .launch-step,
+main .principle,
+main .reference-card,
+main .test-card,
+main .link-card,
+main .process-card,
+main .knowledge-card,
+main .security-card,
+main .billing-card,
+main .field-card,
+main .mini-step,
+main details,
+main .forms-copy,
+main .guide-table-wrap,
+main .intent-flow article,
+main .truth-box,
+main .warning {
+  border-radius: 16px;
+  box-shadow: var(--content-shadow);
+}
+
+html[data-theme="dark"] main .launch-step,
+html[data-theme="dark"] main .principle,
+html[data-theme="dark"] main .reference-card,
+html[data-theme="dark"] main .test-card,
+html[data-theme="dark"] main .link-card,
+html[data-theme="dark"] main .process-card,
+html[data-theme="dark"] main .knowledge-card,
+html[data-theme="dark"] main .security-card,
+html[data-theme="dark"] main .billing-card,
+html[data-theme="dark"] main .field-card,
+html[data-theme="dark"] main .mini-step,
+html[data-theme="dark"] main details,
+html[data-theme="dark"] main .forms-copy,
+html[data-theme="dark"] main .guide-table-wrap,
+html[data-theme="dark"] main .intent-flow article,
+html[data-theme="dark"] main .truth-box,
+html[data-theme="dark"] main .warning {
+  box-shadow: var(--content-shadow-dark);
+}
+
+main .principle,
+main .reference-card,
+main .test-card,
+main .link-card,
+main .process-card,
+main .knowledge-card,
+main .security-card,
+main .billing-card,
+main .field-card {
+  padding: 22px;
+}
+
+main .launch-step,
+main .mini-step {
+  padding: 18px;
+}
+
+main .reference-card {
+  min-height: auto;
+}
+
+main .reference-card::after {
+  opacity: .06;
+  font-size: 4.1rem;
+}
+
+main .card-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--blue) 10%, var(--white));
+  color: var(--blue);
+}
+
+html[data-theme="dark"] main .card-icon {
+  background: rgba(37,99,235,.16);
+}
+
+main .intent-flow article {
+  min-height: auto;
+}
+
+main .forms-panel,
+main .security-layout,
+main .embed-box,
+main .launch-board {
+  gap: 18px;
+}
+
+main .form-mock,
+main .forms-copy,
+main .embed-box,
+main .security-note {
+  padding: 24px;
+  border-radius: 18px;
+}
+
+main .truth-box {
+  margin-top: 18px;
+  padding: 18px;
+  background: color-mix(in srgb, var(--blue) 5%, var(--white));
+}
+
+html[data-theme="dark"] main .truth-box {
+  background: rgba(37,99,235,.08);
+}
+
+main .warning {
+  padding: 18px;
+}
+
+main .guide-table-wrap {
+  margin-top: 18px;
+}
+
+main .guide-table th,
+main .guide-table td {
+  padding: 13px 14px;
+}
+
+main .guide-table th {
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+main .pill-list span,
+main .reference-card .source,
+main .test-card b {
+  letter-spacing: .04em;
+}
+
+main .link-card:hover {
+  transform: translateY(-2px);
+}
+
+main .final-cta {
+  padding: 58px 0 72px;
+}
+
+main .final-box {
+  padding: 34px;
+  border-radius: 20px;
+}
+
+main .reveal {
+  transition-duration: .45s;
+}
+
+@media (max-width: 760px) {
+  main .section {
+    padding: 58px 0;
+  }
+  main .section-head {
+    margin-bottom: 22px;
+  }
+  main .hero {
+    padding: 118px 0 58px;
+  }
+  main h1 {
+    font-size: clamp(36px, 11vw, 48px);
+    line-height: 1.06;
+  }
+  main h2 {
+    font-size: 29px;
+  }
+  main h3 {
+    font-size: 18px;
+  }
+  main p,
+  main li,
+  main td,
+  main details p {
+    font-size: 14px;
+  }
+  main .lead {
+    font-size: 15px;
+  }
+  main .portal-shell {
+    min-height: 340px;
+  }
+  main .principle,
+  main .reference-card,
+  main .test-card,
+  main .link-card,
+  main .process-card,
+  main .knowledge-card,
+  main .security-card,
+  main .billing-card,
+  main .field-card,
+  main .launch-step,
+  main .mini-step {
+    padding: 17px;
+  }
+  main .form-mock,
+  main .forms-copy,
+  main .embed-box,
+  main .security-note,
+  main .final-box {
+    padding: 22px;
+  }
+main .guide-table {
+    min-width: 620px;
+  }
+}
+
+/* Content and RAG: compact editorial layout */
+.client-guide-page #content-rag .section-head {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.client-guide-page #content-rag .section-head h2 {
+  max-width: 720px;
+}
+
+.client-guide-page #content-rag .lead {
+  max-width: 660px;
+}
+
+.client-guide-page #content-rag .rag-feature {
+  display: grid;
+  grid-template-columns: minmax(280px, .82fr) minmax(0, 1.55fr);
+  gap: 18px;
+  align-items: stretch;
+  max-width: 1120px;
+}
+
+.client-guide-page #content-rag .rag-brief,
+.client-guide-page #content-rag .rag-lane {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--content-shadow);
+}
+
+.client-guide-page #content-rag .rag-brief {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  overflow: hidden;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(6, 182, 212, .24), transparent 42%),
+    linear-gradient(145deg, #111827, #1D4ED8);
+}
+
+.client-guide-page #content-rag .rag-brief h3 {
+  margin: 0;
+  max-width: 340px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 1.12;
+}
+
+.client-guide-page #content-rag .rag-brief p {
+  margin: 12px 0 0;
+  max-width: 360px;
+  color: rgba(255,255,255,.82);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.client-guide-page #content-rag .rag-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.client-guide-page #content-rag .rag-flow span {
+  display: grid;
+  min-height: 42px;
+  place-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,.20);
+  border-radius: 12px;
+  background: rgba(255,255,255,.11);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.client-guide-page #content-rag .rag-flow i {
+  width: 18px;
+  height: 1px;
+  background: rgba(255,255,255,.46);
+}
+
+.client-guide-page #content-rag .rag-lanes {
+  display: grid;
+  gap: 12px;
+}
+
+.client-guide-page #content-rag .rag-lane {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 18px;
+  background: rgba(255,255,255,.86);
+}
+
+html[data-theme="dark"] .client-guide-page #content-rag .rag-lane {
+  background: rgba(17, 24, 39, .84);
+  box-shadow: var(--content-shadow-dark);
+}
+
+.client-guide-page #content-rag .rag-lane .card-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0;
+}
+
+.client-guide-page #content-rag .rag-lane h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.client-guide-page #content-rag .rag-lane p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.client-guide-page #content-rag .rag-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.client-guide-page #content-rag .rag-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid rgba(37, 99, 235, .13);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--blue) 6%, var(--white));
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+html[data-theme="dark"] .client-guide-page #content-rag .rag-tags span {
+  border-color: rgba(96, 165, 250, .22);
+  background: rgba(37, 99, 235, .12);
+}
+
+@media (max-width: 920px) {
+  .client-guide-page #content-rag .rag-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .client-guide-page #content-rag .rag-brief {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .client-guide-page #content-rag .section-head {
+    margin-bottom: 18px;
+  }
+
+  .client-guide-page #content-rag .section-head h2 {
+    font-size: 29px;
+  }
+
+  .client-guide-page #content-rag .rag-feature {
+    gap: 12px;
+  }
+
+  .client-guide-page #content-rag .rag-brief {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .client-guide-page #content-rag .rag-brief h3 {
+    font-size: 21px;
+  }
+
+  .client-guide-page #content-rag .rag-flow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .client-guide-page #content-rag .rag-flow i {
+    width: 1px;
+    height: 12px;
+    justify-self: center;
+  }
+
+  .client-guide-page #content-rag .rag-lane {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .client-guide-page #content-rag .rag-lane .card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .client-guide-page #content-rag .rag-lane h3 {
+    font-size: 16px;
+  }
+
+  .client-guide-page #content-rag .rag-lane p,
+  .client-guide-page #content-rag .rag-brief p {
+    font-size: 13px;
+  }
+
+  .client-guide-page #content-rag .rag-tags span {
+    min-height: 26px;
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+}
+
+/* Final client guide alignment: keep shared header/footer behavior and make the guide readable on small screens. */
+.client-guide-page,
+.client-guide-page main {
+  overflow-x: clip;
+}
+
+.client-guide-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+  padding: 16px 24px;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+}
+
+.client-guide-page .nav-shell {
+  width: min(1240px, 100%);
+  height: 68px;
+  margin: 0 auto;
+  padding: 0 12px 0 18px;
+  gap: 20px;
+  border: 1px solid rgba(15, 23, 42, .10);
+  border-radius: 18px;
+  background: var(--nav-bg);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, .07);
+  backdrop-filter: blur(18px);
+}
+
+.client-guide-page .menu-toggle {
+  border: 0;
+  color: #fff;
+  background: var(--ink);
+}
+
+.client-guide-page .menu-toggle span {
+  position: static;
+  width: 18px;
+  height: 1.5px;
+  margin: 5px auto;
+  background: currentColor;
+}
+
+.client-guide-page .menu-toggle.active span:first-child {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.client-guide-page .menu-toggle.active span:last-child {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.client-guide-page .toc {
+  top: 96px;
+}
+
+.client-guide-page .hero .reveal,
+.reveal-ready .client-guide-page .hero .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.client-guide-page main .hero {
+  display: block !important;
+  min-height: auto !important;
+  padding-top: 145px;
+  align-items: initial !important;
+}
+
+.client-guide-page main .hero::before {
+  opacity: .08 !important;
+  filter: none !important;
+}
+
+.client-guide-page main .hero::after {
+  opacity: .12 !important;
+  filter: none !important;
+}
+
+.client-guide-page .hero-grid,
+.client-guide-page .hero-grid > *,
+.client-guide-page .hero-grid * {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.client-guide-page #top .hero-grid {
+  position: relative !important;
+  inset: auto !important;
+  width: min(1180px, calc(100% - 48px)) !important;
+  opacity: 1 !important;
+  background: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  filter: none !important;
+}
+
+.client-guide-page #top .portal-preview,
+.client-guide-page #top .portal-preview * {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.client-guide-page #top .hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px) !important;
+  align-items: center !important;
+  gap: clamp(24px, 3.2vw, 42px) !important;
+}
+
+.client-guide-page #top .portal-preview {
+  width: min(100%, 420px);
+  max-width: 420px;
+  justify-self: center;
+  padding: 12px;
+  border-radius: 22px;
+}
+
+.client-guide-page #top .portal-shell {
+  grid-template-columns: 106px minmax(0, 1fr);
+  min-height: 300px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.client-guide-page #top .portal-side {
+  min-width: 0;
+  padding: 14px 9px;
+}
+
+.client-guide-page #top .portal-main {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 14px;
+}
+
+.client-guide-page #top .portal-title {
+  min-width: 0;
+  gap: 10px;
+}
+
+.client-guide-page #top .portal-title b {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.client-guide-page #top .portal-title span {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.client-guide-page #top .portal-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.client-guide-page #top .portal-stats div:nth-child(3) {
+  display: none;
+}
+
+.client-guide-page #top .portal-block {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 10px;
+}
+
+@media (min-width: 1121px) {
+  .client-guide-page #top .hero-grid {
+    width: min(1120px, calc(100% - 64px)) !important;
+  }
+
+  .client-guide-page #top .portal-preview {
+    transform: translateX(-10px) !important;
+  }
+}
+
+.client-guide-page .hero h1,
+.client-guide-page .hero .lead,
+.client-guide-page .hero-points,
+.client-guide-page .hero-actions {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.client-guide-page .hero h1 {
+  max-width: 820px;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.client-guide-page .hero .lead {
+  color: var(--muted);
+}
+
+.client-guide-page .portal-preview {
+  opacity: 1;
+}
+
+.client-guide-page .guide-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.client-guide-page .guide-table {
+  width: 100%;
+}
+
+.client-guide-page .site-footer {
+  position: relative;
+  overflow: hidden;
+  padding-top: 46px;
+  color: #102017;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(37, 99, 235, .12), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(20, 184, 166, .14), transparent 30%),
+    linear-gradient(180deg, #f8fafc 0%, #edf7ef 100%);
+}
+
+.client-guide-page .footer-main {
+  padding-bottom: 32px;
+  grid-template-columns: minmax(250px, 330px) minmax(0, 1fr);
+  gap: 22px;
+}
+
+.client-guide-page .footer-spotlight {
+  padding: 22px;
+  border: 1px solid rgba(15, 23, 42, .09);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .74);
+  box-shadow: 0 26px 70px rgba(15, 23, 42, .1);
+  backdrop-filter: blur(18px);
+}
+
+.client-guide-page .footer-spotlight p {
+  max-width: 320px;
+  margin-top: 12px;
+  color: #4b5f53;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.client-guide-page .footer-social-action-row {
+  margin-top: 0;
+  padding: 10px;
+  border: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .48);
+}
+
+.client-guide-page .footer-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.client-guide-page .footer-action {
+  min-height: 40px;
+  padding: 6px 10px 6px 7px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  border-radius: 999px;
+  color: #0f172a;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .08);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.client-guide-page .footer-action-icon {
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.client-guide-page .footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.client-guide-page .footer-links div {
+  padding: 14px;
+  border: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, .55);
+}
+
+.client-guide-page .footer-bottom {
+  min-height: 58px;
+  border-top-color: rgba(15, 23, 42, .1);
+}
+
+.client-guide-page .footer-bottom a,
+.client-guide-page .footer-bottom button {
+  padding: 8px 11px;
+  border: 1px solid rgba(15, 23, 42, .1);
+  border-radius: 999px;
+  color: #0f172a;
+  background: rgba(255, 255, 255, .56);
+  cursor: pointer;
+}
+
+html[data-theme="dark"] .client-guide-page .site-footer {
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at 9% 8%, rgba(45, 212, 191, .13), transparent 28%),
+    radial-gradient(circle at 86% 14%, rgba(99, 102, 241, .18), transparent 32%),
+    linear-gradient(180deg, #111827 0%, #08111f 100%);
+}
+
+html[data-theme="dark"] .client-guide-page .footer-spotlight,
+html[data-theme="dark"] .client-guide-page .footer-action,
+html[data-theme="dark"] .client-guide-page .footer-social-action-row,
+html[data-theme="dark"] .client-guide-page .footer-links div {
+  border-color: rgba(148, 163, 184, .18);
+  background: rgba(15, 23, 42, .66);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, .24);
+}
+
+html[data-theme="dark"] .client-guide-page .footer-spotlight p,
+html[data-theme="dark"] .client-guide-page .footer-action,
+html[data-theme="dark"] .client-guide-page .footer-links a,
+html[data-theme="dark"] .client-guide-page .footer-links button,
+html[data-theme="dark"] .client-guide-page .footer-links span,
+html[data-theme="dark"] .client-guide-page .footer-bottom {
+  color: #cbd5e1;
+}
+
+@media (max-width: 1120px) {
+  .client-guide-page .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-guide-page #top .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .client-guide-page .hero-grid > .reveal:first-child {
+    max-width: 820px;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .client-guide-page .hero .lead,
+  .client-guide-page .hero h1 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .client-guide-page .hero-actions,
+  .client-guide-page .hero-points {
+    justify-content: center;
+  }
+
+  .client-guide-page #top .portal-preview {
+    width: min(720px, 100%);
+    max-width: 720px;
+    justify-self: center;
+  }
+
+  .client-guide-page #top .portal-shell {
+    grid-template-columns: 132px minmax(0, 1fr);
+    min-height: 330px;
+  }
+}
+
+@media (max-width: 920px) {
+  .client-guide-page .site-header {
+    padding: 12px 16px;
+  }
+
+  .client-guide-page .desktop-nav,
+  .client-guide-page .nav-signup {
+    display: none;
+  }
+
+  .client-guide-page .menu-toggle {
+    display: grid;
+  }
+
+  .client-guide-page .mobile-nav {
+    position: absolute;
+    top: 88px;
+    left: 16px;
+    right: 16px;
+    display: block;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--nav-bg);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, .15);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .25s, visibility .25s, transform .25s;
+    max-height: calc(100dvh - 105px);
+    overflow-y: auto;
+  }
+
+  .client-guide-page .mobile-nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .client-guide-page .launch-board,
+  .client-guide-page .forms-panel,
+  .client-guide-page .embed-box,
+  .client-guide-page .security-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .client-guide-page .launch-summary {
+    position: static;
+  }
+
+  .client-guide-page .principle-grid,
+  .client-guide-page .reference-grid,
+  .client-guide-page .test-grid,
+  .client-guide-page .link-grid,
+  .client-guide-page .process-grid,
+  .client-guide-page .knowledge-grid,
+  .client-guide-page .billing-grid,
+  .client-guide-page .field-grid,
+  .client-guide-page .mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .client-guide-page .intent-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .client-guide-page .footer-main {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}
+
+@media (max-width: 760px) {
+  .client-guide-page .site-header {
+    padding: 8px 10px;
+  }
+
+  .client-guide-page .nav-shell {
+    height: 58px;
+    padding: 0 8px 0 10px;
+    gap: 8px;
+    border-radius: 16px;
+  }
+
+  .client-guide-page .nav-shell > .brand {
+    flex: 0 0 42px;
+    min-width: 42px;
+    max-width: 42px;
+    gap: 0;
+  }
+
+  .client-guide-page .nav-shell > .brand span {
+    display: none;
+  }
+
+  .client-guide-page .brand-logo-image {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+  }
+
+  .client-guide-page .desktop-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .client-guide-page .desktop-nav a,
+  .client-guide-page .desktop-nav > button:not(.nav-guide-trigger) {
+    display: none !important;
+  }
+
+  .client-guide-page .desktop-nav .nav-guide-trigger {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 38px;
+    padding: 0 7px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 14px;
+    font-size: 10.5px;
+    line-height: 1;
+  }
+
+  .client-guide-page .desktop-nav .nav-guide-trigger span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .client-guide-page .desktop-nav .nav-guide-trigger i {
+    flex: 0 0 auto;
+    padding: 4px 5px;
+    border-radius: 7px;
+    font-size: 7px;
+    letter-spacing: .08em;
+  }
+
+  .client-guide-page .nav-guide-pills,
+  .client-guide-page .theme-toggle,
+  .client-guide-page .auth-link,
+  .client-guide-page .nav-signup,
+  .client-guide-page .profile-wrap {
+    display: none !important;
+  }
+
+  .client-guide-page .nav-actions {
+    flex: 0 0 38px;
+    min-width: 38px;
+    gap: 0;
+  }
+
+  .client-guide-page .menu-toggle {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--white);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, .08);
+    overflow: hidden;
+  }
+
+  .client-guide-page .menu-toggle span {
+    position: absolute;
+    left: 50%;
+    width: 16px;
+    height: 2px;
+    margin: 0;
+    transform: translateX(-50%);
+    transition: top .22s ease, transform .22s ease, opacity .18s ease;
+  }
+
+  .client-guide-page .menu-toggle span:first-child {
+    top: 13px;
+  }
+
+  .client-guide-page .menu-toggle span:nth-child(2) {
+    top: 18px;
+  }
+
+  .client-guide-page .menu-toggle span:last-child {
+    top: 23px;
+  }
+
+  .client-guide-page .menu-toggle.active span:first-child {
+    top: 18px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .client-guide-page .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .client-guide-page .menu-toggle.active span:last-child {
+    top: 18px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  .client-guide-page .mobile-nav {
+    position: fixed;
+    top: 74px;
+    left: 10px;
+    right: 10px;
+    bottom: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: min-content;
+    gap: 8px;
+    padding: 10px;
+    max-height: calc(100dvh - 88px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 18px;
+  }
+
+  .client-guide-page .mobile-nav.open {
+    display: grid !important;
+  }
+
+  .client-guide-page .mobile-guide-trigger,
+  .client-guide-page .mobile-nav > a:not(.mobile-portal),
+  .client-guide-page .mobile-theme-toggle,
+  .client-guide-page .mobile-auth button,
+  .client-guide-page .mobile-portal {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    margin: 0;
+    border: 1px solid var(--line) !important;
+    border-radius: 13px !important;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .client-guide-page .mobile-guide-trigger {
+    min-height: 72px;
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .client-guide-page .mobile-theme-toggle {
+    grid-column: 1 / -1;
+  }
+
+  .client-guide-page .mobile-auth {
+    margin: 0;
+    display: block;
+    min-width: 0;
+  }
+
+  .client-guide-page .mobile-portal {
+    grid-column: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .client-guide-page.menu-open {
+    overflow-y: auto;
+  }
+
+  .client-guide-page .toc {
+    position: sticky;
+    top: 74px;
+    z-index: 200;
+  }
+
+  .client-guide-page main .hero {
+    padding: 122px 0 58px;
+  }
+
+  .client-guide-page .hero-grid {
+    gap: 34px;
+  }
+
+  .client-guide-page #top .hero-grid {
+    width: calc(100% - 28px) !important;
+    gap: 28px !important;
+  }
+
+  .client-guide-page .hero h1 {
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -.04em;
+  }
+
+  .client-guide-page .hero .lead {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .client-guide-page .hero-actions {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .client-guide-page .hero-actions .button {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 0;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .client-guide-page #top .portal-preview {
+    width: min(100%, 360px);
+    max-width: 360px;
+    padding: 8px;
+    border-radius: 18px;
+  }
+
+  .client-guide-page #top .portal-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 5px 5px 9px;
+    font-size: 9px;
+    letter-spacing: .05em;
+  }
+
+  .client-guide-page #top .portal-shell {
+    grid-template-columns: 74px minmax(0, 1fr);
+    min-height: 238px;
+    max-height: 250px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .client-guide-page #top .portal-side {
+    display: block;
+    padding: 10px 6px;
+  }
+
+  .client-guide-page #top .portal-side strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 10px;
+  }
+
+  .client-guide-page #top .portal-side span {
+    margin: 5px 0;
+    padding: 6px 5px;
+    overflow: hidden;
+    font-size: 9px;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .client-guide-page #top .portal-side span:nth-of-type(n+5) {
+    display: none;
+  }
+
+  .client-guide-page #top .portal-main {
+    padding: 10px;
+    min-width: 0;
+  }
+
+  .client-guide-page #top .portal-title {
+    gap: 8px;
+    margin-bottom: 9px;
+  }
+
+  .client-guide-page #top .portal-title b {
+    font-size: 11px;
+  }
+
+  .client-guide-page #top .portal-title span {
+    padding: 5px 6px;
+    font-size: 8px;
+    white-space: nowrap;
+  }
+
+  .client-guide-page #top .portal-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .client-guide-page #top .portal-stats div:nth-child(3) {
+    display: block;
+  }
+
+  .client-guide-page #top .portal-stats div,
+  .client-guide-page #top .portal-block {
+    padding: 7px;
+    border-radius: 8px;
+  }
+
+  .client-guide-page #top .portal-stats small {
+    font-size: 7px;
+  }
+
+  .client-guide-page #top .portal-stats b {
+    font-size: 10px;
+  }
+
+  .client-guide-page #top .portal-block {
+    margin-top: 7px;
+  }
+
+  .client-guide-page #top .portal-block > span {
+    font-size: 9px;
+  }
+
+  .client-guide-page #top .portal-block + .portal-block {
+    display: none;
+  }
+
+  .client-guide-page #top .portal-lines {
+    gap: 4px;
+    margin-top: 7px;
+  }
+
+  .client-guide-page #top .portal-lines i {
+    height: 5px;
+  }
+
+  .client-guide-page .mock-row,
+  .client-guide-page .final-box,
+  .client-guide-page .final-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .client-guide-page .principle-grid,
+  .client-guide-page .reference-grid,
+  .client-guide-page .test-grid,
+  .client-guide-page .link-grid,
+  .client-guide-page .process-grid,
+  .client-guide-page .knowledge-grid,
+  .client-guide-page .billing-grid,
+  .client-guide-page .field-grid,
+  .client-guide-page .mini-grid,
+  .client-guide-page .intent-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .client-guide-page .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .client-guide-page .footer-spotlight p {
+    max-width: 100%;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .client-guide-page .footer-status {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .client-guide-page .footer-status span {
+    min-width: 0;
+    justify-content: center;
+    padding: 7px 5px;
+    font-size: 9px;
+    line-height: 1.15;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .client-guide-page .footer-status span i {
+    flex: 0 0 6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .client-guide-page .footer-social-action-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    padding: 10px;
+  }
+
+  .client-guide-page .footer-action {
+    width: 100%;
+    min-height: 44px;
+    padding: 7px 9px;
+    justify-content: flex-start;
+    white-space: nowrap;
+  }
+
+  .client-guide-page .footer-bottom {
+    padding: 20px 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .client-guide-page .footer-bottom div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    justify-content: stretch;
+  }
+
+  .client-guide-page .footer-bottom button {
+    width: 100%;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .client-guide-page .container {
+    width: calc(100% - 28px);
+  }
+
+  .client-guide-page .hero h1 {
+    font-size: clamp(31px, 9.5vw, 38px);
+  }
+
+  .client-guide-page .hero-actions {
+    flex-direction: column;
+  }
+
+  .client-guide-page .hero-actions .button {
+    width: 100%;
+  }
+
+  .client-guide-page #top .portal-side {
+    display: block;
+  }
+}
+
+.client-guide-page #top .portal-title > div {
+  min-width: 0;
+}
+
+.client-guide-page #top .portal-title small {
+  display: block;
+  margin-bottom: 2px;
+  color: #64748B;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.client-guide-page #top .portal-workflow,
+.client-guide-page #top .portal-mini-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.client-guide-page #top .portal-workflow {
+  margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .client-guide-page #top .portal-mini-stack {
+    display: none;
+  }
+
+  .client-guide-page #top .portal-workflow {
+    gap: 0;
+    margin-top: 7px;
+  }
+}
+
+@media (min-width: 1121px) {
+  .client-guide-page #top .hero-grid {
+    width: min(1280px, calc(100% - 72px)) !important;
+    grid-template-columns: minmax(0, .96fr) minmax(520px, 560px) !important;
+    gap: clamp(34px, 4vw, 64px) !important;
+  }
+
+  .client-guide-page #top .portal-preview {
+    width: 100%;
+    max-width: 560px;
+    justify-self: end;
+    padding: 16px;
+    border-radius: 28px;
+    transform: none !important;
+    box-shadow: 0 28px 80px rgba(15, 23, 42, .20);
+  }
+
+  .client-guide-page #top .portal-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 10px 14px 16px;
+    font-size: 12px;
+    letter-spacing: .08em;
+    white-space: nowrap;
+  }
+
+  .client-guide-page #top .portal-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .client-guide-page #top .portal-status::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #67E8F9;
+    box-shadow: 0 0 0 5px rgba(103, 232, 249, .14);
+  }
+
+  .client-guide-page #top .portal-shell {
+    grid-template-columns: 126px minmax(0, 1fr);
+    min-height: 374px;
+    border-radius: 20px;
+  }
+
+  .client-guide-page #top .portal-side {
+    padding: 18px 12px;
+  }
+
+  .client-guide-page #top .portal-side strong {
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+
+  .client-guide-page #top .portal-side span {
+    margin: 7px 0;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .client-guide-page #top .portal-main {
+    padding: 18px;
+  }
+
+  .client-guide-page #top .portal-title {
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .client-guide-page #top .portal-title small {
+    display: block;
+    margin-bottom: 3px;
+    color: #64748B;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .client-guide-page #top .portal-title b {
+    display: block;
+    font-size: 20px;
+    line-height: 1.15;
+    white-space: normal;
+  }
+
+  .client-guide-page #top .portal-title span {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  .client-guide-page #top .portal-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .client-guide-page #top .portal-stats div:nth-child(3) {
+    display: block;
+  }
+
+  .client-guide-page #top .portal-stats div {
+    padding: 11px 10px;
+  }
+
+  .client-guide-page #top .portal-stats small {
+    font-size: 8px;
+    letter-spacing: .06em;
+  }
+
+  .client-guide-page #top .portal-stats b {
+    font-size: 15px;
+  }
+
+  .client-guide-page #top .portal-workflow {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(118px, .82fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .client-guide-page #top .portal-block {
+    margin: 0;
+    padding: 12px;
+  }
+
+  .client-guide-page #top .portal-block > span {
+    display: block;
+    color: #334155;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  .client-guide-page #top .portal-mini-stack {
+    display: grid;
+    gap: 10px;
+  }
+
+  .client-guide-page #top .portal-mini {
+    min-height: 76px;
+  }
+
+  .client-guide-page #top .portal-lines {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .client-guide-page #top .portal-lines i {
+    height: 7px;
+  }
+}
+
+/* Rebuilt client hero visual: removes the old squeezed mock dashboard. */
+.client-guide-page #top .client-portal-card {
+  width: min(100%, 560px);
+  max-width: 560px;
+  justify-self: end;
+  padding: 18px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(6, 182, 212, .20), transparent 28%),
+    linear-gradient(145deg, #0F172A, #162235);
+  box-shadow: 0 34px 90px rgba(15, 23, 42, .22);
+}
+
+.client-guide-page #top .client-portal-card .portal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 16px 18px;
+  color: #B8C4D6;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.client-guide-page #top .client-portal-card .portal-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(236, 253, 245, .94);
+  color: #0891B2;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.client-guide-page #top .client-portal-card .portal-status::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #67E8F9;
+  box-shadow: 0 0 0 6px rgba(103, 232, 249, .18);
+}
+
+.client-guide-page #top .launch-console {
+  position: relative;
+  z-index: 1;
+  min-height: 360px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.62);
+  border-radius: 24px;
+  color: #0F172A;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(241, 248, 255, .90)),
+    radial-gradient(circle at 100% 0%, rgba(6, 182, 212, .16), transparent 34%);
+  box-shadow: inset 0 1px rgba(255,255,255,.90);
+}
+
+.client-guide-page #top .launch-console::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -82px;
+  width: 230px;
+  height: 230px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, .13), rgba(6, 182, 212, .10));
+  pointer-events: none;
+}
+
+.client-guide-page #top .console-head,
+.client-guide-page #top .console-metrics,
+.client-guide-page #top .console-progress,
+.client-guide-page #top .console-checks {
+  position: relative;
+  z-index: 1;
+}
+
+.client-guide-page #top .console-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.client-guide-page #top .console-head small {
+  display: block;
+  margin-bottom: 4px;
+  color: #64748B;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.client-guide-page #top .console-head strong {
+  display: block;
+  color: #0F172A;
+  font-size: 27px;
+  line-height: 1.1;
+}
+
+.client-guide-page #top .console-head > span {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--brand-gradient);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, .18);
+}
+
+.client-guide-page #top .console-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.client-guide-page #top .console-metrics div,
+.client-guide-page #top .console-progress,
+.client-guide-page #top .console-checks span {
+  border: 1px solid #DCE6F2;
+  border-radius: 16px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .055);
+}
+
+.client-guide-page #top .console-metrics div {
+  padding: 14px;
+}
+
+.client-guide-page #top .console-metrics small {
+  display: block;
+  color: #64748B;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.client-guide-page #top .console-metrics b {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.client-guide-page #top .console-progress {
+  margin-top: 12px;
+  padding: 16px;
+}
+
+.client-guide-page #top .console-progress div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.client-guide-page #top .console-progress b {
+  color: #0891B2;
+}
+
+.client-guide-page #top .console-progress i {
+  display: block;
+  height: 10px;
+  margin-top: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #D8E1EE;
+}
+
+.client-guide-page #top .console-progress em {
+  display: block;
+  width: 82%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brand-gradient);
+}
+
+.client-guide-page #top .console-checks {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.client-guide-page #top .console-checks span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 10px 12px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.client-guide-page #top .console-checks b {
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #14B8A6;
+  box-shadow: 0 0 0 5px rgba(20, 184, 166, .12);
+}
+
+.client-guide-page #top .hero-mobile-break {
+  display: none;
+}
+
+@media (min-width: 1121px) {
+  .client-guide-page #top .hero-grid {
+    width: min(1260px, calc(100% - 72px)) !important;
+    grid-template-columns: minmax(0, .98fr) minmax(500px, 560px) !important;
+    gap: clamp(40px, 5vw, 72px) !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  .client-guide-page #top .hero-mobile-break {
+    display: block;
+  }
+
+  .client-guide-page #top .hero-actions {
+    flex-direction: column;
+  }
+
+  .client-guide-page #top .hero-actions .button {
+    width: 100%;
+  }
+
+  .client-guide-page #top .client-portal-card {
+    width: min(720px, 100%);
+    max-width: 720px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 920px) {
+  .client-guide-page #top .hero-grid {
+    width: calc(100% - 32px) !important;
+  }
+
+  .client-guide-page #top .hero-grid > .reveal:first-child {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .client-guide-page #top .hero h1 {
+    max-width: 100%;
+    font-size: clamp(30px, 7vw, 36px);
+    line-height: 1.1;
+  }
+
+  .client-guide-page #top .hero h1 em {
+    display: inline;
+  }
+
+  .client-guide-page #top .hero h1 em::after {
+    display: none;
+  }
+
+  .client-guide-page #top .hero-actions {
+    flex-direction: column;
+  }
+
+  .client-guide-page #top .hero-actions .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .client-guide-page #top .hero-grid {
+    width: calc(100% - 32px) !important;
+  }
+
+  .client-guide-page #top .hero-grid > .reveal:first-child {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .client-guide-page #top .hero h1 {
+    max-width: 100%;
+    font-size: clamp(30px, 8.6vw, 36px);
+    line-height: 1.08;
+    overflow-wrap: normal;
+  }
+
+  .client-guide-page #top .hero h1 em {
+    display: inline;
+  }
+
+  .client-guide-page #top .hero h1 em::after {
+    display: none;
+  }
+
+  .client-guide-page #top .hero-actions {
+    flex-direction: column;
+  }
+
+  .client-guide-page #top .hero-actions .button {
+    width: 100%;
+  }
+
+  .client-guide-page #top .client-portal-card {
+    width: min(100%, 360px);
+    max-width: 360px;
+    padding: 9px;
+    border-radius: 18px;
+  }
+
+  .client-guide-page #top .client-portal-card .portal-bar {
+    gap: 8px;
+    padding: 6px 7px 10px;
+    font-size: 9px;
+    letter-spacing: .05em;
+  }
+
+  .client-guide-page #top .client-portal-card .portal-status {
+    padding: 5px 7px;
+    font-size: 8px;
+  }
+
+  .client-guide-page #top .client-portal-card .portal-status::before {
+    width: 6px;
+    height: 6px;
+    box-shadow: 0 0 0 4px rgba(103, 232, 249, .15);
+  }
+
+  .client-guide-page #top .launch-console {
+    min-height: 238px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .client-guide-page #top .console-head {
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .client-guide-page #top .console-head small {
+    font-size: 8px;
+  }
+
+  .client-guide-page #top .console-head strong {
+    font-size: 17px;
+  }
+
+  .client-guide-page #top .console-head > span {
+    padding: 7px 8px;
+    font-size: 9px;
+  }
+
+  .client-guide-page #top .console-metrics {
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .client-guide-page #top .console-metrics div {
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .client-guide-page #top .console-metrics small {
+    font-size: 7px;
+  }
+
+  .client-guide-page #top .console-metrics b {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .client-guide-page #top .console-progress {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .client-guide-page #top .console-progress div,
+  .client-guide-page #top .console-checks span {
+    font-size: 10px;
+  }
+
+  .client-guide-page #top .console-checks {
+    gap: 6px;
+  }
+
+  .client-guide-page #top .console-checks span {
+    min-height: 32px;
+    padding: 7px 8px;
+    border-radius: 10px;
+  }
+}
+
+</style>
+</head>
+<body class="client-guide-page">
+<a class="skip-link" href="#main">Skip to the owner guide</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-shell">
+    <a class="brand" href="/" data-bolosite-scroll-target="top" aria-label="BoloSite home">
+      <img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true">
+      <span>BoloSite</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <button class="nav-audience nav-audience-user nav-guide-trigger" type="button" data-open-modal="userJourneyModal" data-fallback-href="user.html"><span>For visitors</span><i>Guide</i></button>
+      <button class="nav-audience nav-audience-client nav-guide-trigger active" type="button" data-open-modal="clientJourneyModal" data-fallback-href="client.html" aria-current="page"><span>For owners</span><i>Guide</i></button>
+      <a href="index.html#what-is-bolosite">What is BoloSite?</a>
+      <a href="index.html#vision">The Future</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="nav-guide-pills" aria-label="Guide shortcuts">
+        <button class="nav-guide-pill user" type="button" data-open-modal="userJourneyModal" data-fallback-href="user.html"><span>For visitors</span><i>Guide</i></button>
+        <button class="nav-guide-pill client" type="button" data-open-modal="clientJourneyModal" data-fallback-href="client.html"><span>For owners</span><i>Guide</i></button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode"><span class="theme-sun">&#9728;</span><span class="theme-moon">&#9790;</span></button>
+      <button class="auth-link" id="loginButton" type="button" data-auth-view="login" data-fallback-href="index.html">Log in</button>
+      <a class="nav-signup" id="clientPortalButton" href="client-portal.html">Owner Portal</a>
+      <div class="profile-wrap is-hidden" id="profileWrap">
+        <button class="profile-button" id="profileButton" type="button" aria-expanded="false"><span class="profile-avatar" id="profileAvatar">A</span><span class="profile-short-name" id="profileShortName">Account</span><i>&#8964;</i></button>
+        <div class="profile-menu" id="profileMenu">
+          <div class="profile-menu-head"><span class="profile-avatar large" id="profileMenuAvatar">A</span><div><strong id="profileMenuName">Account</strong><small id="profileMenuRole">Visitor</small></div></div>
+          <dl><div><dt>Email</dt><dd id="profileMenuEmail">&mdash;</dd></div><div><dt>Mobile</dt><dd id="profileMenuMobile">&mdash;</dd></div><div><dt>Profession</dt><dd id="profileMenuProfession">&mdash;</dd></div></dl>
+          <button class="profile-logout" id="logoutButton" type="button">Log out</button>
+        </div>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <button class="mobile-guide-trigger user" type="button" data-open-modal="userJourneyModal" data-fallback-href="user.html"><span><small>Complete guide</small>For website visitors</span><i>&rarr;</i></button>
+    <button class="mobile-guide-trigger client" type="button" data-open-modal="clientJourneyModal" data-fallback-href="client.html"><span><small>Complete guide</small>For website owners</span><i>&rarr;</i></button>
+    <a href="index.html#what-is-bolosite">What is BoloSite? <span>&nearr;</span></a>
+    <a class="mobile-future-link" href="index.html#vision">The Future <span>&rarr;</span></a>
+    <a href="index.html#pricing">Pricing <span>&nearr;</span></a>
+    <a href="index.html#contact">Contact <span>&nearr;</span></a>
+    <button class="mobile-theme-toggle" id="mobileThemeToggle" type="button"><span class="theme-sun">&#9728;</span><span class="theme-moon">&#9790;</span><b>Switch theme</b></button>
+    <div class="mobile-auth"><button type="button" data-auth-view="login" data-fallback-href="index.html">Log in</button></div>
+    <a class="mobile-portal" id="mobileClientPortalButton" href="client-portal.html">Owner portal <span>&rarr;</span></a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top" style="display:block;min-height:auto;align-items:initial;">
+<div class="container hero-grid" style="position:relative;inset:auto;width:min(1180px,calc(100% - 48px));opacity:1;background:none;mask-image:none;-webkit-mask-image:none;filter:none;">
+<div class="reveal" style="opacity:1;transform:none;filter:none;">
+<span class="eyebrow">Owner operations guide</span>
+<h1>Set up your website’s <em>AI operating<span class="hero-mobile-break"></span> layer</em><span class="hero-mobile-break"></span> with confidence.</h1>
+<p class="lead">A clear owner guide for launching BoloSite safely: verify your account, approve knowledge, map actions and forms, install one script, test on mobile and desktop, then monitor usage from the portal.</p>
+<div class="hero-actions"><a class="button primary" href="#launch">Follow the launch checklist <span>↓</span></a><a class="button blue" href="client-portal.html">Open Owner Portal <span>→</span></a></div>
+<div class="hero-points"><span>Same existing website</span><span>One embed script</span><span>Approved answers only</span><span>Verified actions and forms</span><span>Billing visibility</span></div>
+</div>
+<div aria-label="BoloSite owner portal preview" class="portal-preview client-portal-card reveal" style="opacity:1;transform:none;filter:none;">
+<div class="portal-bar"><span>BOLOSITE OWNER PORTAL</span><span class="portal-status">WORKSPACE ACTIVE</span></div>
+<div class="launch-console">
+<div class="console-head"><div><small>Launch control room</small><strong>Owner workspace</strong></div><span>Copy Script Ready</span></div>
+<div class="console-metrics"><div><small>Knowledge</small><b>Ready</b></div><div><small>Actions</small><b>Verified</b></div><div><small>Domain</small><b>Live</b></div></div>
+<div class="console-progress"><div><span>Approved setup progress</span><b>82%</b></div><i><em></em></i></div>
+<div class="console-checks"><span><b></b>Website facts approved</span><span><b></b>Forms mapped and tested</span><span><b></b>Billing visibility active</span></div>
+</div>
+</div>
+</div>
+</section>
+<nav aria-label="Owner guide contents" class="toc"><div class="container toc-track"><a href="#launch">Launch checklist</a><a href="#account-security">Account &amp; security</a><a href="#domain-security">Domain security</a><a href="#content-rag">Content &amp; RAG</a><a href="#intents-guide">Intents</a><a href="#forms-guide">Forms</a><a href="#embed-guide">Embed</a><a href="#settings-guide">Settings</a><a href="#billing-guide">Billing</a><a href="#logs-guide">Logs</a><a href="#runtime-files">Runtime files</a><a href="#test-launch">Test &amp; launch</a><a href="#maintenance">Maintenance</a></div></nav>
+<section class="section alt" id="launch">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Quick start</span><h2>Your complete launch checklist.</h2><p class="lead">Complete these steps in order. Test each approved action before inviting real visitors.</p></div>
+<div class="launch-board">
+<aside class="launch-summary reveal"><h3>A launch is ready when:</h3><p>Your assistant knows the right information, runs only verified actions, and works from the domain where it will be used.</p><ul><li>Owner profile is accurate</li><li>Email and mobile are verified</li><li>Domain is verified</li><li>Knowledge is current</li><li>Actions and forms are reviewed</li><li>Embed script is installed</li><li>Voice and text tests pass</li><li>Usage controls are understood</li></ul></aside>
+<div class="launch-steps">
+<article class="launch-step reveal"><div><h3>Register if new, or log in</h3><p>Open the <a href="client-portal.html">Owner Portal</a>. New owners use Registration with owner name, email, mobile, password, business name, and first domain. Existing owners use Login with email and password.</p></div></article>
+<article class="launch-step reveal"><div><h3>Verify email and secure sign-in</h3><p>Dashboard access starts after email verification and setup of either a Passkey or Authenticator App. Mobile OTP is not required.</p></div></article>
+<article class="launch-step reveal"><div><h3>Review profile and security</h3><p>Open the profile card from the sidebar. Check owner name, business name, email, mobile, account status, site ID, primary domain, and last login. Change password from the dedicated security form.</p></div></article>
+<article class="launch-step reveal"><div><h3>Add the website domain</h3><p>Enter the exact production host. Only verified domains are added to the runtime allow-list.</p></div></article>
+<article class="launch-step reveal"><div><h3>Set the assistant identity</h3><p>In Settings, choose the project name, assistant name, default language, and welcome notes. The current wake words “Hello” and “Hi” are admin-controlled.</p></div></article>
+<article class="launch-step reveal"><div><h3>Add website and sales knowledge</h3><p>Paste content, upload a source file, or crawl an approved URL. Keep product, policy, price, contact, and support information clear and current.</p></div></article>
+<article class="launch-step reveal"><div><h3>Build the knowledge index</h3><p>Save content and build RAG. Wait for completion before judging the assistant’s answers.</p></div></article>
+<article class="launch-step reveal"><div><h3>Review intents</h3><p>Create or auto-build actions, then inspect the trigger phrases, action type, target, fallback, verification status, and enabled switch.</p></div></article>
+<article class="launch-step reveal"><div><h3>Map and verify forms</h3><p>Confirm the form selector, field selectors, required fields, intent names, and submit action. Save only after the mapping matches the real website.</p></div></article>
+<article class="launch-step reveal"><div><h3>Install the embed script</h3><p>Copy the generated script and place it just before the website’s closing <code>&lt;/body&gt;</code> tag.</p></div></article>
+<article class="launch-step reveal"><div><h3>Test like a real visitor</h3><p>Test wake, voice, text, information, navigation, unsupported requests, form corrections, and confirmation on desktop and mobile.</p></div></article>
+<article class="launch-step reveal"><div><h3>Save recovery codes and log out</h3><p>Store the one-time recovery codes offline. Password reset uses verified email plus an Authenticator or recovery code when strong security is enabled. Always log out on shared devices.</p></div></article>
+<article class="launch-step reveal"><div><h3>Monitor and maintain</h3><p>Review logs, current usage, wallet, payments, invoices, service status, and content changes after launch.</p></div></article>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="principles">
+<div class="container">
+<div class="section-head center reveal"><span class="eyebrow">Before you configure</span><h2>Three rules keep the experience useful and safe.</h2></div>
+<div class="principle-grid">
+<article class="principle reveal"><div class="card-icon">01</div><h3>Knowledge must be approved</h3><p>Add only information your business is comfortable presenting to visitors. Remove outdated offers, prices, and policies.</p></article>
+<article class="principle reveal"><div class="card-icon">02</div><h3>Actions must be verified</h3><p>Do not enable an action because its name looks correct. Test the target selector, page, section, or URL on the live domain.</p></article>
+<article class="principle reveal"><div class="card-icon">03</div><h3>Visitors keep control</h3><p>Provide text as an alternative to voice, ask visitors to review form data, and keep sensitive or destructive actions outside ordinary automation.</p></article>
+</div>
+</div>
+</section>
+<section class="section alt" id="account-security">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Account and security</span><h2>Start with a verified owner account.</h2><p class="lead">BoloSite uses the owner account as the control room for knowledge, actions, forms, billing, and launch code. Keep this account accurate and protected.</p></div>
+<div class="process-grid">
+<article class="process-card reveal"><div class="card-icon">01</div><h3>Registration for new owners</h3><p>Use the Registration tab when the business is new to BoloSite.</p><ol><li>Enter owner name, email, password, owner/business name, and first domain.</li><li>Verify the email OTP.</li><li>Add a Passkey or Authenticator App before dashboard access.</li></ol></article>
+<article class="process-card reveal"><div class="card-icon">02</div><h3>Login for existing owners</h3><p>Use email/password plus the configured strong factor, or sign in directly with a Passkey.</p><ol><li>Email must be verified.</li><li>Authenticator-enabled accounts enter a current code; Passkey users approve on their device.</li><li>If the password is forgotten, use verified email and a recovery factor.</li></ol></article>
+<article class="process-card reveal"><div class="card-icon">03</div><h3>Email, Passkey and Authenticator</h3><p>This combination avoids SMS cost while protecting the account.</p><ol><li>Confirm the 6-digit email OTP.</li><li>Create a device Passkey or scan the Authenticator QR.</li><li>Save the one-time recovery codes offline.</li></ol></article>
+</div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Security moment</th><th>What BoloSite checks</th><th>Good owner habit</th></tr></thead>
+<tbody>
+<tr><td>OTP request</td><td>A fresh code is sent to the chosen verified target. Re-requesting too quickly can be blocked for a short cooldown.</td><td>Wait at least a minute before requesting again, and check spam/SMS delivery first.</td></tr>
+<tr><td>OTP lifetime</td><td>Codes are time-limited and are meant for one verification flow.</td><td>Use the newest 6-digit code quickly. Do not share it with staff, vendors, or support chats.</td></tr>
+<tr><td>Wrong code attempts</td><td>Repeated wrong attempts can require a new code.</td><td>If a code fails, request a new one instead of guessing.</td></tr>
+<tr><td>Password reset</td><td>Reset uses verified email and, for secured accounts, an Authenticator or recovery code.</td><td>Keep recovery codes offline and maintain access to the verified email.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="security-layout" style="margin-top:22px">
+<div class="security-note reveal">
+<h3>What you can manage in Profile</h3>
+<p>Open the sidebar profile card to view the site ID, account status, primary domain, registration date, and last login. You can update owner name, business name, email, mobile, and password.</p>
+<ul><li>Changing email, mobile, or website type needs the current password.</li><li>A changed email becomes unverified until its OTP is confirmed; mobile is optional contact data only.</li><li>Add Passkeys and Authenticator App from the security section.</li><li>Password recovery uses verified email plus the configured strong factor or recovery code.</li><li>Use Logout when working on a shared device.</li></ul>
+</div>
+<div class="security-stack">
+<article class="security-card reveal"><strong>Why verification matters</strong><h3>It protects the person who controls the website AI.</h3><p>Without verified contacts, a wrong email or mobile could block recovery, billing alerts, and sensitive profile changes.</p></article>
+<article class="security-card reveal"><strong>Safe habit</strong><h3>Do not share portal login details.</h3><p>Give portal access only to trusted business operators. Do not place the server admin token, payment secrets, or private credentials inside website code.</p></article>
+<div class="guide-actions reveal"><a class="button primary" href="client-portal.html">Open Owner Portal</a><a class="button secondary" href="#billing-guide">Go to Billing</a><a class="button secondary" href="#embed-guide">Go to Embed</a></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="domain-security">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Domain and runtime safety</span><h2>Let the assistant run only where it belongs.</h2><p class="lead">In this portal, “verification” means the workspace is tied to approved domains and runtime credentials. It is not a pure visitor-IP lock.</p></div>
+<div class="mini-steps">
+<article class="mini-step reveal"><div><h3>Add the real hostname</h3><p>Use the exact website host, such as <code>example.com</code>, <code>www.example.com</code>, or a staging host. Avoid unrelated page paths.</p></div></article>
+<article class="mini-step reveal"><div><h3>Verify the domain</h3><p>Verified domains are written to the runtime allow-list. This helps prevent another website from simply reusing your owner script and token.</p></div></article>
+<article class="mini-step reveal"><div><h3>Install only after verification</h3><p>Copy the embed script from the same workspace and place it on the verified domain. Test the assistant from that domain after deployment.</p></div></article>
+<article class="mini-step reveal"><div><h3>Remove unused domains</h3><p>If a staging URL, old domain, or owner preview link is no longer needed, delete it from Domains so the allow-list stays tight.</p></div></article>
+</div>
+<div class="truth-box reveal">
+<h3>Honest security note about the embed script</h3>
+<p>The loader reads the site ID and token, verifies runtime access, then cleans those data attributes from the original script tag. That is a useful hardening step, but browser-side code is never a private vault.</p>
+<p>The real protection is layered: verified domains, site/token validation, server-side runtime checks, no admin credentials in public code, and removing unused domains quickly.</p>
+</div>
+</div>
+</section>
+<section class="section alt" id="portal-reference">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Full portal reference</span><h2>What every owner-facing area controls.</h2><p class="lead">Use Overview for the health check, then work through Domains, Content, Intents, Forms, Embed, and Settings.</p></div>
+<div class="reference-grid">
+<article class="reference-card reveal" data-number="01"><div class="card-icon">▦</div><h3>Overview</h3><p>A fast status board for the workspace.</p><ul><li>RAG chunk count shows indexed knowledge volume.</li><li>Working intents shows usable approved actions.</li><li>Verified domains confirms runtime access.</li><li>Trial days left shows onboarding time.</li></ul><span class="source">Refresh after important changes</span></article>
+<article class="reference-card reveal" data-number="02"><div class="card-icon">◎</div><h3>Domains</h3><p>Controls where the assistant is allowed to run.</p><ul><li>Add the hostname, without an unrelated page path.</li><li>Check verification status before installing.</li><li>Use separate entries for different hosts when required.</li><li>Remove domains that no longer belong to the project.</li></ul><span class="source">Only verified domains enter the allow-list</span></article>
+<article class="reference-card reveal" data-number="03"><div class="card-icon">≡</div><h3>Content and RAG</h3><p>Supplies the facts used in answers.</p><ul><li>Website knowledge: pages, FAQs, policies, navigation.</li><li>Sales knowledge: plans, objections, offers, qualification.</li><li>Upload approved source files or crawl approved URLs.</li><li>Save, build RAG, then retest representative questions.</li></ul><span class="source">Good source text beats a clever prompt</span></article>
+<article class="reference-card reveal" data-number="04"><div class="card-icon">↗</div><h3>Intent Builder</h3><p>Controls approved website actions.</p><ul><li>Use two or three natural trigger phrases.</li><li>Choose scroll, click, navigate, or the correct action type.</li><li>Set a valid ID, selector, or URL target.</li><li>Write a clear fallback and verify before enabling.</li></ul><span class="source">Pending review should stay off</span></article>
+<article class="reference-card reveal" data-number="05"><div class="card-icon">✎</div><h3>Forms</h3><p>Maps conversational writing to visible website fields.</p><ul><li>Review form selector and submit action.</li><li>Match every field name to a real CSS selector.</li><li>Mark only genuinely required fields as required.</li><li>Verify mappings and test correction plus confirmation.</li></ul><span class="source">Advanced JSON is for careful manual correction</span></article>
+<article class="reference-card reveal" data-number="06"><div class="card-icon">&lt;/&gt;</div><h3>Embed Code</h3><p>Connects the approved workspace to the website.</p><ul><li>Copy the script from the correct workspace.</li><li>Place it before the closing body tag.</li><li>Deploy it only on a verified domain.</li><li>Never publish server admin credentials in website code.</li></ul><span class="source">One script; no website rebuild</span></article>
+<article class="reference-card reveal" data-number="07"><div class="card-icon">₹</div><h3>Billing and Payment</h3><p>Shows the operational source of truth for costs.</p><ul><li>Review current usage, wallet, account status, and limit.</li><li>Inspect the usage breakdown before adding funds.</li><li>Track invoices and payment history.</li><li>Use the portal and <a href="index.html#pricing">published pricing section</a> for current rates.</li></ul><span class="source">Do not rely on an old copied price</span></article>
+<article class="reference-card reveal" data-number="08"><div class="card-icon">⌁</div><h3>Usage Logs</h3><p>Helps you understand real visitor activity.</p><ul><li>Load recent activity when diagnosing behavior.</li><li>Review time, action, visitor reference, and page.</li><li>Use More and Show Less to move through results.</li><li>Avoid treating logs as a place for unnecessary personal data.</li></ul><span class="source">Logs support testing and improvement</span></article>
+<article class="reference-card reveal" data-number="09"><div class="card-icon">⚙</div><h3>Settings</h3><p>Defines how the assistant introduces itself.</p><ul><li>Project name and assistant name.</li><li>English, Hindi, or Hinglish default language.</li><li>Language-specific welcome notes.</li><li>Runtime base URL and private project notes.</li></ul><span class="source">Keep “Hello/Hi” in welcome instructions</span></article>
+<article class="reference-card reveal" data-number="10"><div class="card-icon">♙</div><h3>Profile and Security</h3><p>Keeps owner identity and account access current.</p><ul><li>Update owner and business information.</li><li>Verify changed email or mobile details.</li><li>Use the current password for sensitive profile changes.</li><li>Change passwords from the dedicated security section.</li></ul><span class="source">Log out on shared devices</span></article>
+</div>
+</div>
+</section>
+<section class="section" id="content-rag">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Content and RAG</span><h2>Teach BoloSite what it can trust.</h2><p class="lead">Keep facts clean, approved, and current before expecting sharp answers from the assistant.</p></div>
+<div class="rag-feature">
+<aside class="rag-brief reveal"><div><h3>From source text to confident answers.</h3><p>Website facts and sales guidance become useful only after the RAG index is rebuilt and tested with real visitor questions.</p></div><div class="rag-flow"><span>Save content</span><i></i><span>Build RAG</span><i></i><span>Retest</span></div></aside>
+<div class="rag-lanes">
+<article class="rag-lane reveal"><div class="card-icon">W</div><div><h3>Website knowledge</h3><p>Public information visitors ask for: services, products, support, policies, locations, FAQs, contact details, and page navigation.</p><div class="rag-tags"><span>Site facts</span><span>FAQ</span><span>Policies</span><span>Navigation</span></div></div></article>
+<article class="rag-lane reveal"><div class="card-icon">S</div><div><h3>Sales knowledge</h3><p>Conversion context: plans, offers, objections, comparisons, demo rules, lead qualification, and approved sales language.</p><div class="rag-tags"><span>Plans</span><span>Offers</span><span>Objections</span><span>Best fit</span></div></div></article>
+<article class="rag-lane reveal"><div class="card-icon">R</div><div><h3>Why build RAG</h3><p>Saving updates source text. Building RAG prepares searchable chunks so answers use the latest approved content instead of stale notes.</p><div class="rag-tags"><span>Grounded answers</span><span>Fresh index</span><span>Easier testing</span></div></div></article>
+</div>
+</div>
+<div class="process-grid" style="margin-top:16px">
+<article class="process-card reveal"><strong>Option 1</strong><h3>Paste manual content</h3><p>Write clean text directly into Website knowledge or Sales knowledge, then click Save Content. This is best for curated policies, pricing notes, and sales scripts.</p></article>
+<article class="process-card reveal"><strong>Option 2</strong><h3>Upload a file</h3><p>Choose a file, select Website or Sales, and click Upload. The portal stores it in the correct owner content area and queues a RAG rebuild.</p></article>
+<article class="process-card reveal"><strong>Option 3</strong><h3>Crawl a URL</h3><p>Paste an approved HTTP/HTTPS page URL, choose Website or Sales, and click Crawl. Review the result, because crawled pages may contain menus, old text, or duplicate content.</p></article>
+</div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Small detail</th><th>How it works</th><th>Why owners should care</th></tr></thead>
+<tbody>
+<tr><td>Readable source types</td><td>Text-like files such as TXT, Markdown, CSV, JSON, HTML, and HTM are readable for dashboard/RAG content.</td><td>Use clean text files when possible. PDFs/images should be converted into approved text first.</td></tr>
+<tr><td>Upload size</td><td>The portal has an upload size limit controlled by the server, with an 8 MB default in this project.</td><td>Split huge documents into smaller focused files so answers stay precise.</td></tr>
+<tr><td>Auto-build pages</td><td>The Auto build Pages field accepts 1 to 12 pages, with 6 as the default UI value.</td><td>Start small, review the generated intents/forms, then crawl more pages only when needed.</td></tr>
+<tr><td>HTML auto-build</td><td>Uploaded HTML is parsed for readable text, selectors, links, buttons, and forms.</td><td>Use a current page export; old HTML can generate stale selectors.</td></tr>
+<tr><td>Rebuild queue</td><td>Save, upload, crawl, and auto-build can start a background RAG rebuild. If one is already running, a second one may be queued/ignored until it finishes.</td><td>Wait for rebuild completion before judging answer quality.</td></tr>
+<tr><td>Stale index behavior</td><td>If content changed but RAG has not rebuilt yet, the assistant may still use the previous index temporarily.</td><td>After important pricing/policy changes, manually click Build RAG and retest.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="truth-box reveal">
+<h3>Best practice: save, build, then retest</h3>
+<p>After any content change, click Save Content or complete Upload/Crawl, then use Build RAG if you need an immediate rebuild. Ask real visitor questions afterwards: pricing, contact, refunds, product fit, support steps, and anything that recently changed.</p>
+<p>Do not keep old copied prices or expired offers in source text. The portal Billing area and published website pricing section should remain the source of truth for cost-related details.</p>
+</div>
+</div>
+</section>
+<section class="section" id="intents-guide">
+<div class="container">
+<div class="section-head center reveal"><span class="eyebrow">Intent quality</span><h2>Build actions from the visitor’s words to a tested target.</h2></div>
+<div class="intent-flow">
+<article class="reveal"><b>01 · PHRASES</b><h3>Write natural triggers</h3><p>Example: “show pricing,” “open plans,” and “take me to pricing.”</p></article>
+<article class="reveal"><b>02 · ACTION</b><h3>Choose the correct behavior</h3><p>Scroll to a section, click a control, or navigate only when that outcome is intended.</p></article>
+<article class="reveal"><b>03 · TARGET</b><h3>Use a real ID or selector</h3><p>Copy it from the current website and test it at desktop and mobile sizes.</p></article>
+<article class="reveal"><b>04 · REVIEW</b><h3>Verify, enable, and save</h3><p>Keep generated or uncertain actions disabled until a human checks the result.</p></article>
+</div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Portal field</th><th>What it means</th><th>Owner check</th></tr></thead>
+<tbody>
+<tr><td>Intents / aliases</td><td>Natural trigger names for the same action, separated by comma or new line.</td><td>Use exactly 2 to 3 aliases, such as <code>pricing</code>, <code>show_pricing</code>, <code>open_plans</code>.</td></tr>
+<tr><td>Action</td><td>The approved behavior BoloSite can perform.</td><td>Choose from <code>scroll</code>, <code>click</code>, <code>openModal</code>, <code>closeModal</code>, <code>callFunction</code>, <code>fillField</code>, or <code>navigate</code>.</td></tr>
+<tr><td>Target Type</td><td>How BoloSite finds the destination.</td><td>Use <code>id</code>, <code>class</code>, <code>selector</code>, <code>function</code>, or <code>url</code> according to the action.</td></tr>
+<tr><td>Target</td><td>The real section ID, CSS selector, function name, or URL.</td><td>Copy it from the current website and test it. A wrong target can make a good command fail.</td></tr>
+<tr><td>Fallback</td><td>Short visitor-friendly message if the target cannot be opened.</td><td>Write what happened and what the visitor can try next.</td></tr>
+<tr><td>Status and On</td><td>Verification state and live switch.</td><td>Auto-built or edited intents stay off until saved, verified, and enabled.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="field-grid">
+<article class="field-card reveal"><strong>Auto build</strong><h3>Start from URL or HTML file</h3><p>Use Crawl + Build to generate likely intents and forms from a website URL or uploaded HTML file. Auto-built items are drafts: review names, action type, targets, confidence, and fallback before enabling.</p></article>
+<article class="field-card reveal"><strong>Manual add</strong><h3>Add missing actions yourself</h3><p>If auto-build misses a section, modal, button, form, or page, click Add Intent. Choose the right action and target, then save and verify it before turning it on.</p></article>
+<article class="field-card reveal"><strong>Valid pairings</strong><h3>Match action to target type</h3><p>Scroll/click/modal/fill actions use ID, class, or selector. Navigate uses URL. Call Function uses a function target that exists on the page.</p></article>
+<article class="field-card reveal"><strong>Reverification</strong><h3>Changed actions become unverified</h3><p>When aliases, action type, target type, or target value changes, the intent should be treated as a new draft. Save it, verify again, then enable.</p></article>
+</div>
+<div class="truth-box reveal"><h3>The safest intent workflow</h3><p>Auto-build or add intent → review missing/incorrect actions → keep 2-3 aliases → choose action and target → save → verify → enable → test from the real website.</p></div>
+<div class="truth-box reveal">
+<h3>Built-in actions you do not need to recreate</h3>
+<p>BoloSite already understands common base controls such as scrolling up/down, going to the top or bottom, returning home, switching theme/light/dark mode, and choosing no action when the visitor only needs an answer.</p>
+<div aria-label="Built-in intent examples" class="pill-list"><span>scroll_down</span><span>scroll_up</span><span>goto_top</span><span>goto_bottom</span><span>home</span><span>go_home</span><span>theme</span><span>light_mode</span><span>dark_mode</span><span>none</span></div>
+<p style="margin-top:14px">Create custom intents only for business-specific actions: opening a pricing modal, jumping to a product section, starting a form, navigating to a policy page, or calling a verified page function.</p>
+</div>
+</div>
+</section>
+<section class="section alt" id="forms-guide">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Form operations</span><h2>Map fields carefully, then test the conversation.</h2><p class="lead">A form is ready only when BoloSite can open it, fill the right fields, change a value, and wait for visitor confirmation.</p></div>
+<div class="forms-panel">
+<div class="forms-copy reveal"><h3>Verification checklist</h3><ol><li>The form selector points to one visible form.</li><li>Every field key maps to the intended input, select, radio, checkbox, or textarea.</li><li>Required fields match the website’s real validation.</li><li>The submit action points to the correct safe submission path.</li><li>Passwords are never repeated in assistant response text.</li><li>The visitor can update a field or cancel.</li><li>The visitor reviews the form before confirming submission.</li></ol></div>
+<div class="form-mock reveal"><span>FORM MAPPING PREVIEW</span><div class="mock-row"><div class="mock-field"><small>Field name</small><strong>email</strong></div><div class="mock-field"><small>Selector</small><strong>input[name="email"]</strong></div><div class="mock-field"><small>Required</small><strong>Yes</strong></div><div class="mock-field"><small>Status</small><strong>Mapped</strong></div></div><div class="verify-bar"><span>✓ Field mapping reviewed</span><strong>Verified</strong></div><div class="verify-bar"><span>✓ Confirmation flow tested</span><strong>Ready</strong></div></div>
+</div>
+<div class="field-grid">
+<article class="field-card reveal"><strong>Create</strong><h3>Auto-detected or manual form</h3><p>Auto-build can discover forms from a URL or HTML file. If the form is missing, click Add Form and name it clearly, such as <code>contact_form</code> or <code>demo_form</code>. Use Remove Form only when that website form should no longer be filled by BoloSite.</p></article>
+<article class="field-card reveal"><strong>Fields</strong><h3>Add, remove, and require fields</h3><p>Use Add Field for each real input the assistant may fill. Use Remove Field for fields that should not be collected conversationally. Mark only genuinely required website fields as required.</p></article>
+<article class="field-card reveal"><strong>Selectors</strong><h3>Match the real HTML</h3><p>Form selector should point to the actual form. Field selectors should point to the exact input, select, checkbox, radio, or textarea. Wrong selectors create silent failures.</p></article>
+<article class="field-card reveal"><strong>Submit</strong><h3>Save, verify, then test</h3><p>Save Forms after editing. Verify one form or all forms, then test opening the form, filling values, correcting values, cancelling, reviewing, and confirmed submission.</p></article>
+</div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Form area</th><th>How owners should use it</th><th>Best practice</th></tr></thead>
+<tbody>
+<tr><td>Form name</td><td>Stable internal name for the form flow.</td><td>Use simple lowercase names with underscores, such as <code>contact_form</code>.</td></tr>
+<tr><td>Form intents</td><td>Voice/chat triggers that start form writing.</td><td>Keep 2 to 3 useful triggers. These are connected to Intent Builder and can affect the related form intent.</td></tr>
+<tr><td>Field list</td><td>Allowed field names the writing engine may fill.</td><td>Use clear names like <code>name</code>, <code>email</code>, <code>phone</code>, <code>message</code>.</td></tr>
+<tr><td>Required</td><td>Fields the visitor must provide before submit.</td><td>Match the website validation. Do not force optional fields unless the business needs them.</td></tr>
+<tr><td>Field labels and aliases</td><td>Optional metadata can make field prompts friendlier and help BoloSite understand alternate names.</td><td>Add aliases for common visitor words, such as phone/mobile/WhatsApp, only when the field really matches.</td></tr>
+<tr><td>Field options</td><td>Dropdown/radio style fields can carry allowed options when the schema has them.</td><td>Keep options current when the website choices change.</td></tr>
+<tr><td>Sensitive fields</td><td>Password-type fields are treated as sensitive and should not be repeated back in assistant response text.</td><td>Avoid conversationally collecting sensitive fields unless the website flow truly requires it.</td></tr>
+<tr><td>Advanced schema JSON</td><td>Manual correction area for exact form schema, selectors, required fields, and mappings.</td><td>Edit carefully only when the visual form cards need precise selector or field-name correction.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="truth-box reveal">
+<h3>Forms and intents are connected</h3>
+<p>When you save forms, BoloSite syncs related form intent records. A form becomes available to the writing flow only when its linked form intent is active, verified, and points to a usable form or field selector.</p>
+<p>If you edit form triggers, selectors, or form structure, review the linked intent state in Intent Builder before launch.</p>
+<p>The safest form workflow is: create or detect form → map fields → set required fields → save → verify → test correction and confirmation → launch.</p>
+</div>
+</div>
+</section>
+<section class="section" id="embed-guide">
+<div class="container">
+<div class="embed-box reveal"><div><span class="eyebrow">Install and connect</span><h2>Place one script before the closing body tag.</h2><p>Always copy the generated snippet from your workspace. The example shows placement only and intentionally leaves credentials out.</p></div><div class="codebox"><span>&lt;!-- Your website content --&gt;</span><br/><br/><b>&lt;script src="YOUR_BOLOSITE_RUNTIME" data-site-id="YOUR_SITE_ID"&gt;&lt;/script&gt;</b><br/><span>&lt;/body&gt;</span><br/><span>&lt;/html&gt;</span></div></div>
+<div class="process-grid" style="margin-top:22px">
+<article class="process-card reveal"><div class="card-icon">01</div><h3>Copy from the right workspace</h3><p>Use Copy Script from the top bar or Embed section. The snippet contains the workspace loader, site ID, and runtime token for that owner.</p></article>
+<article class="process-card reveal"><div class="card-icon">02</div><h3>Paste before <code>&lt;/body&gt;</code></h3><p>Add the script near the end of the page, after normal website content. This lets the assistant load without requiring a full website rebuild.</p></article>
+<article class="process-card reveal"><div class="card-icon">03</div><h3>Deploy and test on a verified domain</h3><p>Open the live or staging domain, wake the assistant, try text chat, test approved actions, and confirm the runtime base URL is correct in Settings.</p></article>
+</div>
+<div class="truth-box reveal">
+<h3>Embed token hygiene</h3>
+<p>Do not paste admin tokens, payment secrets, database credentials, or server environment values into the website. The public embed snippet is only for loading the assistant on approved domains.</p>
+</div>
+</div>
+</section>
+<section class="section alt" id="settings-guide">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Settings and assistant identity</span><h2>Personalize the assistant without changing the locked safety parts.</h2><p class="lead">Settings control how the assistant introduces itself, which language it prefers first, and which runtime URL the embed script uses.</p></div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Setting</th><th>What it controls</th><th>Owner guidance</th></tr></thead>
+<tbody>
+<tr><td>Project name</td><td>The workspace/display name for this website project.</td><td>Use the public business or website name visitors recognize.</td></tr>
+<tr><td>Assistant name</td><td>The name used in the assistant experience.</td><td>Keep it short and friendly, such as “BoloSite AI” or the brand assistant name.</td></tr>
+<tr><td>Wake word</td><td>The current wake words are locked by admin/runtime logic.</td><td>Owners can personalize welcome notes, but should keep “hello” or “hi” instructions visible.</td></tr>
+<tr><td>Default language</td><td>Initial language preference for welcome and assistant behavior.</td><td>Choose English, Hindi, or Hinglish according to the expected visitor audience.</td></tr>
+<tr><td>Welcome notes</td><td>Opening message in English, Hindi, and Hinglish. Each note is limited in length.</td><td>Keep it direct: greet, explain how to start, and mention “hello/hi” or the mic button.</td></tr>
+<tr><td>Placeholders</td><td>Runtime can replace helpful placeholders inside welcome text.</td><td>Use <code>{wake_word}</code>, <code>{assistant_name}</code>, or <code>{project_name}</code> when you want reusable wording.</td></tr>
+<tr><td>Runtime base URL</td><td>The backend origin used by the loader script and generated embed code.</td><td>Change only when the BoloSite backend domain changes, then copy the new embed script.</td></tr>
+<tr><td>Project notes</td><td>Private operational notes stored with the workspace.</td><td>Use for setup context. Do not store passwords, OTPs, payment secrets, or admin tokens.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="process-grid" style="margin-top:16px">
+<article class="process-card reveal"><div class="card-icon">S</div><h3>Save Settings refreshes runtime files</h3><p>After saving, the portal regenerates the workspace output files used by the live assistant. Retest the welcome message and embed code after changing runtime URL or language.</p></article>
+<article class="process-card reveal"><div class="card-icon">L</div><h3>Language can still adapt</h3><p>The default language sets the starting preference, but visitor messages can still be handled in natural Hindi, English, or Hinglish when the runtime supports it.</p></article>
+<article class="process-card reveal"><div class="card-icon">W</div><h3>Welcome note must teach activation</h3><p>If the note forgets the wake instruction, the backend adds a safe “say hello/hi or tap mic” style instruction so visitors know how to start.</p></article>
+</div>
+</div>
+</section>
+<section class="section" id="billing-guide">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Billing and payment</span><h2>Understand usage before it becomes an operational surprise.</h2><p class="lead">The portal Billing &amp; Payment section is the live source for current usage, wallet, account status, warnings, invoices, and payment history.</p></div>
+<div class="billing-grid">
+<article class="billing-card reveal"><div class="card-icon">₹</div><h3>Current usage</h3><p>Shows the running bill for the selected month and the usage breakdown.</p><ul><li>Base platform line item.</li><li>Billable request count.</li><li>Total current bill.</li><li>Wallet auto-deducted amount.</li><li>Net overage due if applicable.</li></ul></article>
+<article class="billing-card reveal"><div class="card-icon">W</div><h3>Wallet balance</h3><p>The wallet helps cover usage automatically when available.</p><ul><li>Use Add Funds to top up.</li><li>Wallet changes appear after secure verification.</li><li>Check alerts if balance or credit status needs attention.</li></ul></article>
+<article class="billing-card reveal"><div class="card-icon">A</div><h3>Account status</h3><p>Shows whether the workspace is active, trial, or payment-required.</p><ul><li>Trial days left appears during onboarding.</li><li>Warnings explain usage or payment issues.</li><li>Service state should be checked after payments.</li></ul></article>
+</div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Payment step</th><th>What happens</th><th>Owner action</th></tr></thead>
+<tbody>
+<tr><td>Add Funds</td><td>Enter the top-up amount and choose UPI/QR or bank transfer.</td><td>Use the amount needed for expected usage. Do not rely on old copied prices; check portal and website pricing.</td></tr>
+<tr><td>UPI / QR with Razorpay</td><td>A secure checkout/QR can be created and server-verified. No UTR is needed for this path.</td><td>Open checkout or scan QR, then wait for automatic verification and wallet update.</td></tr>
+<tr><td>Bank transfer</td><td>The order stays pending until a UTR/reference is submitted and verified manually/admin-side.</td><td>Complete the bank transfer, enter UTR, add an optional note, and wait for verification.</td></tr>
+<tr><td>Payment status</td><td>Pending means waiting; Verified means wallet credited; Failed or Cancelled means create a new order if needed.</td><td>Use Check payment status or refresh Billing. Verified payment details can be opened from Payment History.</td></tr>
+<tr><td>Invoices</td><td>Invoices show billing month, amount, and status.</td><td>Use invoices and payment history for reconciliation, not chat notes or screenshots alone.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Operational detail</th><th>What happens</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>Trial period</td><td>Usage is still tracked during trial, but billing restrictions are disabled while trial is active.</td><td>Use the trial to test realistic traffic and verify the expected monthly usage pattern.</td></tr>
+<tr><td>Warning levels</td><td>The billing dashboard can warn around high credit usage, including warning and critical levels.</td><td>Top up wallet before visitors hit a payment-required state.</td></tr>
+<tr><td>Payment required</td><td>If uncovered usage exceeds the allowed credit and wallet coverage, service can move to payment required.</td><td>Add funds or contact the administrator to restore service if needed.</td></tr>
+<tr><td>Razorpay auto-check</td><td>Secure checkout/QR payments are checked automatically for a few minutes and can also be reconciled manually from the portal.</td><td>Wait for “Payment verified and wallet updated” before assuming the wallet is credited.</td></tr>
+<tr><td>Closing payment view</td><td>A pending Razorpay payment link may be cancelled/expired when the payment view is closed.</td><td>If you close before paying, create a fresh payment order.</td></tr>
+<tr><td>Bank UTR</td><td>Bank transfer requires a valid transaction reference and manual verification.</td><td>Enter the UTR/reference after payment, then wait for verified status.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="warning reveal" style="margin-top:22px"><span>!</span><div><h3>Admin controls are administrator-only</h3><p>Wallet adjustment, manual payment verification, forced service restoration, invoice generation, and disputes require the server admin token. Ordinary owners should not request or store that token.</p></div></div>
+<div class="guide-actions reveal"><a class="button primary" href="client-portal.html">Open Billing in Portal</a><a class="button secondary" href="index.html#pricing">View Pricing</a><a class="button secondary" href="#maintenance">Billing maintenance tips</a></div>
+</div>
+</section>
+<section class="section alt" id="logs-guide">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Logs and diagnostics</span><h2>Use logs to improve the assistant after real visitors arrive.</h2><p class="lead">Logs are for operational debugging and product improvement. They should not become a place to collect unnecessary personal data.</p></div>
+<div class="process-grid">
+<article class="process-card reveal"><div class="card-icon">01</div><h3>Load recent activity</h3><p>Click Load Logs to see the latest runtime entries for this site ID. The table shows time, action/event, visitor reference, and page.</p></article>
+<article class="process-card reveal"><div class="card-icon">02</div><h3>Use More and Show Less</h3><p>The first load shows a small recent set, More loads additional entries, and Show Less returns to a compact view for quick diagnosis.</p></article>
+<article class="process-card reveal"><div class="card-icon">03</div><h3>Look for patterns</h3><p>Repeated “no answer,” unsupported actions, wrong pages, or repeated visitor wording usually means content, intent aliases, or selectors need improvement.</p></article>
+</div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>What to inspect</th><th>Possible meaning</th><th>Best follow-up</th></tr></thead>
+<tbody>
+<tr><td>Many similar questions</td><td>Visitors are asking for something your knowledge should answer directly.</td><td>Add a clean FAQ or policy block, rebuild RAG, and retest.</td></tr>
+<tr><td>Actions not opening</td><td>The target ID, class, selector, function, or URL may be wrong after a website change.</td><td>Update the intent target, save, verify, enable, and test again.</td></tr>
+<tr><td>Form flow stops</td><td>A required field, selector, field option, or submit action may be incomplete.</td><td>Open Forms, verify mapping, test correction, then verify the form intent.</td></tr>
+<tr><td>Billing or service warnings</td><td>Usage may be near the monthly credit limit or payment may be required.</td><td>Open Billing, review warnings, add wallet funds, or contact admin if service restoration is needed.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="section" id="runtime-files">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Behind the scenes</span><h2>What the portal regenerates after you save changes.</h2><p class="lead">Owners normally use the portal, not server files. Still, knowing what changes behind the scenes helps you understand why Save, Verify, Refresh, and Build RAG matter.</p></div>
+<div class="guide-table-wrap reveal">
+<table class="guide-table">
+<thead><tr><th>Generated area</th><th>Purpose</th><th>Owner takeaway</th></tr></thead>
+<tbody>
+<tr><td><code>client_data.json</code></td><td>Workspace metadata, owner-visible config, domains, content references, intents, forms, uploads, billing snapshot fields.</td><td>Portal state is mirrored into owner workspace files after save/refresh.</td></tr>
+<tr><td><code>runtime_config.json</code></td><td>Runtime identity: assistant name, project name, language, welcome notes, status, enabled flag, domains, runtime URL.</td><td>Settings and domain/status changes affect what the live assistant loads.</td></tr>
+<tr><td><code>intents.json</code> and <code>executor.js</code></td><td>Approved actions and the browser-side behavior used to scroll, click, navigate, call functions, or open forms.</td><td>Wrong selectors or unverified intents lead to visitor-facing action failures.</td></tr>
+<tr><td><code>forms.json</code>, <code>agentConfig.js</code>, and <code>writting.py</code></td><td>Form schemas, active form mappings, field rules, and writing-mode instructions.</td><td>Forms only work well after schema, intent, field map, and submit flow are all verified.</td></tr>
+<tr><td><code>prompt.py</code></td><td>Owner-specific prompt rules and supported active intents used by the AI backend.</td><td>Only enabled/verified actions should be treated as available runtime actions.</td></tr>
+<tr><td><code>website_texts</code>, <code>sales_texts</code>, <code>rag_data.json</code>, and <code>rag_hash.txt</code></td><td>Approved knowledge sources, built RAG chunks, and the content hash used to detect stale indexes.</td><td>Content changes need a RAG rebuild before answer quality can be judged.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="truth-box reveal">
+<h3>Portal-first rule</h3>
+<p>Use the Owner Portal for normal edits. If a developer edits files directly, click Refresh in the portal afterward and test carefully, because the portal can sync safe editable files back into dashboard state.</p>
+</div>
+</div>
+</section>
+<section class="section alt" id="test-launch">
+<div class="container">
+<div class="section-head center reveal"><span class="eyebrow">Pre-launch test</span><h2>Test the experience, not just the script.</h2><p class="lead">Use a private or staging release first, then repeat critical tests on production.</p></div>
+<div class="test-grid">
+<article class="test-card reveal"><div class="card-icon">🎙</div><h3>Voice and wake</h3><p>Test “Hello/Hi,” mic permission, listening colour, interruption, noisy-room fallback, sleep, and wake again.</p><b>Desktop + mobile</b></article>
+<article class="test-card reveal"><div class="card-icon">T</div><h3>Text panel</h3><p>Test double-click/tap, typed messages, mic off, history, close, answer playback, and regenerate.</p><b>Keyboard + touch</b></article>
+<article class="test-card reveal"><div class="card-icon">?</div><h3>Knowledge answers</h3><p>Ask product, price, policy, support, and impossible questions. Confirm answers stay inside approved knowledge.</p><b>Expected + unknown</b></article>
+<article class="test-card reveal"><div class="card-icon">↗</div><h3>Navigation actions</h3><p>Test each enabled intent at multiple screen sizes and confirm the target is visible and correct.</p><b>Every enabled intent</b></article>
+<article class="test-card reveal"><div class="card-icon">✎</div><h3>Form writing</h3><p>Test field order, multi-field input, corrections, invalid values, cancel, review, and confirmed submit.</p><b>No surprise submit</b></article>
+<article class="test-card reveal"><div class="card-icon">⌁</div><h3>Operations</h3><p>Refresh Overview, load logs, check usage, confirm account status, and verify billing visibility.</p><b>Portal source of truth</b></article>
+</div>
+</div>
+</section>
+<section class="section" id="maintenance">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">After launch</span><h2>Keep answers and actions healthy.</h2></div>
+<details class="reveal" open=""><summary>When should knowledge be updated?</summary><p>Update it whenever pricing, plans, products, policies, contact details, support steps, or important website pages change. Rebuild RAG and retest afterwards.</p></details>
+<details class="reveal"><summary>What should be checked after a website redesign?</summary><p>Recheck every action target and form selector. IDs, buttons, modal triggers, page paths, and field names often change during redesigns.</p></details>
+<details class="reveal"><summary>How should logs be used?</summary><p>Look for repeated questions, unavailable actions, and confusing visitor language. Improve content and approved triggers without collecting unnecessary personal data.</p></details>
+<details class="reveal"><summary>Where should billing details be checked?</summary><p>Use the Billing and Payment area for current usage, wallet, account status, invoices, and payment history. Use the published website pricing section for the current public model.</p></details>
+<div class="warning reveal" style="margin-top:22px"><span>!</span><div><h3>Admin Controls are not part of normal owner setup</h3><p>Wallet adjustments, manual payment verification, forced service restoration, and manual invoice generation require a server admin token. Ordinary owners should not request, store, or expose that credential.</p></div></div>
+</div>
+</section>
+<section class="section alt" id="explore">
+<div class="container">
+<div class="section-head center reveal"><span class="eyebrow">Useful next links</span><h2>Go from the guide to the work.</h2></div>
+<div class="link-grid">
+<a class="link-card reveal" href="client-portal.html"><div class="card-icon">↗</div><h3>Open Owner Portal</h3><p>Configure the real workspace, domain, knowledge, actions, forms, and billing.</p><b>Open portal →</b></a>
+<a class="link-card reveal" href="user.html"><div class="card-icon">☺</div><h3>Read the Visitor Guide</h3><p>See the exact visitor experience, orb states, text controls, and writing flow.</p><b>Open visitor guide →</b></a>
+<a class="link-card reveal" href="index.html#client-guide-video"><div class="card-icon">▶</div><h3>Watch Owner Video</h3><p>Follow the detailed portal and setup walkthrough.</p><b>Watch guide →</b></a>
+<a class="link-card reveal" href="index.html#for-clients"><div class="card-icon">G</div><h3>Go to Website Guide</h3><p>Review the website owner section and how BoloSite fits into an existing site.</p><b>Open website guide →</b></a>
+<a class="link-card reveal" href="index.html#pricing"><div class="card-icon">₹</div><h3>View Pricing</h3><p>Use the published pricing section and portal billing area as the current source of truth.</p><b>View pricing →</b></a>
+<a class="link-card reveal" href="#billing-guide"><div class="card-icon">B</div><h3>Open Billing Section</h3><p>Jump back to wallet, usage, invoices, payment status, and top-up instructions.</p><b>Read billing →</b></a>
+<a class="link-card reveal" href="#embed-guide"><div class="card-icon">&lt;/&gt;</div><h3>Open Embed Section</h3><p>Check script placement, verified-domain safety, runtime base URL, and token hygiene.</p><b>Read embed steps →</b></a>
+<a class="link-card reveal" href="#settings-guide"><div class="card-icon">⚙</div><h3>Open Settings Section</h3><p>Review assistant name, language, welcome notes, placeholders, runtime URL, and project notes.</p><b>Read settings →</b></a>
+<a class="link-card reveal" href="#logs-guide"><div class="card-icon">L</div><h3>Open Logs Section</h3><p>Learn how to diagnose repeated questions, failed actions, form issues, and billing warnings.</p><b>Read logs →</b></a>
+<a class="link-card reveal" href="#runtime-files"><div class="card-icon">F</div><h3>Runtime Files</h3><p>See what the portal regenerates behind the scenes after save, verify, refresh, and build RAG.</p><b>View files →</b></a>
+<a class="link-card reveal" href="index.html#what-is-bolosite"><div class="card-icon">B</div><h3>About BoloSite</h3><p>Review the product vision and benefits for visitors and website owners.</p><b>Explore the website →</b></a>
+</div>
+</div>
+</section>
+<section class="final-cta"><div class="container final-box reveal"><div><h2>Ready to configure your workspace?</h2><p>Open the portal, complete the checklist in order, and verify every visitor-facing action.</p></div><div class="final-actions"><a class="button primary" href="client-portal.html">Open Owner Portal</a><a class="button secondary" href="index.html#client-guide-video">Watch setup video</a></div></div></section>
+</main>
+
+<!-- Previous client guide footer disabled; shared index footer is rendered below.
+<footer class="site-footer">
+<div class="container footer-main">
+<div class="footer-brand footer-spotlight">
+<a aria-label="BoloSite home" class="brand" href="/" data-bolosite-scroll-target="top">
+<img alt="" aria-hidden="true" class="brand-logo-image" src="assets/images/bolosite%20white.jpeg"/>
+<span>BoloSite</span>
+</a>
+<p>BoloSite helps websites answer natural questions, guide visitors, and run approved actions while the business stays in control of knowledge, forms, domains, usage, and cost.</p>
+<div aria-label="Service details" class="footer-status">
+<span><i></i> India based</span>
+<span>Natural questions</span>
+<span>Approved actions</span>
+</div>
+</div>
+<div class="footer-connect">
+<div aria-label="BoloSite social and sharing actions" class="footer-action-row footer-social-action-row">
+<a aria-label="BoloSite on Instagram" class="footer-action instagram" href="https://www.instagram.com/bolosite" rel="noreferrer" target="_blank"><span class="footer-action-icon">◎</span><span>Instagram</span></a>
+<a aria-label="BoloSite on LinkedIn" class="footer-action linkedin" href="https://www.linkedin.com/company/bolosite" rel="noreferrer" target="_blank"><span class="footer-action-icon">in</span><span>LinkedIn</span></a>
+<a aria-label="Share BoloSite on Twitter" class="footer-action twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.bolosite.com&amp;text=Try%20BoloSite%2C%20the%20AI%20operating%20layer%20for%20websites" rel="noreferrer" target="_blank"><span class="footer-action-icon">𝕏</span><span>Twitter</span></a>
+<a aria-label="Email BoloSite" class="footer-action gmail" href="mailto:hello@bolosite.ai"><span class="footer-action-icon">✉</span><span>Gmail</span></a>
+<a aria-label="Message BoloSite on WhatsApp" class="footer-action whatsapp" href="https://wa.me/918797448400" rel="noreferrer" target="_blank"><span class="footer-action-icon">☏</span><span>WhatsApp</span></a>
+<button aria-label="Share BoloSite" class="footer-action bolosite-share" data-share-url="https://www.bolosite.com" id="footerShareButton" type="button"><span class="footer-action-icon logo"><img alt="" aria-hidden="true" decoding="async" loading="lazy" src="assets/images/bolosite%20white.jpeg"/></span><span>Share</span></button>
+</div>
+<div class="footer-links">
+<div><strong>Guides</strong><a href="user.html">User Guide</a><a aria-current="page" href="client.html">Client Guide</a><a href="index.html#client-guide-video">Client video</a><a href="index.html#user-guide-video">User video</a></div>
+<div><strong>For clients</strong><a href="#launch">Launch checklist</a><a href="#content-rag">Content &amp; RAG</a><a href="#intents-guide">Intent builder</a><a href="#billing-guide">Billing</a><a href="client-portal.html">Client portal</a></div>
+<div><strong>Company</strong><a href="index.html#what-is-bolosite">What is BoloSite?</a><a href="index.html#vision">The Future</a><a href="index.html#pricing">Pricing</a><a href="index.html#contact">Contact</a><a href="mailto:hello@bolosite.ai">Email us</a></div>
+<div><strong>Legal</strong><a href="index.html#faq">FAQs</a><a href="index.html#contact">Support</a><span>India | IST</span><button id="footerThemeToggle" type="button">Switch theme</button></div>
+</div>
+</div>
+</div>
+<div class="container footer-bottom"><span>© <span id="year"></span> BoloSite. Built with purpose in India.</span><div><a href="index.html">Home</a><a href="client-portal.html">Portal</a></div></div>
+</footer>
+-->
+
+<footer class="site-footer">
+  <div class="container footer-main">
+    <div class="footer-brand footer-spotlight">
+      <a class="brand" href="/" data-bolosite-scroll-target="top" aria-label="BoloSite home">
+        <img class="brand-logo-image" src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true">
+        <span>BoloSite</span>
+      </a>
+      <p>BoloSite is building the AI interaction layer for digital experiences. The mission is to help people ask naturally while businesses stay in control of answers, actions, privacy, and usage. Join the shift toward websites and products that understand people instead of making people learn every interface.</p>
+      <div class="footer-status" aria-label="Service details">
+        <span><i></i> India based</span>
+        <span>Natural questions</span>
+        <span>Approved answers</span>
+      </div>
+    </div>
+    <div class="footer-connect">
+      <div class="footer-action-row footer-social-action-row" aria-label="BoloSite social and sharing actions">
+        <a class="footer-action instagram" href="https://www.instagram.com/bolosite" target="_blank" rel="noreferrer" aria-label="BoloSite on Instagram"><span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4"></rect><circle cx="12" cy="12" r="3.2"></circle><circle cx="16.7" cy="7.3" r="1"></circle></svg></span><span>Instagram</span></a>
+        <a class="footer-action linkedin" href="https://www.linkedin.com/company/bolosite" target="_blank" rel="noreferrer" aria-label="BoloSite on LinkedIn"><span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8"></path><path d="M6.5 7v.01"></path><path d="M11 18v-8"></path><path d="M11 13.6c0-2.3 1.4-3.8 3.5-3.8 2 0 3 1.3 3 3.7V18"></path></svg></span><span>LinkedIn</span></a>
+        <a class="footer-action twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.bolosite.com&amp;text=Try%20BoloSite%2C%20the%20AI%20operating%20layer%20for%20websites" target="_blank" rel="noreferrer" aria-label="Share BoloSite on Twitter"><span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5l12 14"></path><path d="M18 5L6 19"></path></svg></span><span>Twitter</span></a>
+        <a class="footer-action gmail" href="mailto:hello@bolosite.ai" aria-label="Email BoloSite"><span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 6.5h15v11h-15z"></path><path d="m5 7 7 5.5L19 7"></path></svg></span><span>Gmail</span></a>
+        <a class="footer-action whatsapp" href="https://wa.me/918797448400" target="_blank" rel="noreferrer" aria-label="Message BoloSite on WhatsApp"><span class="footer-action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.3 18.2 4.8 19l.8-2.4A7.2 7.2 0 1 1 7.3 18.2z"></path><path d="M9.2 8.7c.3 2 1.9 4.2 4.2 5.4l1.5-.9 1.2 1.6c-.7 1-1.7 1.3-2.9.9-2.9-1-5.2-3.3-6.1-6.1-.4-1.1 0-2.2.9-2.8z"></path></svg></span><span>WhatsApp</span></a>
+        <button class="footer-action bolosite-share" type="button" id="footerShareButton" data-share-url="https://www.bolosite.com" aria-label="Share BoloSite"><span class="footer-action-icon logo"><img src="assets/images/bolosite%20white.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async"></span><span>Share</span></button>
+      </div>
+
+      <div class="footer-links">
+        <div><strong>For visitors</strong><a href="user.html">How to use BoloSite</a><a href="index.html#user-guide-video">Visitor video</a><a href="index.html#faq">FAQs</a><button type="button" data-open-modal="feedbackModal" data-fallback-href="index.html#contact">Give feedback</button></div>
+        <div><strong>For owners</strong><a href="client.html">Business benefits</a><a href="index.html#how">Integration</a><a href="index.html#pricing">Pricing</a><a href="client-portal.html">Owner portal</a></div>
+        <div><strong>Company</strong><a href="index.html#what-is-bolosite">What is BoloSite?</a><a href="index.html#vision">The Future</a><a href="index.html#about">Founder</a><a href="index.html#learn">Video hub</a><a href="mailto:hello@bolosite.ai">Email us</a></div>
+        <div><strong>Legal</strong><button type="button" data-open-modal="privacyModal" data-fallback-href="index.html">Privacy policy</button><button type="button" data-open-modal="termsModal" data-fallback-href="index.html">Terms of service</button><span>India | IST</span></div>
+      </div>
+      <button class="footer-feedback-cta" type="button" data-open-modal="feedbackModal" data-fallback-href="index.html#contact"><span>&#9825;</span> Share feedback</button>
+    </div>
+  </div>
+  <div class="container footer-bottom"><span>&copy; <span id="year"></span> BoloSite. Built with purpose in India.</span><div><button type="button" data-open-modal="feedbackModal" data-fallback-href="index.html#contact">Feedback</button><button type="button" id="footerThemeToggle">Switch theme</button></div></div>
+</footer>
+
+
+
+<script>
+  (() => {
+    const html = document.documentElement;
+    html.classList.add('reveal-ready');
+    window.setTimeout(() => html.classList.remove('reveal-ready'), 2500);
+
+    const body = document.body;
+    const header = document.getElementById('siteHeader');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const themeButtons = [
+      document.getElementById('themeToggle'),
+      document.getElementById('mobileThemeToggle'),
+      document.getElementById('footerThemeToggle')
+    ].filter(Boolean);
+
+    const setTheme = theme => {
+      const selected = theme === 'dark' ? 'dark' : 'light';
+      html.dataset.theme = selected;
+      try { localStorage.setItem('bolosite-theme', selected); } catch (_) {}
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', selected === 'dark' ? '#0B1220' : '#F8FAFC');
+      themeButtons.forEach(button => button.setAttribute('aria-label', selected === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'));
+      const footerToggle = document.getElementById('footerThemeToggle');
+      if (footerToggle) footerToggle.textContent = selected === 'dark' ? 'Light mode' : 'Dark mode';
+    };
+
+    setTheme(html.dataset.theme);
+    themeButtons.forEach(button => button.addEventListener('click', () => setTheme(html.dataset.theme === 'dark' ? 'light' : 'dark')));
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const closeMenu = () => {
+      if (!mobileNav || !menuToggle) return;
+      mobileNav.classList.remove('open');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      body.classList.remove('menu-open');
+    };
+
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener('click', () => {
+        const opening = !mobileNav.classList.contains('open');
+        mobileNav.classList.toggle('open', opening);
+        menuToggle.classList.toggle('active', opening);
+        menuToggle.setAttribute('aria-expanded', String(opening));
+        menuToggle.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
+        body.classList.toggle('menu-open', opening);
+      });
+      mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.querySelectorAll('[data-open-modal]').forEach(button => {
+        button.addEventListener('click', () => {
+          const modal = document.getElementById(button.dataset.openModal);
+          if (modal) return;
+          closeMenu();
+          if (button.dataset.fallbackHref) window.location.href = button.dataset.fallbackHref;
+        });
+      });
+      document.querySelectorAll('[data-auth-view]').forEach(button => {
+        button.addEventListener('click', () => {
+          closeMenu();
+          window.location.href = button.dataset.fallbackHref || 'index.html';
+        });
+      });
+      document.addEventListener('click', event => { if (mobileNav.classList.contains('open') && !event.target.closest('.site-header')) closeMenu(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+      window.addEventListener('resize', () => { if (window.innerWidth > 920) closeMenu(); });
+    }
+
+    const getScrollOffset = () => {
+      const headerHeight = header?.offsetHeight || 0;
+      const toc = document.querySelector('.toc');
+      const tocHeight = toc?.offsetHeight || 0;
+      return headerHeight + tocHeight + 14;
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', event => {
+        const hash = link.getAttribute('href');
+        if (!hash || hash === '#') return;
+        const target = document.querySelector(hash);
+        if (!target) return;
+        event.preventDefault();
+        closeMenu();
+        const top = window.scrollY + target.getBoundingClientRect().top - getScrollOffset();
+        window.scrollTo({ top: Math.max(0, top), behavior: reduced ? 'auto' : 'smooth' });
+        history.replaceState(null, '', hash);
+      });
+    });
+
+    let headerScrolled = null;
+    const updateHeader = () => {
+      if (!header) return;
+      const scrolled = window.scrollY > 24;
+      if (scrolled === headerScrolled) return;
+      headerScrolled = scrolled;
+      header.classList.toggle('scrolled', scrolled);
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+
+    document.addEventListener('visibilitychange', () => {
+      html.classList.toggle('page-is-hidden', document.hidden);
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)) {
+      reveals.forEach(item => item.classList.add('visible'));
+    } else {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      }), { threshold: .09, rootMargin: '0px 0px -40px' });
+      reveals.forEach(item => observer.observe(item));
+    }
+
+    const tocLinks = [...document.querySelectorAll('.toc a[href^="#"]')];
+    const tocTargets = tocLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+    let currentTocLink = null;
+    const updateActiveToc = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let activeId = tocTargets[0]?.id || '';
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      tocTargets.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(sectionCenter - viewportCenter);
+        const crossesCenter = rect.top <= viewportCenter && rect.bottom >= viewportCenter;
+        if (crossesCenter || distance < closestDistance) {
+          activeId = section.id;
+          closestDistance = crossesCenter ? -1 : distance;
+        }
+      });
+
+      tocLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`;
+        link.classList.toggle('active', isActive);
+        if (isActive && currentTocLink !== link) {
+          currentTocLink = link;
+        }
+      });
+    };
+    updateActiveToc();
+    window.addEventListener('scroll', updateActiveToc, { passive: true });
+
+    const shareButton = document.getElementById('footerShareButton');
+    if (shareButton) {
+      shareButton.addEventListener('click', async () => {
+        const shareUrl = shareButton.dataset.shareUrl || 'https://www.bolosite.com';
+        const shareData = { title: 'BoloSite', text: 'Try BoloSite, the AI operating layer for websites.', url: shareUrl };
+        try {
+          if (navigator.share) await navigator.share(shareData);
+          else {
+            await navigator.clipboard.writeText(shareUrl);
+            shareButton.querySelector('span:last-child').textContent = 'Copied';
+            window.setTimeout(() => { const label = shareButton.querySelector('span:last-child'); if (label) label.textContent = 'Share'; }, 1600);
+          }
+        } catch (_) {}
+      });
+    }
+  })();
+</script>
+
+         <script src="/bolosite-runtime.min.js" data-site-id="SITE_BOLOSITE" data-page="3" data-page-id="owner" data-page-title="BoloSite Owner Guide"></script>
+
+</body>
+</html>
